@@ -20,56 +20,11 @@ import {
 } from 'recharts';
 
 // Mock Data for the new sections
-const MOCK_MESSAGES = {
-  '1': [
-    { id: 1, sender: 'partner', text: 'Olá Brenda! Acabei de enviar minha nova trilha de React. Pode dar uma olhada?', time: '10:30' },
-    { id: 2, sender: 'admin', text: 'Oi Ana! Vou verificar agora mesmo. Recebi a notificação.', time: '10:32' }
-  ],
-  '2': [
-    { id: 1, sender: 'partner', text: 'Tive um problema ao fazer o upload do vídeo 3.', time: 'Ontem' },
-    { id: 2, sender: 'admin', text: 'Qual formato você está tentando enviar?', time: 'Ontem' }
-  ]
-};
+const MOCK_MESSAGES: Record<string, any[]> = {};
 
-const MOCK_VALIDATIONS = [
-  {
-    id: 'v1',
-    partnerId: '1',
-    partnerName: 'Ana Silva',
-    type: 'course',
-    title: 'Trilha Completa de React',
-    description: 'Curso avançado abordando Hooks, Context, e Redux.',
-    status: 'pending',
-    date: 'Hoje, 09:45',
-    videos: 12,
-    previewSteps: [
-      { title: 'Fundamentos do React', type: 'Vídeo (10 min)' },
-      { title: 'Entendendo Hooks', type: 'Vídeo (15 min)' },
-      { title: 'Gerenciamento de Estado com Context API', type: 'Vídeo (20 min)' },
-      { title: 'Projeto Prático: Dashboard', type: 'Projeto (2 horas)' }
-    ]
-  },
-  {
-    id: 'v2',
-    partnerId: '2',
-    partnerName: 'Carlos Dev',
-    type: 'video',
-    title: 'Aula 4: Deploy na Vercel',
-    description: 'Upload de vídeo atualizado para a trilha de Next.js.',
-    status: 'pending',
-    date: 'Ontem, 16:20',
-    videos: 1,
-    previewSteps: [
-      { title: 'Deploy na Vercel', type: 'Vídeo (12 min) - Alta Resolução' }
-    ]
-  }
-];
+const MOCK_VALIDATIONS: any[] = [];
 
-const MOCK_ERRORS = [
-  { id: 'e1', type: 'Upload Failed', message: 'Timeout during video processing for user ID 8492.', time: '10:15 - Hoje', severity: 'high' },
-  { id: 'e2', type: 'Database Sync', message: 'Failed to sync user statistics to read-replica.', time: '08:30 - Hoje', severity: 'medium' },
-  { id: 'e3', type: 'Auth API', message: 'High latency detected on login endpoint.', time: '22:10 - Ontem', severity: 'low' },
-];
+const MOCK_ERRORS: any[] = [];
 
 const ANALYTICS_DATA = [
   { name: 'Jan', users: 400, courses: 24, revenue: 2400 },
@@ -318,18 +273,10 @@ export default function AdminDashboard() {
                       </div>
                     </button>
                   ))}
-                  {/* Mock Partner if list is empty */}
                   {approvedPartners.length === 0 && (
-                    <button
-                      onClick={() => setChatPartner('partner-1')}
-                      className={`w-full p-4 flex items-center gap-3 text-left border-b transition-colors hover:bg-gray-50 ${chatPartner === 'partner-1' ? 'bg-indigo-50 border-l-4 border-l-indigo-600' : ''}`}
-                    >
-                      <img src="https://ui-avatars.com/api/?name=Ana+Silva" alt="" className="w-10 h-10 rounded-full" />
-                      <div className="flex-1 overflow-hidden">
-                        <p className="font-medium text-sm truncate">Ana Silva (Mock)</p>
-                        <p className="text-xs text-gray-500 truncate">tech</p>
-                      </div>
-                    </button>
+                    <div className="p-4 text-center text-sm text-gray-500">
+                      Nenhum parceiro aprovado.
+                    </div>
                   )}
                 </ScrollArea>
               </div>
