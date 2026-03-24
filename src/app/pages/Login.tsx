@@ -25,7 +25,7 @@ export default function Login() {
     if (success) {
       navigate('/feed');
     } else {
-      setError('Credenciais inválidas. Tente: brendacgl@outlook.com.br / Peixeloco123@');
+      setError('Credenciais inválidas. ');
     }
     
     setLoading(false);
