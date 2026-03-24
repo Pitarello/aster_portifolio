@@ -57,7 +57,7 @@ export default function ApplyPartner() {
               </div>
               <h2 className="text-2xl font-bold mb-2">Solicitação em Análise</h2>
               <p className="text-gray-500 mb-6">
-                Sua solicitação para se tornar um parceiro ProNetwork está sendo avaliada por nossos administradores. Avisaremos assim que houver uma resposta.
+                Sua solicitação para se tornar um parceiro ASTER está sendo avaliada por nossos administradores. Avisaremos assim que houver uma resposta.
               </p>
               <Button onClick={() => navigate('/feed')}>Voltar para o Feed</Button>
             </CardContent>
@@ -107,7 +107,7 @@ export default function ApplyPartner() {
             </div>
             <CardTitle className="text-2xl">Torne-se um Parceiro</CardTitle>
             <p className="text-gray-500 mt-2">
-              Compartilhe seu conhecimento, crie cursos e trilhas de aprendizado exclusivas para a comunidade ProNetwork.
+              Compartilhe seu conhecimento, crie cursos e trilhas de aprendizado exclusivas para a comunidade ASTER.
             </p>
           </CardHeader>
           <CardContent>
