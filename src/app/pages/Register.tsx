@@ -7,8 +7,11 @@ import { Label } from '../components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Network, Loader2, ArrowLeft } from 'lucide-react';
+<<<<<<< HEAD
 import { toast } from 'sonner';
 import emailjs from '@emailjs/browser';
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
 export default function Register() {
   const navigate = useNavigate();
@@ -28,6 +31,7 @@ export default function Register() {
     const success = await register(formData);
     
     if (success) {
+<<<<<<< HEAD
       try {
         // As chaves informadas
         const publicKey = 'zF02pHZqSrINPNCAw'; 
@@ -60,6 +64,12 @@ export default function Register() {
     } else {
       setLoading(false);
     }
+=======
+      navigate('/feed');
+    }
+    
+    setLoading(false);
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   };
 
   return (
@@ -75,10 +85,17 @@ export default function Register() {
             <div className="bg-indigo-600 p-3 rounded-full mb-4">
               <Network className="h-8 w-8 text-white" />
             </div>
+<<<<<<< HEAD
             <CardTitle className="text-2xl text-center">Criar Conta na ASTER</CardTitle>
           </Link>
           <CardDescription className="text-center">
             Junte-se à comunidade profissional na versão Beta
+=======
+            <CardTitle className="text-2xl text-center">Criar Conta na ProNetwork</CardTitle>
+          </Link>
+          <CardDescription className="text-center">
+            Junte-se à comunidade profissional
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>

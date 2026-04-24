@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿import { coursesData } from './courses';
+=======
+import { coursesData } from './courses';
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
 export interface TestQuestion {
   id: string;
@@ -30,6 +34,7 @@ export interface Roadmap {
   area: 'tech' | 'fashion' | 'architecture';
   level: string;
   steps: RoadmapStep[];
+<<<<<<< HEAD
   status?: 'draft' | 'pending' | 'approved' | 'rejected';
   submittedBy?: string;
   submittedAt?: number;
@@ -42,26 +47,56 @@ export const roadmapsData: Roadmap[] = [
     id: 'r1',
     title: 'Iniciando na Programação',
     description: 'A trilha perfeita para quem nunca escreveu uma linha de código e quer entender a lógica de programação.',
+=======
+}
+
+export const roadmapsData: Roadmap[] = [
+  {
+    id: 'r1',
+    title: 'Como virar Desenvolvedor Front-end',
+    description: 'Guia completo do zero ao pro para se tornar um desenvolvedor Front-end moderno.',
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     area: 'tech',
     level: 'Iniciante',
     steps: [
       {
+<<<<<<< HEAD
         id: 'rs_1_1',
         title: 'Lógica de Programação — Módulo Introdutório',
         description: 'Primeiro passo para entender como os computadores pensam e resolvem problemas.',
+=======
+        id: 'rs_t1',
+        title: 'Fundamentos do Front-end',
+        description: 'Domine a componentização no React e entenda como criar interfaces modernas.',
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         type: 'module',
         courseId: 'c1',
         moduleId: 'm1_c1',
       },
       {
+<<<<<<< HEAD
         id: 'rs_1_2',
         title: 'Estruturas de Controle na Prática',
         description: 'Condicionais e loops são a base de qualquer programa.',
+=======
+        id: 'rs_t2',
+        title: 'Clean Code',
+        description: 'Leitura essencial para escrever código legível, testável e manutenível.',
+        type: 'book',
+        author: 'Robert C. Martin',
+        points: 200,
+      },
+      {
+        id: 'rs_t3',
+        title: 'Estado e Efeitos no React',
+        description: 'Aprenda a lidar com estados complexos e efeitos colaterais na sua aplicação.',
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         type: 'module',
         courseId: 'c1',
         moduleId: 'm2_c1',
       },
       {
+<<<<<<< HEAD
         id: 'rs_1_3',
         title: 'Como Pensar Como um Programador',
         description: 'Leitura complementar sobre a importância da lógica antes de aprender sua primeira linguagem.',
@@ -81,10 +116,19 @@ export const roadmapsData: Roadmap[] = [
           { id: 'q2_r1', question: 'Qual estrutura repete um bloco enquanto uma condição for verdadeira?', options: ['if/else', 'switch', 'while', 'function'], correctOptionIndex: 2 },
           { id: 'q3_r1', question: 'O que significa "depurar" um código?', options: ['Escrever comentários', 'Encontrar e corrigir erros', 'Compilar o programa', 'Apagar código desnecessário'], correctOptionIndex: 1 }
         ]
+=======
+        id: 'rs_t4',
+        title: 'Arquitetura de Micro-Frontends',
+        description: 'Artigo complementar sobre como escalar aplicações front-end.',
+        type: 'article',
+        url: 'https://martinfowler.com/articles/micro-frontends.html',
+        points: 50,
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       }
     ]
   },
   {
+<<<<<<< HEAD
     id: 'r3',
     title: 'Desenvolvedor Frontend',
     description: 'Torne-se um desenvolvedor frontend completo: HTML semântico, CSS moderno e JavaScript interativo.',
@@ -314,21 +358,50 @@ export const roadmapsData: Roadmap[] = [
         id: 'rs_2_1',
         title: 'Primeiros Passos no 3D',
         description: 'Aprenda a interface, as ferramentas e os primeiros atalhos do software de modelagem.',
+=======
+    id: 'r2',
+    title: 'Como virar Designer de Moda',
+    description: 'Trilha essencial para construir sua marca e dominar o design de moda contemporâneo.',
+    area: 'fashion',
+    level: 'Intermediário',
+    steps: [
+      {
+        id: 'rs_f1',
+        title: 'Primeiros Passos no 3D',
+        description: 'Aprenda a interface do CLO 3D e construa sua primeira modelagem.',
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         type: 'module',
         courseId: 'c2',
         moduleId: 'm1_c2',
       },
       {
+<<<<<<< HEAD
         id: 'rs_2_2',
         title: 'Composição de Formas Básicas',
         description: 'Entenda como esferas, cubos e cilindros compõem praticamente tudo ao nosso redor.',
         type: 'article',
         url: 'https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_gr%C3%A1fica_3D',
+=======
+        id: 'rs_f2',
+        title: 'The End of Fashion',
+        description: 'Como o mercado de moda mudou e se adaptou à era moderna.',
+        type: 'book',
+        author: 'Teri Agins',
+        points: 200,
+      },
+      {
+        id: 'rs_f3',
+        title: 'Guia de Tecidos Sustentáveis',
+        description: 'Artigo detalhado sobre as opções de tecidos eco-friendly.',
+        type: 'article',
+        url: '#',
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         points: 50,
       }
     ]
   },
   {
+<<<<<<< HEAD
     id: 'r8',
     title: 'Desenhista Técnico com AutoCAD',
     description: 'Aprenda a produzir documentação técnica de projetos arquitetônicos com precisão e eficiência.',
@@ -419,3 +492,38 @@ export const roadmapsData: Roadmap[] = [
     ]
   }
 ];
+=======
+    id: 'r3',
+    title: 'Como virar Arquiteto de Interiores',
+    description: 'Domine a arte de transformar espaços e projetar interiores incríveis.',
+    area: 'architecture',
+    level: 'Avançado',
+    steps: [
+      {
+        id: 'rs_a1',
+        title: 'A Pattern Language',
+        description: 'O clássico sobre como projetar espaços focados na experiência humana.',
+        type: 'book',
+        author: 'Christopher Alexander',
+        points: 200,
+      },
+      {
+        id: 'rs_a2',
+        title: 'Fundamentos do BIM',
+        description: 'Entenda os princípios e vantagens competitivas da metodologia BIM no Revit.',
+        type: 'module',
+        courseId: 'c3',
+        moduleId: 'm1_c3',
+      },
+      {
+        id: 'rs_a3',
+        title: 'Implementação do BIM em 2024',
+        description: 'Artigo abordando os desafios práticos de aplicar o BIM no mercado atual.',
+        type: 'article',
+        url: '#',
+        points: 50,
+      }
+    ]
+  }
+];
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

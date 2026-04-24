@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
+=======
+import { useEffect } from 'react';
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 import { useNavigate, useParams } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Navbar } from '../components/Navbar';
@@ -7,15 +11,32 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { Badge } from '../components/ui/badge';
 import { 
+<<<<<<< HEAD
   TrendingUp, Users, UserPlus, UserMinus, ArrowLeft, Briefcase,
   ChevronLeft, ChevronRight, ExternalLink
+=======
+  Home, 
+  User, 
+  Briefcase, 
+  LogOut, 
+  Network,
+  TrendingUp,
+  Users,
+  UserPlus,
+  UserMinus,
+  ArrowLeft
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 } from 'lucide-react';
 
 export default function UserProfile() {
   const { userId } = useParams<{ userId: string }>();
   const navigate = useNavigate();
+<<<<<<< HEAD
   const { currentUser, getUserById, logout, followUser, unfollowUser, isFollowing, getPortfolioByUserId } = useApp();
   const [carouselIdx, setCarouselIdx] = useState<Record<string, number>>({});
+=======
+  const { currentUser, getUserById, logout, followUser, unfollowUser, isFollowing } = useApp();
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
   useEffect(() => {
     if (!currentUser) {
@@ -28,7 +49,10 @@ export default function UserProfile() {
   }
 
   const user = getUserById(userId || '');
+<<<<<<< HEAD
   const userPortfolio = getPortfolioByUserId(userId || '');
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
   if (!user) {
     return (
@@ -191,6 +215,7 @@ export default function UserProfile() {
             )}
           </CardContent>
         </Card>
+<<<<<<< HEAD
 
         {/* Portfolio */}
         {userPortfolio.length > 0 && (
@@ -265,6 +290,8 @@ export default function UserProfile() {
             </CardContent>
           </Card>
         )}
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       </div>
     </div>
   );

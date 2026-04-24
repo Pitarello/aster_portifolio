@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Sparkles, Briefcase, GraduationCap, Globe, Users, Zap, Building, Rocket, Code, Palette, BookOpen } from 'lucide-react';
+<<<<<<< HEAD
 import { useApp } from '../context/AppContext';
 
 export default function Landing() {
@@ -11,6 +12,10 @@ export default function Landing() {
   const realUsersCount = getAllUsers().length;
   const realTrailsCount = (courses?.length || 0) + (roadmaps?.length || 0);
 
+=======
+
+export default function Landing() {
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -34,7 +39,11 @@ export default function Landing() {
             <div className="w-10 h-10 bg-gradient-to-tr from-fuchsia-500 to-cyan-500 rounded-xl flex items-center justify-center">
               <Sparkles className="text-white h-5 w-5" />
             </div>
+<<<<<<< HEAD
             <span className="text-2xl font-bold tracking-tighter">ASTER</span>
+=======
+            <span className="text-2xl font-bold tracking-tighter">ProNetwork</span>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
@@ -155,7 +164,11 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeIn}>
+<<<<<<< HEAD
               <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight">O que é a<br/>ASTER?</h2>
+=======
+              <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight">O que é a<br/>ProNetwork?</h2>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
               <p className="text-xl text-gray-600 mb-6 leading-relaxed">
                 Nós acreditamos que a educação e as oportunidades não deveriam ser limitadas. Nosso objetivo é <strong>popularizar o conhecimento para todos</strong>, ajudando a capacitar mais pessoas em áreas distintas.
               </p>
@@ -164,10 +177,17 @@ export default function Landing() {
               </p>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2 font-bold text-lg">
+<<<<<<< HEAD
                   <Globe className="text-fuchsia-500" /> {realUsersCount} Usuários
                 </div>
                 <div className="flex items-center gap-2 font-bold text-lg">
                   <BookOpen className="text-cyan-500" /> {realTrailsCount} Trilhas
+=======
+                  <Globe className="text-fuchsia-500" /> +10k Usuários
+                </div>
+                <div className="flex items-center gap-2 font-bold text-lg">
+                  <BookOpen className="text-cyan-500" /> +500 Trilhas
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 </div>
               </div>
             </motion.div>
@@ -201,7 +221,11 @@ export default function Landing() {
             </div>
             <h2 className="text-4xl md:text-6xl font-black mb-6">Para Empresas e Parceiros</h2>
             <p className="text-xl text-gray-400">
+<<<<<<< HEAD
               Transforme a forma como você contrata e treina. A ASTER conecta sua marca aos melhores talentos através da educação e do engajamento orgânico.
+=======
+              Transforme a forma como você contrata e treina. A ProNetwork conecta sua marca aos melhores talentos através da educação e do engajamento orgânico.
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
             </p>
           </motion.div>
 
@@ -235,10 +259,17 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Sparkles className="text-fuchsia-500 h-5 w-5" />
+<<<<<<< HEAD
             <span className="text-xl font-bold">ASTER</span>
           </div>
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} ASTER. Todos os direitos reservados.
+=======
+            <span className="text-xl font-bold">ProNetwork</span>
+          </div>
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} ProNetwork. Todos os direitos reservados.
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-white transition-colors">Termos</a>
@@ -249,4 +280,8 @@ export default function Landing() {
       </footer>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

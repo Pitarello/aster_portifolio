@@ -15,8 +15,11 @@ export default function ApplyPartner() {
   const navigate = useNavigate();
   
   const [companyName, setCompanyName] = useState('');
+<<<<<<< HEAD
   const [corporateName, setCorporateName] = useState('');
   const [cnpj, setCnpj] = useState('');
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const [description, setDescription] = useState('');
 
   // Se não estiver logado, não tem currentUser. 
@@ -38,6 +41,7 @@ export default function ApplyPartner() {
       return;
     }
     
+<<<<<<< HEAD
     if (!companyName || !corporateName || !cnpj || !description) {
       toast.error('Preencha todos os campos.');
       return;
@@ -49,6 +53,13 @@ export default function ApplyPartner() {
       return;
     }
     applyForPartner(companyName, corporateName, description);
+=======
+    if (!companyName || !description) {
+      toast.error('Preencha todos os campos.');
+      return;
+    }
+    applyForPartner(companyName, description);
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     toast.success('Solicitação enviada com sucesso! Aguarde a avaliação.');
     navigate('/feed');
   };
@@ -126,7 +137,11 @@ export default function ApplyPartner() {
             )}
             <form onSubmit={handleSubmit} className="space-y-6 mt-4">
               <div className="space-y-2">
+<<<<<<< HEAD
                 <Label>Nome Fantasia (Nome da Empresa ou Instituição)</Label>
+=======
+                <Label>Nome da sua Empresa ou Instituição</Label>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 <Input 
                   placeholder="Ex: Tech StartX" 
                   value={companyName} 
@@ -134,6 +149,7 @@ export default function ApplyPartner() {
                 />
               </div>
               <div className="space-y-2">
+<<<<<<< HEAD
                 <Label>Razão Social</Label>
                 <Input 
                   placeholder="Ex: Tech StartX Soluções LTDA" 
@@ -159,6 +175,8 @@ export default function ApplyPartner() {
                 />
               </div>
               <div className="space-y-2">
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 <Label>Por que você quer ser parceiro?</Label>
                 <Textarea 
                   placeholder="Conte-nos um pouco sobre os conteúdos que você pretende criar..." 
@@ -176,4 +194,8 @@ export default function ApplyPartner() {
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

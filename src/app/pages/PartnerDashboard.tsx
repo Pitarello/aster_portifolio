@@ -10,6 +10,7 @@ import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
 import { CourseData, Module, Lesson } from '../data/courses';
 import { Roadmap, RoadmapStep } from '../data/roadmaps';
+<<<<<<< HEAD
 import { PlusCircle, Save, Briefcase, BookOpen, Layers, ListChecks, Plus, Building2, MessageSquare, Send, FileText, Phone, Video as VideoIcon } from 'lucide-react';
 import { ScrollArea } from '../components/ui/scroll-area';
 import { toast } from 'sonner';
@@ -19,15 +20,30 @@ import { CallModal } from '../components/CallModal';
 
 export default function PartnerDashboard() {
   const { currentUser, courses, roadmaps, addCourse, updateCourse, addRoadmap, updateRoadmap, submitCourseForReview, submitRoadmapForReview, updateProfile, chatMessages, sendMessageToAdmin } = useApp();
+=======
+import { PlusCircle, Save, Briefcase, BookOpen, Layers, ListChecks, Plus, Building2, MessageSquare, Send, FileText } from 'lucide-react';
+import { ScrollArea } from '../components/ui/scroll-area';
+import { toast } from 'sonner';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+
+export default function PartnerDashboard() {
+  const { currentUser, courses, roadmaps, addCourse, updateCourse, addRoadmap, updateRoadmap, updateProfile, chatMessages, sendMessageToAdmin } = useApp();
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState<'profile' | 'courses' | 'roadmaps' | 'chat'>('profile');
   const [chatInput, setChatInput] = useState('');
+<<<<<<< HEAD
   const [callState, setCallState] = useState<'audio' | 'video' | null>(null);
   
   // Profile / Company Info
   const [companyName, setCompanyName] = useState('');
   const [corporateName, setCorporateName] = useState('');
+=======
+  
+  // Profile / Company Info
+  const [companyName, setCompanyName] = useState('');
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const [companyDesc, setCompanyDesc] = useState('');
 
   // Create state for Course
@@ -62,7 +78,10 @@ export default function PartnerDashboard() {
       navigate('/feed');
     } else {
       setCompanyName(currentUser.companyInfo?.name || '');
+<<<<<<< HEAD
       setCorporateName(currentUser.companyInfo?.corporateName || '');
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       setCompanyDesc(currentUser.companyInfo?.description || '');
     }
   }, [currentUser, navigate]);
@@ -73,7 +92,10 @@ export default function PartnerDashboard() {
     updateProfile({
       companyInfo: {
         name: companyName,
+<<<<<<< HEAD
         corporateName: corporateName,
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         description: companyDesc
       }
     });
@@ -261,7 +283,11 @@ export default function PartnerDashboard() {
             className={`flex items-center gap-2 px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === 'chat' ? 'border-emerald-600 text-emerald-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
           >
             <MessageSquare className="w-5 h-5" />
+<<<<<<< HEAD
             Suporte ASTER
+=======
+            Suporte ProNetwork
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </button>
         </div>
 
@@ -273,6 +299,7 @@ export default function PartnerDashboard() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
+<<<<<<< HEAD
                 <Label>Nome Fantasia (Nome da Empresa ou Instituição)</Label>
                 <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
               </div>
@@ -281,6 +308,12 @@ export default function PartnerDashboard() {
                 <Input value={corporateName} onChange={(e) => setCorporateName(e.target.value)} />
               </div>
               <div className="space-y-2">
+=======
+                <Label>Nome da Empresa / Instituição</Label>
+                <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
+              </div>
+              <div className="space-y-2">
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 <Label>Descrição da Empresa</Label>
                 <Textarea rows={4} value={companyDesc} onChange={(e) => setCompanyDesc(e.target.value)} />
               </div>
@@ -309,6 +342,7 @@ export default function PartnerDashboard() {
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {partnerCourses.map(course => (
+<<<<<<< HEAD
                       <Card key={course.id} className="cursor-pointer hover:border-emerald-500 transition-colors">
                         <CardHeader className="pb-2" onClick={() => setEditingCourse(course)}>
                           <div className="flex items-center justify-between mb-2">
@@ -329,6 +363,15 @@ export default function PartnerDashboard() {
                               Submeter para Aprovação
                             </Button>
                           )}
+=======
+                      <Card key={course.id} className="cursor-pointer hover:border-emerald-500 transition-colors" onClick={() => setEditingCourse(course)}>
+                        <CardHeader className="pb-2">
+                          <Badge className="w-fit mb-2 bg-emerald-100 text-emerald-800 border-transparent">{course.area}</Badge>
+                          <CardTitle className="text-lg">{course.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-gray-500">{course.modules.length} Módulos</p>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                         </CardContent>
                       </Card>
                     ))}
@@ -364,12 +407,19 @@ export default function PartnerDashboard() {
                       <Input value={newCourse.duration || ''} onChange={e => setNewCourse({...newCourse, duration: e.target.value})} />
                     </div>
                   </div>
+<<<<<<< HEAD
                   <MediaInput
                     label="Imagem de Capa"
                     mediaType="image"
                     value={newCourse.imageUrl || ''}
                     onChange={url => setNewCourse({...newCourse, imageUrl: url})}
                   />
+=======
+                  <div className="space-y-2">
+                    <Label>URL da Imagem da Capa</Label>
+                    <Input placeholder="https://..." value={newCourse.imageUrl || ''} onChange={e => setNewCourse({...newCourse, imageUrl: e.target.value})} />
+                  </div>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   <div className="space-y-2">
                     <Label>Descrição</Label>
                     <Textarea value={newCourse.description || ''} onChange={e => setNewCourse({...newCourse, description: e.target.value})} />
@@ -445,6 +495,7 @@ export default function PartnerDashboard() {
                                 </div>
                                 {newLesson.type === 'video' && (
                                   <div>
+<<<<<<< HEAD
                                     <MediaInput
                                       label="Vídeo da Aula"
                                       mediaType="video"
@@ -452,6 +503,10 @@ export default function PartnerDashboard() {
                                       onChange={url => setNewLesson({...newLesson, contentUrl: url})}
                                       labelClassName="text-xs"
                                     />
+=======
+                                    <Label className="text-xs">URL do Vídeo</Label>
+                                    <Input className="h-8 text-sm" placeholder="URL do YouTube ou Embed" value={newLesson.contentUrl || ''} onChange={e => setNewLesson({...newLesson, contentUrl: e.target.value})} />
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                                   </div>
                                 )}
                                 {newLesson.type === 'activity' && (
@@ -563,6 +618,7 @@ export default function PartnerDashboard() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {roadmaps.map(roadmap => (
+<<<<<<< HEAD
                     <Card key={roadmap.id} className="cursor-pointer hover:border-emerald-500 transition-colors">
                       <CardHeader className="pb-2" onClick={() => setEditingRoadmap(roadmap)}>
                         <div className="flex items-center justify-between mb-2">
@@ -583,6 +639,15 @@ export default function PartnerDashboard() {
                             Submeter para Aprovação
                           </Button>
                         )}
+=======
+                    <Card key={roadmap.id} className="cursor-pointer hover:border-emerald-500 transition-colors" onClick={() => setEditingRoadmap(roadmap)}>
+                      <CardHeader className="pb-2">
+                        <Badge className="w-fit mb-2 bg-emerald-100 text-emerald-800 border-transparent">{roadmap.area}</Badge>
+                        <CardTitle className="text-lg">{roadmap.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-gray-500">{roadmap.steps.length} Etapas</p>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                       </CardContent>
                     </Card>
                   ))}
@@ -724,6 +789,7 @@ export default function PartnerDashboard() {
                               <Label>Nome do Arquivo (Ex: Apostila PDF)</Label>
                               <Input placeholder="Nome do arquivo" value={newStep.fileName || ''} onChange={e => setNewStep({...newStep, fileName: e.target.value})} />
                             </div>
+<<<<<<< HEAD
                             <div className="space-y-2 md:col-span-2">
                               <MediaInput
                                 label="Ficheiro"
@@ -731,6 +797,34 @@ export default function PartnerDashboard() {
                                 value={newStep.url || ''}
                                 onChange={url => setNewStep({...newStep, url})}
                               />
+=======
+                            <div className="space-y-2">
+                              <Label>Upload do Arquivo</Label>
+                              <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 flex flex-col items-center justify-center bg-white hover:bg-gray-50 transition-colors">
+                                <FileText className="w-8 h-8 text-gray-400 mb-2" />
+                                <span className="text-sm text-gray-600 mb-2">Arraste um arquivo ou clique para selecionar</span>
+                                <Input 
+                                  type="file" 
+                                  className="hidden" 
+                                  id="file-upload" 
+                                  onChange={e => {
+                                    if (e.target.files && e.target.files[0]) {
+                                      const file = e.target.files[0];
+                                      setNewStep({...newStep, fileName: file.name, url: URL.createObjectURL(file)});
+                                      toast.success(`Arquivo ${file.name} selecionado com sucesso!`);
+                                    }
+                                  }} 
+                                />
+                                <Button type="button" variant="outline" size="sm" onClick={() => document.getElementById('file-upload')?.click()}>
+                                  Selecionar Arquivo
+                                </Button>
+                                {newStep.fileName && newStep.url && (
+                                  <p className="mt-2 text-xs text-emerald-600 font-medium truncate max-w-[200px]">
+                                    ✓ {newStep.fileName}
+                                  </p>
+                                )}
+                              </div>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                             </div>
                           </>
                         )}
@@ -750,6 +844,7 @@ export default function PartnerDashboard() {
                         )}
 
                         {newStep.type === 'article' && (
+<<<<<<< HEAD
                           <div className="space-y-2 md:col-span-2">
                             <MediaInput
                               label="URL do Artigo"
@@ -757,6 +852,11 @@ export default function PartnerDashboard() {
                               value={newStep.url || ''}
                               onChange={url => setNewStep({...newStep, url})}
                             />
+=======
+                          <div className="space-y-2">
+                            <Label>URL do Artigo</Label>
+                            <Input value={newStep.url || ''} onChange={e => setNewStep({...newStep, url: e.target.value})} />
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                           </div>
                         )}
                         
@@ -869,6 +969,7 @@ export default function PartnerDashboard() {
 
         {/* CONTENT - CHAT */}
         {activeTab === 'chat' && currentUser && (
+<<<<<<< HEAD
           <>
           {callState && (
             <CallModal
@@ -878,11 +979,14 @@ export default function PartnerDashboard() {
               onClose={() => setCallState(null)}
             />
           )}
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           <div className="max-w-4xl mx-auto h-[600px] flex flex-col bg-white rounded-xl border shadow-sm overflow-hidden">
             <div className="p-4 border-b bg-gray-50 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">
                 PR
               </div>
+<<<<<<< HEAD
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900">Suporte ASTER</h3>
                 <p className="text-xs text-gray-500">Administração & Avaliação de Conteúdo</p>
@@ -907,6 +1011,12 @@ export default function PartnerDashboard() {
                   Vídeo
                 </Button>
               </div>
+=======
+              <div>
+                <h3 className="font-semibold text-gray-900">Suporte ProNetwork</h3>
+                <p className="text-xs text-gray-500">Administração & Avaliação de Conteúdo</p>
+              </div>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
             </div>
             
             <ScrollArea className="flex-1 p-4 bg-gray-50/50">
@@ -965,9 +1075,16 @@ export default function PartnerDashboard() {
               </Button>
             </div>
           </div>
+<<<<<<< HEAD
           </>
+=======
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         )}
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

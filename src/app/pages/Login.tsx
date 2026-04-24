@@ -25,7 +25,11 @@ export default function Login() {
     if (success) {
       navigate('/feed');
     } else {
+<<<<<<< HEAD
       setError('Credenciais inválidas');
+=======
+      setError('Credenciais inválidas. ');
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     }
     
     setLoading(false);
@@ -44,7 +48,11 @@ export default function Login() {
             <div className="bg-indigo-600 p-3 rounded-full mb-4">
               <Network className="h-8 w-8 text-white" />
             </div>
+<<<<<<< HEAD
             <CardTitle className="text-2xl text-center">ASTER</CardTitle>
+=======
+            <CardTitle className="text-2xl text-center">ProNetwork</CardTitle>
+>>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </Link>
           <CardDescription className="text-center">
             Plataforma Social Profissional
