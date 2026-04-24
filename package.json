@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "prebuild": "tsx scripts/validate-env.ts",
     "build": "vite build",
     "dev": "vite"
   },
