@@ -18,6 +18,10 @@ export interface User {
   };
   area: 'tech' | 'fashion' | 'architecture';
   bio: string;
+  headline?: string;           // LinkedIn: "título profissional" abaixo do nome
+  location?: string;           // cidade/estado
+  website?: string;            // site pessoal
+  phone?: string;
   avatar: string;
   coverImage: string;
   professionalScore: number;
@@ -26,7 +30,11 @@ export interface User {
   followersIds: string[];
   followingIds: string[];
   skills: string[];
-  experiences: { title: string; company: string; period: string }[];
+  experiences: { title: string; company: string; period: string; description?: string; current?: boolean }[];
+  education?: { institution: string; degree: string; field: string; period: string; description?: string }[];
+  certifications?: { name: string; issuer: string; date: string; url?: string }[];
+  languages?: { name: string; level: string }[];
+  volunteer?: { role: string; organization: string; period: string; description?: string }[];
   completedLessons?: string[];
   testRetries?: Record<string, number>;
   testScores?: Record<string, number>;
@@ -63,13 +71,28 @@ export interface ChatMessage {
   time: string;
 }
 
+export interface PortfolioComment {
+  id: string;
+  userId: string;
+  userName: string;
+  userAvatar: string;
+  content: string;
+  timestamp: number;
+}
+
 export interface PortfolioProject {
   id: string;
+  userId: string;
   title: string;
   description: string;
   image: string;
+  images: string[];
+  link?: string;
+  githubUrl?: string;
   category: string;
   tags: string[];
+  reactions: Record<string, string[]>; // emoji -> userId[]
+  comments: PortfolioComment[];
 }
 
 export interface DirectMessage {
@@ -103,8 +126,13 @@ interface AppContextType {
   
   // Portfolio Service
   portfolio: PortfolioProject[];
-  addProject: (project: Omit<PortfolioProject, 'id'>) => void;
+  addProject: (project: Omit<PortfolioProject, 'id' | 'userId' | 'reactions' | 'comments'>) => void;
   removeProject: (projectId: string) => void;
+  updateProject: (projectId: string, updates: Omit<PortfolioProject, 'id' | 'userId' | 'reactions' | 'comments'>) => void;
+  getPortfolioByUserId: (userId: string) => PortfolioProject[];
+  reactToProject: (projectId: string, emoji: string) => void;
+  commentOnProject: (projectId: string, content: string) => void;
+  removeProjectComment: (projectId: string, commentId: string) => void;
 
   // Learning Service
   completeLesson: (lessonId: string, points: number) => void;
@@ -194,10 +222,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
     let loadedUsers = mockUsers;
     if (savedUsers) {
       const parsed: User[] = JSON.parse(savedUsers);
-      // Merge: keep mockUsers as base, override with saved versions, add new ones
+      // Merge: saved users override mockUsers, EXCEPT admin credentials always come from mockUsers
       const mergedMap = new Map<string, User>();
       mockUsers.forEach(u => mergedMap.set(u.id, u));
-      parsed.forEach(u => mergedMap.set(u.id, u));
+      parsed.forEach(u => {
+        const mock = mockUsers.find(m => m.id === u.id);
+        if (mock) {
+          // For mock users (like admin), always preserve email and password from mockUsers
+          mergedMap.set(u.id, { ...u, email: mock.email, password: mock.password, role: mock.role });
+        } else {
+          mergedMap.set(u.id, u);
+        }
+      });
       loadedUsers = Array.from(mergedMap.values());
       setUsers(loadedUsers);
     }
@@ -277,8 +313,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       password: data.password,
       area: data.area,
       bio: '',
-      avatar: `https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200`,
-      coverImage: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200',
+      avatar: '',
+      coverImage: '',
       professionalScore: 100,
       followers: 0,
       following: 0,
@@ -426,8 +462,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   // Portfolio Service methods
-  const addProject = (project: Omit<PortfolioProject, 'id'>) => {
-    const newProject: PortfolioProject = { ...project, id: `project_${Date.now()}` };
+  const addProject = (project: Omit<PortfolioProject, 'id' | 'userId' | 'reactions' | 'comments'>) => {
+    if (!currentUser) return;
+    const newProject: PortfolioProject = { ...project, id: `project_${Date.now()}`, userId: currentUser.id, reactions: {}, comments: [] };
     const updatedPortfolio = [...portfolio, newProject];
     setPortfolio(updatedPortfolio);
     localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
@@ -435,6 +472,59 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const removeProject = (projectId: string) => {
     const updatedPortfolio = portfolio.filter(p => p.id !== projectId);
+    setPortfolio(updatedPortfolio);
+    localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
+  };
+
+  const updateProject = (projectId: string, updates: Omit<PortfolioProject, 'id' | 'userId' | 'reactions' | 'comments'>) => {
+    const updatedPortfolio = portfolio.map(p =>
+      p.id === projectId ? { ...p, ...updates } : p
+    );
+    setPortfolio(updatedPortfolio);
+    localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
+  };
+
+  const getPortfolioByUserId = (userId: string) => portfolio.filter(p => p.userId === userId);
+
+  const reactToProject = (projectId: string, emoji: string) => {
+    if (!currentUser) return;
+    const updatedPortfolio = portfolio.map(p => {
+      if (p.id !== projectId) return p;
+      const reactions = { ...(p.reactions || {}) };
+      const users = reactions[emoji] || [];
+      if (users.includes(currentUser.id)) {
+        reactions[emoji] = users.filter(id => id !== currentUser.id);
+        if (reactions[emoji].length === 0) delete reactions[emoji];
+      } else {
+        reactions[emoji] = [...users, currentUser.id];
+      }
+      return { ...p, reactions };
+    });
+    setPortfolio(updatedPortfolio);
+    localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
+  };
+
+  const commentOnProject = (projectId: string, content: string) => {
+    if (!currentUser || !content.trim()) return;
+    const comment: PortfolioComment = {
+      id: `pc_${Date.now()}`,
+      userId: currentUser.id,
+      userName: currentUser.name,
+      userAvatar: currentUser.avatar,
+      content: content.trim(),
+      timestamp: Date.now(),
+    };
+    const updatedPortfolio = portfolio.map(p =>
+      p.id === projectId ? { ...p, comments: [...(p.comments || []), comment] } : p
+    );
+    setPortfolio(updatedPortfolio);
+    localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
+  };
+
+  const removeProjectComment = (projectId: string, commentId: string) => {
+    const updatedPortfolio = portfolio.map(p =>
+      p.id === projectId ? { ...p, comments: (p.comments || []).filter(c => c.id !== commentId) } : p
+    );
     setPortfolio(updatedPortfolio);
     localStorage.setItem('aster_portfolio', JSON.stringify(updatedPortfolio));
   };
@@ -660,6 +750,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
         portfolio,
         addProject,
         removeProject,
+        updateProject,
+        getPortfolioByUserId,
+        reactToProject,
+        commentOnProject,
+        removeProjectComment,
         completeLesson,
         courses,
         roadmaps,

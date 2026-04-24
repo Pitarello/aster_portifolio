@@ -16,6 +16,7 @@ export default function ApplyPartner() {
   
   const [companyName, setCompanyName] = useState('');
   const [corporateName, setCorporateName] = useState('');
+  const [cnpj, setCnpj] = useState('');
   const [description, setDescription] = useState('');
 
   // Se não estiver logado, não tem currentUser. 
@@ -37,8 +38,14 @@ export default function ApplyPartner() {
       return;
     }
     
-    if (!companyName || !corporateName || !description) {
+    if (!companyName || !corporateName || !cnpj || !description) {
       toast.error('Preencha todos os campos.');
+      return;
+    }
+    // Basic CNPJ format validation (14 digits)
+    const cnpjDigits = cnpj.replace(/\D/g, '');
+    if (cnpjDigits.length !== 14) {
+      toast.error('CNPJ inválido. Informe os 14 dígitos.');
       return;
     }
     applyForPartner(companyName, corporateName, description);
@@ -132,6 +139,23 @@ export default function ApplyPartner() {
                   placeholder="Ex: Tech StartX Soluções LTDA" 
                   value={corporateName} 
                   onChange={e => setCorporateName(e.target.value)} 
+                />
+              </div>
+              <div className="space-y-2">
+                <Label>CNPJ</Label>
+                <Input 
+                  placeholder="00.000.000/0000-00" 
+                  value={cnpj}
+                  onChange={e => {
+                    // Auto-format CNPJ
+                    const digits = e.target.value.replace(/\D/g, '').slice(0, 14);
+                    const formatted = digits
+                      .replace(/^(\d{2})(\d)/, '$1.$2')
+                      .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+                      .replace(/\.(\d{3})(\d)/, '.$1/$2')
+                      .replace(/(\d{4})(\d)/, '$1-$2');
+                    setCnpj(formatted);
+                  }}
                 />
               </div>
               <div className="space-y-2">
