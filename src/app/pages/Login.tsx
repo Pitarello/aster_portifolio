@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -25,11 +25,7 @@ export default function Login() {
     if (success) {
       navigate('/feed');
     } else {
-<<<<<<< HEAD
-      setError('Credenciais inválidas');
-=======
-      setError('Credenciais inválidas. ');
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+      setError('Credenciais inv├ílidas');
     }
     
     setLoading(false);
@@ -39,7 +35,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 relative">
       <div className="absolute top-4 left-4 z-10">
         <Button variant="ghost" onClick={() => navigate('/')} className="flex items-center gap-2">
-          <ArrowLeft className="w-4 h-4" /> Voltar para o Início
+          <ArrowLeft className="w-4 h-4" /> Voltar para o In├¡cio
         </Button>
       </div>
       <Card className="w-full max-w-md mt-10">
@@ -48,11 +44,7 @@ export default function Login() {
             <div className="bg-indigo-600 p-3 rounded-full mb-4">
               <Network className="h-8 w-8 text-white" />
             </div>
-<<<<<<< HEAD
             <CardTitle className="text-2xl text-center">ASTER</CardTitle>
-=======
-            <CardTitle className="text-2xl text-center">ProNetwork</CardTitle>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </Link>
           <CardDescription className="text-center">
             Plataforma Social Profissional
@@ -76,7 +68,7 @@ export default function Login() {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -100,7 +92,7 @@ export default function Login() {
               )}
             </Button>
             <div className="text-sm text-center text-gray-600">
-              Não tem uma conta?{' '}
+              N├úo tem uma conta?{' '}
               <Link to="/register" className="text-indigo-600 hover:underline">
                 Registre-se
               </Link>

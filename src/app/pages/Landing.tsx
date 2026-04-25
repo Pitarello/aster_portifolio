@@ -1,21 +1,16 @@
-import { motion } from 'motion/react';
+﻿import { motion } from 'motion/react';
 import { Link } from 'react-router';
 import { Button } from '../components/ui/button';
 import { ArrowRight, Sparkles, Briefcase, GraduationCap, Globe, Users, Zap, Building, Rocket, Code, Palette, BookOpen } from 'lucide-react';
-<<<<<<< HEAD
 import { useApp } from '../context/AppContext';
 
 export default function Landing() {
   const { getAllUsers, courses, roadmaps } = useApp();
   
-  // Contagens dinâmicas atreladas aos dados reais do sistema (usuários e trilhas reais do contexto)
+  // Contagens din├ómicas atreladas aos dados reais do sistema (usu├írios e trilhas reais do contexto)
   const realUsersCount = getAllUsers().length;
   const realTrailsCount = (courses?.length || 0) + (roadmaps?.length || 0);
 
-=======
-
-export default function Landing() {
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
@@ -39,16 +34,12 @@ export default function Landing() {
             <div className="w-10 h-10 bg-gradient-to-tr from-fuchsia-500 to-cyan-500 rounded-xl flex items-center justify-center">
               <Sparkles className="text-white h-5 w-5" />
             </div>
-<<<<<<< HEAD
             <span className="text-2xl font-bold tracking-tighter">ASTER</span>
-=======
-            <span className="text-2xl font-bold tracking-tighter">ProNetwork</span>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           </div>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
             <a href="#features" className="hover:text-fuchsia-400 transition-colors">Funcionalidades</a>
-            <a href="#about" className="hover:text-cyan-400 transition-colors">Sobre Nós</a>
+            <a href="#about" className="hover:text-cyan-400 transition-colors">Sobre N├│s</a>
             <a href="#partners" className="hover:text-yellow-400 transition-colors">Parceiros</a>
           </div>
 
@@ -90,13 +81,13 @@ export default function Landing() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-              Publique seu portfólio, conecte-se com gigantes do mercado, estude através de trilhas gamificadas e seja contratado pelas melhores empresas. Tudo em um só lugar.
+              Publique seu portf├│lio, conecte-se com gigantes do mercado, estude atrav├®s de trilhas gamificadas e seja contratado pelas melhores empresas. Tudo em um s├│ lugar.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/register">
                 <Button size="lg" className="h-14 px-8 text-lg rounded-full bg-gradient-to-r from-fuchsia-500 to-cyan-500 hover:opacity-90 transition-opacity border-0">
-                  Começar Agora <ArrowRight className="ml-2 h-5 w-5" />
+                  Come├ºar Agora <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link to="/apply-partner">
@@ -116,9 +107,9 @@ export default function Landing() {
           animate={{ x: [0, -1000] }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
-          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTFÓLIO</span> • <span>EVOLUA</span> • 
-          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTFÓLIO</span> • <span>EVOLUA</span> •
-          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTFÓLIO</span> • <span>EVOLUA</span> •
+          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó 
+          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó
+          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó
         </motion.div>
       </div>
 
@@ -126,7 +117,7 @@ export default function Landing() {
       <section id="features" className="py-32 px-6 relative">
         <div className="max-w-7xl mx-auto">
           <motion.div {...fadeIn} className="mb-20">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">Tudo para você decolar.</h2>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">Tudo para voc├¬ decolar.</h2>
             <p className="text-xl text-gray-400 max-w-2xl">Desenvolvido para criadores, desenvolvedores e profissionais do futuro.</p>
           </motion.div>
 
@@ -138,10 +129,10 @@ export default function Landing() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { icon: Palette, title: "Portfólio Criativo", desc: "Mostre seu trabalho para o mundo. Faça upload de projetos, imagens e links com uma vitrine moderna.", color: "text-fuchsia-400" },
-              { icon: Users, title: "Networking Real", desc: "Conecte-se com pessoas da sua área. Siga, interaja e crie laços profissionais autênticos.", color: "text-cyan-400" },
-              { icon: Briefcase, title: "Currículo Dinâmico", desc: "Seu perfil é seu currículo. Habilidades validadas, histórico de cursos e badges gamificados.", color: "text-yellow-400" },
-              { icon: GraduationCap, title: "Aprenda e Especialize-se", desc: "Trilhas de conhecimento criadas pelas melhores empresas. Responda questionários e ganhe XP.", color: "text-green-400" },
+              { icon: Palette, title: "Portf├│lio Criativo", desc: "Mostre seu trabalho para o mundo. Fa├ºa upload de projetos, imagens e links com uma vitrine moderna.", color: "text-fuchsia-400" },
+              { icon: Users, title: "Networking Real", desc: "Conecte-se com pessoas da sua ├írea. Siga, interaja e crie la├ºos profissionais aut├¬nticos.", color: "text-cyan-400" },
+              { icon: Briefcase, title: "Curr├¡culo Din├ómico", desc: "Seu perfil ├® seu curr├¡culo. Habilidades validadas, hist├│rico de cursos e badges gamificados.", color: "text-yellow-400" },
+              { icon: GraduationCap, title: "Aprenda e Especialize-se", desc: "Trilhas de conhecimento criadas pelas melhores empresas. Responda question├írios e ganhe XP.", color: "text-green-400" },
             ].map((feat, i) => (
               <motion.div 
                 key={i} 
@@ -164,30 +155,19 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeIn}>
-<<<<<<< HEAD
-              <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight">O que é a<br/>ASTER?</h2>
-=======
-              <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight">O que é a<br/>ProNetwork?</h2>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+              <h2 className="text-5xl md:text-7xl font-black mb-8 tracking-tight">O que ├® a<br/>ASTER?</h2>
               <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-                Nós acreditamos que a educação e as oportunidades não deveriam ser limitadas. Nosso objetivo é <strong>popularizar o conhecimento para todos</strong>, ajudando a capacitar mais pessoas em áreas distintas.
+                N├│s acreditamos que a educa├º├úo e as oportunidades n├úo deveriam ser limitadas. Nosso objetivo ├® <strong>popularizar o conhecimento para todos</strong>, ajudando a capacitar mais pessoas em ├íreas distintas.
               </p>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Criamos um ecossistema onde criar um portfólio incrível é fácil, e onde aprender é uma experiência social e gamificada. Aqui, sua dedicação vira resultado, atraindo empresas parceiras que estão em busca do seu talento.
+                Criamos um ecossistema onde criar um portf├│lio incr├¡vel ├® f├ícil, e onde aprender ├® uma experi├¬ncia social e gamificada. Aqui, sua dedica├º├úo vira resultado, atraindo empresas parceiras que est├úo em busca do seu talento.
               </p>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2 font-bold text-lg">
-<<<<<<< HEAD
-                  <Globe className="text-fuchsia-500" /> {realUsersCount} Usuários
+                  <Globe className="text-fuchsia-500" /> {realUsersCount} Usu├írios
                 </div>
                 <div className="flex items-center gap-2 font-bold text-lg">
                   <BookOpen className="text-cyan-500" /> {realTrailsCount} Trilhas
-=======
-                  <Globe className="text-fuchsia-500" /> +10k Usuários
-                </div>
-                <div className="flex items-center gap-2 font-bold text-lg">
-                  <BookOpen className="text-cyan-500" /> +500 Trilhas
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 </div>
               </div>
             </motion.div>
@@ -203,7 +183,7 @@ export default function Landing() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 text-white">
                 <h3 className="text-2xl font-bold mb-2">Comunidade forte</h3>
-                <p className="text-white/80">Faça parte da nova geração de profissionais.</p>
+                <p className="text-white/80">Fa├ºa parte da nova gera├º├úo de profissionais.</p>
               </div>
             </motion.div>
           </div>
@@ -221,26 +201,22 @@ export default function Landing() {
             </div>
             <h2 className="text-4xl md:text-6xl font-black mb-6">Para Empresas e Parceiros</h2>
             <p className="text-xl text-gray-400">
-<<<<<<< HEAD
-              Transforme a forma como você contrata e treina. A ASTER conecta sua marca aos melhores talentos através da educação e do engajamento orgânico.
-=======
-              Transforme a forma como você contrata e treina. A ProNetwork conecta sua marca aos melhores talentos através da educação e do engajamento orgânico.
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+              Transforme a forma como voc├¬ contrata e treina. A ASTER conecta sua marca aos melhores talentos atrav├®s da educa├º├úo e do engajamento org├ónico.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-left">
             <motion.div {...fadeIn} className="p-8 rounded-3xl bg-white/5 border border-white/10">
               <h3 className="text-xl font-bold mb-4 text-white">Contrate Melhor</h3>
-              <p className="text-gray-400">Encontre talentos com base em habilidades reais comprovadas nas trilhas, não apenas no que dizem nos currículos.</p>
+              <p className="text-gray-400">Encontre talentos com base em habilidades reais comprovadas nas trilhas, n├úo apenas no que dizem nos curr├¡culos.</p>
             </motion.div>
             <motion.div {...fadeIn} className="p-8 rounded-3xl bg-white/5 border border-white/10">
-              <h3 className="text-xl font-bold mb-4 text-white">Publique Conteúdo</h3>
-              <p className="text-gray-400">Crie cursos, questionários e desafios. Posicione sua marca como referência técnica e atraia profissionais engajados.</p>
+              <h3 className="text-xl font-bold mb-4 text-white">Publique Conte├║do</h3>
+              <p className="text-gray-400">Crie cursos, question├írios e desafios. Posicione sua marca como refer├¬ncia t├®cnica e atraia profissionais engajados.</p>
             </motion.div>
             <motion.div {...fadeIn} className="p-8 rounded-3xl bg-white/5 border border-white/10">
               <h3 className="text-xl font-bold mb-4 text-white">Acesso Exclusivo</h3>
-              <p className="text-gray-400">Tenha um dashboard dedicado para analisar métricas de engajamento dos alunos nas suas trilhas e gerenciar vagas.</p>
+              <p className="text-gray-400">Tenha um dashboard dedicado para analisar m├®tricas de engajamento dos alunos nas suas trilhas e gerenciar vagas.</p>
             </motion.div>
           </div>
 
@@ -259,17 +235,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
             <Sparkles className="text-fuchsia-500 h-5 w-5" />
-<<<<<<< HEAD
             <span className="text-xl font-bold">ASTER</span>
           </div>
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} ASTER. Todos os direitos reservados.
-=======
-            <span className="text-xl font-bold">ProNetwork</span>
-          </div>
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} ProNetwork. Todos os direitos reservados.
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+            ┬® {new Date().getFullYear()} ASTER. Todos os direitos reservados.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
             <a href="#" className="hover:text-white transition-colors">Termos</a>
@@ -280,8 +249,4 @@ export default function Landing() {
       </footer>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

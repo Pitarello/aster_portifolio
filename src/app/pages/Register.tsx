@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -7,11 +7,8 @@ import { Label } from '../components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Network, Loader2, ArrowLeft } from 'lucide-react';
-<<<<<<< HEAD
 import { toast } from 'sonner';
 import emailjs from '@emailjs/browser';
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
 export default function Register() {
   const navigate = useNavigate();
@@ -31,26 +28,25 @@ export default function Register() {
     const success = await register(formData);
     
     if (success) {
-<<<<<<< HEAD
       try {
         // As chaves informadas
         const publicKey = 'zF02pHZqSrINPNCAw'; 
         // d5i6PXXmz9U6FEppycaHt parece ser o seu Service ID ou Template ID. 
         // Substitua os campos abaixo com os valores exatos do seu painel EmailJS:
         const serviceId = 'SEU_SERVICE_ID'; // ex: service_xxx
-        const templateId = 'd5i6PXXmz9U6FEppycaHt'; // Usando o segundo código que você enviou como Template ID, troque se necessário.
+        const templateId = 'd5i6PXXmz9U6FEppycaHt'; // Usando o segundo c├│digo que voc├¬ enviou como Template ID, troque se necess├írio.
 
-        // Parâmetros que vão ser injetados no seu modelo de email (ajuste de acordo com as variáveis no seu template no EmailJS)
+        // Par├ómetros que v├úo ser injetados no seu modelo de email (ajuste de acordo com as vari├íveis no seu template no EmailJS)
         const templateParams = {
           to_name: formData.name,
           to_email: formData.email,
-          message: 'Bem-vindo(a) à versão Beta da ASTER! Estamos muito felizes em ter você conosco na nossa rede gamificada.',
+          message: 'Bem-vindo(a) ├á vers├úo Beta da ASTER! Estamos muito felizes em ter voc├¬ conosco na nossa rede gamificada.',
         };
 
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
         toast.success('Conta criada com sucesso!', {
-          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa versão Beta! 🎉`,
+          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa vers├úo Beta! ­ƒÄë`,
           duration: 5000,
         });
       } catch (error) {
@@ -64,19 +60,13 @@ export default function Register() {
     } else {
       setLoading(false);
     }
-=======
-      navigate('/feed');
-    }
-    
-    setLoading(false);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 relative">
       <div className="absolute top-4 left-4 z-10">
         <Button variant="ghost" onClick={() => navigate('/')} className="flex items-center gap-2">
-          <ArrowLeft className="w-4 h-4" /> Voltar para o Início
+          <ArrowLeft className="w-4 h-4" /> Voltar para o In├¡cio
         </Button>
       </div>
       <Card className="w-full max-w-md mt-10">
@@ -85,17 +75,10 @@ export default function Register() {
             <div className="bg-indigo-600 p-3 rounded-full mb-4">
               <Network className="h-8 w-8 text-white" />
             </div>
-<<<<<<< HEAD
             <CardTitle className="text-2xl text-center">Criar Conta na ASTER</CardTitle>
           </Link>
           <CardDescription className="text-center">
-            Junte-se à comunidade profissional na versão Beta
-=======
-            <CardTitle className="text-2xl text-center">Criar Conta na ProNetwork</CardTitle>
-          </Link>
-          <CardDescription className="text-center">
-            Junte-se à comunidade profissional
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+            Junte-se ├á comunidade profissional na vers├úo Beta
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>
@@ -104,7 +87,7 @@ export default function Register() {
               <Label htmlFor="name">Nome Completo</Label>
               <Input
                 id="name"
-                placeholder="João Silva"
+                placeholder="Jo├úo Silva"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
@@ -126,20 +109,20 @@ export default function Register() {
               <Input
                 id="password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="area">Área de Atuação</Label>
+              <Label htmlFor="area">├ürea de Atua├º├úo</Label>
               <Select
                 value={formData.area}
                 onValueChange={(value) => setFormData({ ...formData, area: value as any })}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecione sua área" />
+                  <SelectValue placeholder="Selecione sua ├írea" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="tech">Tecnologia</SelectItem>
@@ -161,7 +144,7 @@ export default function Register() {
               )}
             </Button>
             <div className="text-sm text-center text-gray-600">
-              Já tem uma conta?{' '}
+              J├í tem uma conta?{' '}
               <Link to="/login" className="text-indigo-600 hover:underline">
                 Entrar
               </Link>

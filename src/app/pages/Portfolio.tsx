@@ -1,40 +1,16 @@
-<<<<<<< HEAD
-import { useState, useEffect, useRef } from 'react';
-=======
-import { useState, useEffect } from 'react';
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+﻿import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
 import { Navbar } from '../components/Navbar';
-<<<<<<< HEAD
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
-=======
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../components/ui/dialog';
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { Badge } from '../components/ui/badge';
-<<<<<<< HEAD
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { ScrollArea } from '../components/ui/scroll-area';
 import { Plus, Trash2, Edit, Briefcase, X, ChevronLeft, ChevronRight, ExternalLink, FolderOpen, Image as ImageIcon, Link, MessageCircle, Send, Github } from 'lucide-react';
-=======
-import { 
-  Home, 
-  User, 
-  Briefcase, 
-  LogOut, 
-  Network,
-  Plus,
-  Trash2,
-  Code,
-  Palette,
-  Building
-} from 'lucide-react';
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
 const portfolioCategories = {
   tech: [
@@ -42,36 +18,27 @@ const portfolioCategories = {
     { value: 'mobile', label: 'Mobile App' },
     { value: 'backend', label: 'Backend' },
     { value: 'devops', label: 'DevOps' },
-<<<<<<< HEAD
     { value: 'ai', label: 'AI/ML' },
-=======
-    { value: 'ai', label: 'AI/ML' }
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   ],
   fashion: [
-    { value: 'collection', label: 'Coleção' },
+    { value: 'collection', label: 'Cole├º├úo' },
     { value: 'editorial', label: 'Editorial' },
-    { value: 'sustainable', label: 'Sustentável' },
-    { value: 'accessories', label: 'Acessórios' },
-<<<<<<< HEAD
+    { value: 'sustainable', label: 'Sustent├ível' },
+    { value: 'accessories', label: 'Acess├│rios' },
     { value: 'runway', label: 'Passarela' },
-=======
-    { value: 'runway', label: 'Passarela' }
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   ],
   architecture: [
     { value: 'residential', label: 'Residencial' },
     { value: 'commercial', label: 'Comercial' },
     { value: 'urban', label: 'Urbanismo' },
     { value: 'interior', label: 'Design de Interiores' },
-<<<<<<< HEAD
     { value: 'landscape', label: 'Paisagismo' },
   ],
 };
 
 const emptyForm = { title: '', description: '', image: '', images: [] as string[], link: '', githubUrl: '', category: '', tags: '' };
 
-// ── Mini Carousel ─────────────────────────────────────────────────────────────
+// ÔöÇÔöÇ Mini Carousel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
 function ProjectCarousel({ images, title, fullHeight }: { images: string[]; title: string; fullHeight?: boolean }) {
   const [idx, setIdx] = useState(0);
   if (!images.length) return (
@@ -162,7 +129,7 @@ export default function Portfolio() {
 
   const viewProject = portfolio.find(p => p.id === viewId);
   const viewOwner = viewProject ? getUserById(viewProject.userId) : null;
-  const REACTIONS = ['👍', '❤️', '🔥', '🎉', '😮', '👏'];
+  const REACTIONS = ['­ƒæì', 'ÔØñ´©Å', '­ƒöÑ', '­ƒÄë', '­ƒÿ«', '­ƒæÅ'];
 
   const handleSendComment = () => {
     if (!viewId || !commentText.trim()) return;
@@ -247,7 +214,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-[#1a1a1a] text-white">
       <Navbar />
 
-      {/* ── Profile Banner ── */}
+      {/* ÔöÇÔöÇ Profile Banner ÔöÇÔöÇ */}
       <div className="border-b border-white/10 bg-[#111]">
         <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between gap-6 flex-wrap">
           <div className="flex items-center gap-5">
@@ -262,7 +229,7 @@ export default function Portfolio() {
               <p className="text-gray-400 text-sm mt-0.5">{currentUser.email}</p>
               <div className="flex items-center gap-3 mt-2 text-sm text-gray-400">
                 <span>{myPortfolio.length} projeto{myPortfolio.length !== 1 ? 's' : ''}</span>
-                <span>·</span>
+                <span>┬À</span>
                 <span>{currentUser.followersIds?.length || 0} seguidores</span>
               </div>
             </div>
@@ -273,7 +240,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ── Filters ── */}
+      {/* ÔöÇÔöÇ Filters ÔöÇÔöÇ */}
       <div className="border-b border-white/10 bg-[#111] sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 flex gap-1 overflow-x-auto py-3">
           {allFilters.map(f => (
@@ -290,7 +257,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ── Grid ── */}
+      {/* ÔöÇÔöÇ Grid ÔöÇÔöÇ */}
       <div className="max-w-6xl mx-auto px-6 py-8">
         {filtered.length > 0 ? (
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
@@ -302,7 +269,7 @@ export default function Portfolio() {
                   {/* Carousel */}
                   <ProjectCarousel images={imgs} title={project.title} />
 
-                  {/* Hover overlay — z-10 so carousel buttons (z-20) stay clickable */}
+                  {/* Hover overlay ÔÇö z-10 so carousel buttons (z-20) stay clickable */}
                   <div className="absolute inset-0 z-10 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4 pointer-events-none group-hover:pointer-events-auto">
                     <div className="flex justify-end gap-2">
                       {proj.link && (
@@ -386,7 +353,7 @@ export default function Portfolio() {
         )}
       </div>
 
-      {/* ── Add / Edit Dialog ── */}
+      {/* ÔöÇÔöÇ Add / Edit Dialog ÔöÇÔöÇ */}
       <Dialog open={addOpen || !!editId} onOpenChange={open => !open && closeDialog()}>
         <DialogContent className="max-w-2xl bg-[#1e1e1e] border-white/10 text-white max-h-[90vh] overflow-y-auto">
           <DialogHeader>
@@ -394,16 +361,16 @@ export default function Portfolio() {
           </DialogHeader>
           <div className="space-y-5">
 
-            {/* Título */}
+            {/* T├¡tulo */}
             <div>
-              <Label className="text-gray-300">Título *</Label>
+              <Label className="text-gray-300">T├¡tulo *</Label>
               <Input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
                 placeholder="Nome do projeto" className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
             </div>
 
-            {/* Descrição */}
+            {/* Descri├º├úo */}
             <div>
-              <Label className="text-gray-300">Descrição</Label>
+              <Label className="text-gray-300">Descri├º├úo</Label>
               <Textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 placeholder="Descreva seu projeto..." rows={3}
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
@@ -447,7 +414,7 @@ export default function Portfolio() {
               <Input value={form.link} onChange={e => setForm(f => ({ ...f, link: e.target.value }))}
                 placeholder="https://meu-projeto.com" type="url"
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
-              <p className="text-xs text-gray-500 mt-1">Opcional — abre uma página externa ao clicar no projeto</p>
+              <p className="text-xs text-gray-500 mt-1">Opcional ÔÇö abre uma p├ígina externa ao clicar no projeto</p>
             </div>
 
             {/* GitHub */}
@@ -465,7 +432,7 @@ export default function Portfolio() {
             <div>
               <Label className="text-gray-300">Imagens do Projeto</Label>
               <div className="mt-2 flex gap-2 flex-wrap">
-                {/* Capa única */}
+                {/* Capa ├║nica */}
                 <label className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer text-sm text-gray-300 transition-colors">
                   <ImageIcon className="h-4 w-4" /> Imagem de Capa
                   <input type="file" accept="image/*" onChange={handleCoverFile} className="hidden" />
@@ -503,12 +470,12 @@ export default function Portfolio() {
                   ))}
                 </div>
               )}
-              <p className="text-xs text-gray-500 mt-2">A primeira imagem será a capa. Arraste para reordenar ou remova individualmente.</p>
+              <p className="text-xs text-gray-500 mt-2">A primeira imagem ser├í a capa. Arraste para reordenar ou remova individualmente.</p>
             </div>
 
             {/* Tags */}
             <div>
-              <Label className="text-gray-300">Tags <span className="text-gray-500 font-normal">(separadas por vírgula)</span></Label>
+              <Label className="text-gray-300">Tags <span className="text-gray-500 font-normal">(separadas por v├¡rgula)</span></Label>
               <Input value={form.tags} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))}
                 placeholder="React, TypeScript, Figma"
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
@@ -516,7 +483,7 @@ export default function Portfolio() {
 
             <div className="flex gap-3 pt-2">
               <Button onClick={handleSave} className="flex-1 bg-[#0057ff] hover:bg-[#0046cc]">
-                {editId ? 'Salvar Alterações' : 'Publicar Projeto'}
+                {editId ? 'Salvar Altera├º├Áes' : 'Publicar Projeto'}
               </Button>
               <Button variant="ghost" onClick={closeDialog} className="text-gray-400 hover:text-white">Cancelar</Button>
             </div>
@@ -524,7 +491,7 @@ export default function Portfolio() {
         </DialogContent>
       </Dialog>
 
-      {/* ── Expanded Project View ── */}
+      {/* ÔöÇÔöÇ Expanded Project View ÔöÇÔöÇ */}
       <Dialog open={!!viewId} onOpenChange={open => { if (!open) { setViewId(null); setCommentText(''); } }}>
         <DialogContent className="bg-[#1a1a1a] border-white/10 text-white p-0 overflow-hidden flex flex-col"
           style={{ width: '90vw', height: '90vh', maxWidth: '90vw', maxHeight: '90vh' }}>
@@ -540,7 +507,7 @@ export default function Portfolio() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold text-sm">{viewOwner?.name || 'Usuário'}</p>
+                    <p className="font-semibold text-sm">{viewOwner?.name || 'Usu├írio'}</p>
                     <p className="text-xs text-gray-400">{viewProject.category ? categories.find(c => c.value === viewProject.category)?.label : ''}</p>
                   </div>
                 </div>
@@ -568,7 +535,7 @@ export default function Portfolio() {
 
               {/* Body: 80% image + 20% sidebar */}
               <div className="flex flex-1 overflow-hidden" style={{ minHeight: 0 }}>
-                {/* Image area — 80% width */}
+                {/* Image area ÔÇö 80% width */}
                 <div className="bg-black flex items-center justify-center overflow-hidden" style={{ width: '80%' }}>
                   <ProjectCarousel
                     images={(viewProject as any).images?.length ? (viewProject as any).images : (viewProject.image ? [viewProject.image] : [])}
@@ -577,7 +544,7 @@ export default function Portfolio() {
                   />
                 </div>
 
-                {/* Sidebar — 20% width */}
+                {/* Sidebar ÔÇö 20% width */}
                 <div className="flex flex-col border-l border-white/10 bg-[#111] overflow-hidden" style={{ width: '20%', minWidth: '260px' }}>
                   {/* Info */}
                   <div className="p-4 border-b border-white/10 shrink-0">
@@ -594,7 +561,7 @@ export default function Portfolio() {
 
                   {/* Reactions */}
                   <div className="p-4 border-b border-white/10 shrink-0">
-                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">Reações</p>
+                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">Rea├º├Áes</p>
                     <div className="flex flex-wrap gap-1.5">
                       {REACTIONS.map(emoji => {
                         const users: string[] = (viewProject.reactions || {})[emoji] || [];
@@ -619,7 +586,7 @@ export default function Portfolio() {
                   {/* Comments list */}
                   <ScrollArea className="flex-1 p-4">
                     <p className="text-xs text-gray-500 mb-3 uppercase tracking-wide flex items-center gap-1">
-                      <MessageCircle className="h-3.5 w-3.5" /> Comentários ({(viewProject.comments || []).length})
+                      <MessageCircle className="h-3.5 w-3.5" /> Coment├írios ({(viewProject.comments || []).length})
                     </p>
                     <div className="space-y-3">
                       {(viewProject.comments || []).length === 0 && (
@@ -657,7 +624,7 @@ export default function Portfolio() {
                         value={commentText}
                         onChange={e => setCommentText(e.target.value)}
                         onKeyDown={e => e.key === 'Enter' && handleSendComment()}
-                        placeholder="Adicionar comentário..."
+                        placeholder="Adicionar coment├írio..."
                         className="flex-1 bg-white/5 border-white/10 text-white placeholder:text-gray-600 text-sm h-9"
                       />
                       <Button size="sm" onClick={handleSendComment} className="bg-[#0057ff] hover:bg-[#0046cc] h-9 px-3">
@@ -671,236 +638,6 @@ export default function Portfolio() {
           )}
         </DialogContent>
       </Dialog>
-=======
-    { value: 'landscape', label: 'Paisagismo' }
-  ]
-};
-
-export default function Portfolio() {
-  const navigate = useNavigate();
-  const { currentUser, logout, portfolio, addProject, removeProject } = useApp();
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [newProject, setNewProject] = useState({
-    title: '',
-    description: '',
-    image: '',
-    category: '',
-    tags: ''
-  });
-
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/login');
-    }
-  }, [currentUser, navigate]);
-
-  if (!currentUser) {
-    return null;
-  }
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
-
-  const handleAddProject = () => {
-    if (newProject.title && newProject.description) {
-      addProject({
-        title: newProject.title,
-        description: newProject.description,
-        image: newProject.image || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800',
-        category: newProject.category,
-        tags: newProject.tags.split(',').map(t => t.trim()).filter(Boolean)
-      });
-      
-      setNewProject({ title: '', description: '', image: '', category: '', tags: '' });
-      setIsDialogOpen(false);
-    }
-  };
-
-  const areaIcons = {
-    tech: <Code className="h-5 w-5" />,
-    fashion: <Palette className="h-5 w-5" />,
-    architecture: <Building className="h-5 w-5" />
-  };
-
-  const areaLabels = {
-    tech: 'Tecnologia',
-    fashion: 'Moda',
-    architecture: 'Arquitetura'
-  };
-
-  const categories = portfolioCategories[currentUser.area];
-
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <Navbar />
-
-      <div className="max-w-6xl mx-auto px-4 py-6 space-y-6">
-        {/* Header */}
-        <div className="flex items-center justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              {areaIcons[currentUser.area]}
-              <h1 className="text-3xl font-semibold">Meu Portfólio</h1>
-            </div>
-            <p className="text-gray-600 mt-1">
-              Área: {areaLabels[currentUser.area]}
-            </p>
-          </div>
-          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogTrigger asChild>
-              <Button>
-                <Plus className="h-4 w-4 mr-2" />
-                Novo Projeto
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-2xl">
-              <DialogHeader>
-                <DialogTitle>Adicionar Novo Projeto</DialogTitle>
-              </DialogHeader>
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="title">Título do Projeto</Label>
-                  <Input
-                    id="title"
-                    value={newProject.title}
-                    onChange={(e) => setNewProject({ ...newProject, title: e.target.value })}
-                    placeholder="Ex: E-commerce Platform"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="description">Descrição</Label>
-                  <Textarea
-                    id="description"
-                    value={newProject.description}
-                    onChange={(e) => setNewProject({ ...newProject, description: e.target.value })}
-                    placeholder="Descreva seu projeto..."
-                    rows={4}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="category">Categoria</Label>
-                  <select
-                    id="category"
-                    value={newProject.category}
-                    onChange={(e) => setNewProject({ ...newProject, category: e.target.value })}
-                    className="w-full rounded-md border border-gray-300 p-2"
-                  >
-                    <option value="">Selecione uma categoria</option>
-                    {categories.map(cat => (
-                      <option key={cat.value} value={cat.value}>{cat.label}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <Label htmlFor="image">Imagem do Projeto</Label>
-                  <div className="mt-1">
-                    <Input
-                      id="image"
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        if (file) {
-                          const reader = new FileReader();
-                          reader.onloadend = () => {
-                            setNewProject({ ...newProject, image: reader.result as string });
-                          };
-                          reader.readAsDataURL(file);
-                        }
-                      }}
-                      className="cursor-pointer"
-                    />
-                  </div>
-                  {newProject.image && (
-                    <div className="mt-2 relative w-32 h-32 rounded-md overflow-hidden border border-gray-200">
-                      <img src={newProject.image} alt="Preview" className="w-full h-full object-cover" />
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <Label htmlFor="tags">Tags (separadas por vírgula)</Label>
-                  <Input
-                    id="tags"
-                    value={newProject.tags}
-                    onChange={(e) => setNewProject({ ...newProject, tags: e.target.value })}
-                    placeholder="React, TypeScript, AWS"
-                  />
-                </div>
-                <Button onClick={handleAddProject} className="w-full">
-                  Adicionar Projeto
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
-
-        {/* Portfolio Grid */}
-        {portfolio.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {portfolio.map((project) => (
-              <Card key={project.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-48 bg-gray-200">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="absolute top-2 right-2"
-                    onClick={() => removeProject(project.id)}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
-                </div>
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-lg">{project.title}</CardTitle>
-                  </div>
-                  {project.category && (
-                    <Badge variant="secondary" className="w-fit mt-2">
-                      {categories.find(c => c.value === project.category)?.label}
-                    </Badge>
-                  )}
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="mb-3">
-                    {project.description}
-                  </CardDescription>
-                  {project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          <Card className="py-12">
-            <CardContent className="text-center">
-              <Briefcase className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Nenhum projeto ainda</h3>
-              <p className="text-gray-600 mb-4">
-                Comece a construir seu portfólio adicionando seus melhores projetos.
-              </p>
-              <Button onClick={() => setIsDialogOpen(true)}>
-                <Plus className="h-4 w-4 mr-2" />
-                Adicionar Primeiro Projeto
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-      </div>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     </div>
   );
 }

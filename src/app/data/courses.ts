@@ -1,14 +1,10 @@
-export interface Lesson {
+﻿export interface Lesson {
   id: string;
   title: string;
   duration: string;
   type: 'video' | 'activity';
   points: number;
-<<<<<<< HEAD
   contentUrl?: string;
-=======
-  contentUrl?: string; // youtube embed or similar
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   description?: string;
   questions?: any[];
   maxRetries?: number;
@@ -31,7 +27,6 @@ export interface CourseData {
   tags: string[];
   description: string;
   modules: Module[];
-<<<<<<< HEAD
   status?: 'draft' | 'pending' | 'approved' | 'rejected';
   submittedBy?: string; // userId
   submittedAt?: number;
@@ -39,25 +34,25 @@ export interface CourseData {
 }
 
 export const coursesData: CourseData[] = [
-  // ─── TECH ───────────────────────────────────────────────────────────────────
+  // ÔöÇÔöÇÔöÇ TECH ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   {
     id: 'c1',
-    title: 'Lógica de Programação',
-    provider: 'Curso em Vídeo',
+    title: 'L├│gica de Programa├º├úo',
+    provider: 'Curso em V├¡deo',
     area: 'tech',
     imageUrl: 'https://images.unsplash.com/photo-1675495277087-10598bf7bcd1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBwcm9ncmFtbWluZyUyMGxhcHRvcHxlbnwxfHx8fDE3NzQzMjg2ODd8MA&ixlib=rb-4.1.0&q=80&w=1080',
     duration: '40h',
     rating: 4.9,
-    tags: ['Lógica', 'Algoritmos', 'Iniciante'],
-    description: 'Curso completo de Lógica de Programação para quem está dando os primeiros passos no mundo do desenvolvimento.',
+    tags: ['L├│gica', 'Algoritmos', 'Iniciante'],
+    description: 'Curso completo de L├│gica de Programa├º├úo para quem est├í dando os primeiros passos no mundo do desenvolvimento.',
     modules: [
       {
         id: 'm1_c1',
-        title: 'Módulo 1: Introdução',
+        title: 'M├│dulo 1: Introdu├º├úo',
         lessons: [
           {
             id: 'l1_m1_c1',
-            title: 'Introdução a Algoritmos',
+            title: 'Introdu├º├úo a Algoritmos',
             duration: '35 min',
             type: 'video',
             points: 50,
@@ -70,50 +65,13 @@ export const coursesData: CourseData[] = [
             duration: '30 min',
             type: 'activity',
             points: 100,
-            description: 'Escreva um algoritmo simples descrevendo os passos do seu dia a dia (ex: fazer um café).'
-=======
-}
-
-export const coursesData: CourseData[] = [
-  {
-    id: 'c1',
-    title: 'Bootcamp Fullstack Completo',
-    provider: 'ProNetwork Academy',
-    area: 'tech',
-    imageUrl: 'https://images.unsplash.com/photo-1759884248009-92c5e957708e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBib290Y2FtcCUyMG9ubGluZSUyMGNvdXJzZXxlbnwxfHx8fDE3NzQzMjMyNjB8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    duration: '40h',
-    rating: 4.8,
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    description: 'Aprenda do zero a construir aplicações robustas usando a stack de tecnologia mais atual do mercado: React no front-end e Node.js com PostgreSQL no back-end.',
-    modules: [
-      {
-        id: 'm1_c1',
-        title: 'Módulo 1: Fundamentos do Front-end',
-        lessons: [
-          {
-            id: 'l1_m1_c1',
-            title: 'Introdução ao React e Componentização',
-            duration: '45 min',
-            type: 'video',
-            points: 50,
-            contentUrl: 'https://www.youtube.com/embed/SqcY0GlETPk?si=z8v1vA3q6Z_a8A4W',
-            description: 'Nesta aula, vamos entender como a componentização funciona no React e como criar nossas primeiras interfaces modernas.'
-          },
-          {
-            id: 'l2_m1_c1',
-            title: 'Atividade: Seu Primeiro Componente',
-            duration: '30 min',
-            type: 'activity',
-            points: 100,
-            description: 'Crie um componente de botão reutilizável no CodeSandbox usando Tailwind CSS e envie o link para avaliação.'
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+            description: 'Escreva um algoritmo simples descrevendo os passos do seu dia a dia (ex: fazer um caf├®).'
           }
         ]
       },
       {
         id: 'm2_c1',
-<<<<<<< HEAD
-        title: 'Módulo 2: Estruturas de Controle',
+        title: 'M├│dulo 2: Estruturas de Controle',
         lessons: [
           {
             id: 'l1_m2_c1',
@@ -122,7 +80,7 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 60,
             contentUrl: 'https://www.youtube.com/embed/JEMBMkBBmXE',
-            description: 'Aprenda a usar if/else e laços de repetição para controlar o fluxo do seu programa.'
+            description: 'Aprenda a usar if/else e la├ºos de repeti├º├úo para controlar o fluxo do seu programa.'
           },
           {
             id: 'l2_m2_c1',
@@ -130,55 +88,7 @@ export const coursesData: CourseData[] = [
             duration: '45 min',
             type: 'activity',
             points: 120,
-            description: 'Crie a lógica de uma calculadora que realiza as 4 operações básicas.'
-=======
-        title: 'Módulo 2: Estado e Efeitos',
-        lessons: [
-          {
-            id: 'l1_m2_c1',
-            title: 'Entendendo o useState e useEffect',
-            duration: '50 min',
-            type: 'video',
-            points: 50,
-            contentUrl: 'https://www.youtube.com/embed/O6P86uwfdR0?si=O8Z0_1G2h_M2P2R3',
-            description: 'Aprenda a lidar com estados complexos e efeitos colaterais na sua aplicação.'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'c2',
-    title: 'Ilustração de Moda 3D',
-    provider: 'Fashion Forward Institute',
-    area: 'fashion',
-    imageUrl: 'https://images.unsplash.com/photo-1557777586-f6682739fcf3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwZGVzaWduJTIwc2tldGNoaW5nfGVufDF8fHx8MTc3NDMyMzI2NHww&ixlib=rb-4.1.0&q=80&w=1080',
-    duration: '25h',
-    rating: 4.9,
-    tags: ['CLO 3D', 'Marvelous Designer'],
-    description: 'Domine as ferramentas da próxima geração de estilistas e desenvolva peças realistas no ambiente virtual 3D.',
-    modules: [
-      {
-        id: 'm1_c2',
-        title: 'Módulo 1: Primeiros Passos no 3D',
-        lessons: [
-          {
-            id: 'l1_m1_c2',
-            title: 'Interface do CLO 3D',
-            duration: '40 min',
-            type: 'video',
-            points: 50,
-            contentUrl: 'https://www.youtube.com/embed/SqcY0GlETPk', // Using dummy video since it's a mock
-            description: 'Nesta aula, apresentamos a interface do software CLO 3D.'
-          },
-          {
-            id: 'l2_m1_c2',
-            title: 'Atividade: Modelagem Básica de Camiseta',
-            duration: '1h',
-            type: 'activity',
-            points: 150,
-            description: 'Construa sua primeira modelagem básica e vista no avatar digital.'
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+            description: 'Crie a l├│gica de uma calculadora que realiza as 4 opera├º├Áes b├ísicas.'
           }
         ]
       }
@@ -186,7 +96,6 @@ export const coursesData: CourseData[] = [
   },
   {
     id: 'c3',
-<<<<<<< HEAD
     title: 'Desenvolvimento Web com HTML, CSS e JavaScript',
     provider: 'Rocketseat',
     area: 'tech',
@@ -194,34 +103,34 @@ export const coursesData: CourseData[] = [
     duration: '60h',
     rating: 4.8,
     tags: ['HTML', 'CSS', 'JavaScript', 'Frontend'],
-    description: 'Do zero ao primeiro site completo. Aprenda as três tecnologias base da web e construa interfaces modernas e responsivas.',
+    description: 'Do zero ao primeiro site completo. Aprenda as tr├¬s tecnologias base da web e construa interfaces modernas e responsivas.',
     modules: [
       {
         id: 'm1_c3',
-        title: 'Módulo 1: HTML Semântico',
+        title: 'M├│dulo 1: HTML Sem├óntico',
         lessons: [
           {
             id: 'l1_m1_c3',
-            title: 'Estrutura de uma Página Web',
+            title: 'Estrutura de uma P├ígina Web',
             duration: '30 min',
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/epDCjksKMok',
-            description: 'Entenda como o HTML estrutura o conteúdo de uma página e as principais tags semânticas.'
+            description: 'Entenda como o HTML estrutura o conte├║do de uma p├ígina e as principais tags sem├ónticas.'
           },
           {
             id: 'l2_m1_c3',
-            title: 'Atividade: Minha Primeira Página',
+            title: 'Atividade: Minha Primeira P├ígina',
             duration: '1h',
             type: 'activity',
             points: 100,
-            description: 'Crie uma página HTML com cabeçalho, seção de conteúdo e rodapé usando tags semânticas.'
+            description: 'Crie uma p├ígina HTML com cabe├ºalho, se├º├úo de conte├║do e rodap├® usando tags sem├ónticas.'
           }
         ]
       },
       {
         id: 'm2_c3',
-        title: 'Módulo 2: CSS e Estilização',
+        title: 'M├│dulo 2: CSS e Estiliza├º├úo',
         lessons: [
           {
             id: 'l1_m2_c3',
@@ -238,7 +147,7 @@ export const coursesData: CourseData[] = [
             duration: '1h 30 min',
             type: 'activity',
             points: 150,
-            description: 'Recrie um layout de portfólio responsivo usando Flexbox e Grid.'
+            description: 'Recrie um layout de portf├│lio responsivo usando Flexbox e Grid.'
           }
         ]
       }
@@ -246,27 +155,27 @@ export const coursesData: CourseData[] = [
   },
   {
     id: 'c4',
-    title: 'UI/UX Design: Do Conceito ao Protótipo',
+    title: 'UI/UX Design: Do Conceito ao Prot├│tipo',
     provider: 'Alura',
     area: 'tech',
     imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     duration: '35h',
     rating: 4.7,
     tags: ['UI', 'UX', 'Figma', 'Design'],
-    description: 'Aprenda a projetar interfaces centradas no utilizador, desde a pesquisa até o protótipo interativo no Figma.',
+    description: 'Aprenda a projetar interfaces centradas no utilizador, desde a pesquisa at├® o prot├│tipo interativo no Figma.',
     modules: [
       {
         id: 'm1_c4',
-        title: 'Módulo 1: Fundamentos de UX',
+        title: 'M├│dulo 1: Fundamentos de UX',
         lessons: [
           {
             id: 'l1_m1_c4',
-            title: 'O que é UX Design?',
+            title: 'O que ├® UX Design?',
             duration: '25 min',
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/SRec90j6lTY',
-            description: 'Entenda o que é experiência do utilizador e por que ela é essencial no desenvolvimento de produtos digitais.'
+            description: 'Entenda o que ├® experi├¬ncia do utilizador e por que ela ├® essencial no desenvolvimento de produtos digitais.'
           },
           {
             id: 'l2_m1_c4',
@@ -274,37 +183,37 @@ export const coursesData: CourseData[] = [
             duration: '45 min',
             type: 'activity',
             points: 100,
-            description: 'Crie um mapa de empatia para um utilizador fictício de um app de moda.'
+            description: 'Crie um mapa de empatia para um utilizador fict├¡cio de um app de moda.'
           }
         ]
       },
       {
         id: 'm2_c4',
-        title: 'Módulo 2: Prototipagem no Figma',
+        title: 'M├│dulo 2: Prototipagem no Figma',
         lessons: [
           {
             id: 'l1_m2_c4',
-            title: 'Introdução ao Figma',
+            title: 'Introdu├º├úo ao Figma',
             duration: '40 min',
             type: 'video',
             points: 60,
             contentUrl: 'https://www.youtube.com/embed/FTFaQWZBqQ8',
-            description: 'Conheça a interface do Figma e crie os seus primeiros frames e componentes.'
+            description: 'Conhe├ºa a interface do Figma e crie os seus primeiros frames e componentes.'
           },
           {
             id: 'l2_m2_c4',
-            title: 'Atividade: Protótipo de App',
+            title: 'Atividade: Prot├│tipo de App',
             duration: '2h',
             type: 'activity',
             points: 200,
-            description: 'Prototipe um fluxo de onboarding de 3 telas para um app de portfólio criativo.'
+            description: 'Prototipe um fluxo de onboarding de 3 telas para um app de portf├│lio criativo.'
           }
         ]
       }
     ]
   },
 
-  // ─── MODA (FASHION) ──────────────────────────────────────────────────────────
+  // ÔöÇÔöÇÔöÇ MODA (FASHION) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   {
     id: 'c5',
     title: 'Fundamentos do Design de Moda',
@@ -314,11 +223,11 @@ export const coursesData: CourseData[] = [
     duration: '45h',
     rating: 4.8,
     tags: ['Moda', 'Design', 'Croqui', 'Iniciante'],
-    description: 'Explore os princípios do design de moda: história, teoria das cores, silhuetas e criação de croquis de moda.',
+    description: 'Explore os princ├¡pios do design de moda: hist├│ria, teoria das cores, silhuetas e cria├º├úo de croquis de moda.',
     modules: [
       {
         id: 'm1_c5',
-        title: 'Módulo 1: História da Moda',
+        title: 'M├│dulo 1: Hist├│ria da Moda',
         lessons: [
           {
             id: 'l1_m1_c5',
@@ -327,7 +236,7 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/bCFMBBMFMSA',
-            description: 'Uma viagem pela evolução da moda desde os ateliês parisienses até as tendências globais de hoje.'
+            description: 'Uma viagem pela evolu├º├úo da moda desde os ateli├¬s parisienses at├® as tend├¬ncias globais de hoje.'
           },
           {
             id: 'l2_m1_c5',
@@ -335,30 +244,30 @@ export const coursesData: CourseData[] = [
             duration: '1h',
             type: 'activity',
             points: 100,
-            description: 'Crie uma linha do tempo visual com os principais movimentos da moda do século XX ao XXI.'
+            description: 'Crie uma linha do tempo visual com os principais movimentos da moda do s├®culo XX ao XXI.'
           }
         ]
       },
       {
         id: 'm2_c5',
-        title: 'Módulo 2: Teoria das Cores na Moda',
+        title: 'M├│dulo 2: Teoria das Cores na Moda',
         lessons: [
           {
             id: 'l1_m2_c5',
-            title: 'Paletas e Combinações de Cores',
+            title: 'Paletas e Combina├º├Áes de Cores',
             duration: '40 min',
             type: 'video',
             points: 60,
             contentUrl: 'https://www.youtube.com/embed/YeI6Wqn4I78',
-            description: 'Aprenda a criar paletas harmoniosas e entenda como as cores comunicam emoções na moda.'
+            description: 'Aprenda a criar paletas harmoniosas e entenda como as cores comunicam emo├º├Áes na moda.'
           },
           {
             id: 'l2_m2_c5',
-            title: 'Atividade: Moodboard de Coleção',
+            title: 'Atividade: Moodboard de Cole├º├úo',
             duration: '1h 30 min',
             type: 'activity',
             points: 150,
-            description: 'Monte um moodboard digital para uma mini-coleção de 5 peças com paleta de cores definida.'
+            description: 'Monte um moodboard digital para uma mini-cole├º├úo de 5 pe├ºas com paleta de cores definida.'
           }
         ]
       }
@@ -372,12 +281,12 @@ export const coursesData: CourseData[] = [
     imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     duration: '50h',
     rating: 4.7,
-    tags: ['Modelagem', 'Costura', 'Técnica', 'Prático'],
-    description: 'Aprenda a transformar ideias em peças reais: do traçado da modelagem plana à costura da primeira peça.',
+    tags: ['Modelagem', 'Costura', 'T├®cnica', 'Pr├ítico'],
+    description: 'Aprenda a transformar ideias em pe├ºas reais: do tra├ºado da modelagem plana ├á costura da primeira pe├ºa.',
     modules: [
       {
         id: 'm1_c6',
-        title: 'Módulo 1: Modelagem Plana',
+        title: 'M├│dulo 1: Modelagem Plana',
         lessons: [
           {
             id: 'l1_m1_c6',
@@ -386,30 +295,30 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/Wd0JBqZhFBY',
-            description: 'Entenda como tirar medidas corretamente e como funcionam as tabelas de numeração brasileira.'
+            description: 'Entenda como tirar medidas corretamente e como funcionam as tabelas de numera├º├úo brasileira.'
           },
           {
             id: 'l2_m1_c6',
-            title: 'Atividade: Traçado de Blusa Básica',
+            title: 'Atividade: Tra├ºado de Blusa B├ísica',
             duration: '2h',
             type: 'activity',
             points: 200,
-            description: 'Trace a modelagem de uma blusa básica feminina usando as suas próprias medidas.'
+            description: 'Trace a modelagem de uma blusa b├ísica feminina usando as suas pr├│prias medidas.'
           }
         ]
       },
       {
         id: 'm2_c6',
-        title: 'Módulo 2: Introdução à Costura',
+        title: 'M├│dulo 2: Introdu├º├úo ├á Costura',
         lessons: [
           {
             id: 'l1_m2_c6',
-            title: 'Conhecendo a Máquina de Costura',
+            title: 'Conhecendo a M├íquina de Costura',
             duration: '25 min',
             type: 'video',
             points: 40,
             contentUrl: 'https://www.youtube.com/embed/5Ql3RFnZ8Oc',
-            description: 'Partes da máquina, tipos de pontos e como fazer a regulagem básica para diferentes tecidos.'
+            description: 'Partes da m├íquina, tipos de pontos e como fazer a regulagem b├ísica para diferentes tecidos.'
           },
           {
             id: 'l2_m2_c6',
@@ -417,7 +326,7 @@ export const coursesData: CourseData[] = [
             duration: '1h 30 min',
             type: 'activity',
             points: 150,
-            description: 'Costure as peças da blusa básica traçada no módulo anterior e finalize as costuras.'
+            description: 'Costure as pe├ºas da blusa b├ísica tra├ºada no m├│dulo anterior e finalize as costuras.'
           }
         ]
       }
@@ -431,12 +340,12 @@ export const coursesData: CourseData[] = [
     imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     duration: '25h',
     rating: 4.6,
-    tags: ['Marketing', 'Instagram', 'Branding', 'Negócios'],
-    description: 'Estratégias de marketing digital específicas para o mercado de moda: branding, redes sociais, influencers e e-commerce.',
+    tags: ['Marketing', 'Instagram', 'Branding', 'Neg├│cios'],
+    description: 'Estrat├®gias de marketing digital espec├¡ficas para o mercado de moda: branding, redes sociais, influencers e e-commerce.',
     modules: [
       {
         id: 'm1_c7',
-        title: 'Módulo 1: Identidade de Marca',
+        title: 'M├│dulo 1: Identidade de Marca',
         lessons: [
           {
             id: 'l1_m1_c7',
@@ -445,22 +354,22 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/l-S2Y3SF3jM',
-            description: 'Como definir posicionamento, público-alvo e identidade visual para uma marca de moda.'
+            description: 'Como definir posicionamento, p├║blico-alvo e identidade visual para uma marca de moda.'
           },
           {
             id: 'l2_m1_c7',
-            title: 'Atividade: Brand Book Básico',
+            title: 'Atividade: Brand Book B├ísico',
             duration: '2h',
             type: 'activity',
             points: 180,
-            description: 'Crie um brand book simplificado para uma marca de moda fictícia com logo, paleta e tom de voz.'
+            description: 'Crie um brand book simplificado para uma marca de moda fict├¡cia com logo, paleta e tom de voz.'
           }
         ]
       }
     ]
   },
 
-  // ─── ARQUITETURA ─────────────────────────────────────────────────────────────
+  // ÔöÇÔöÇÔöÇ ARQUITETURA ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   {
     id: 'c2',
     title: 'Modelagem 3D para Iniciantes',
@@ -470,11 +379,11 @@ export const coursesData: CourseData[] = [
     duration: '30h',
     rating: 4.8,
     tags: ['3D', 'Modelagem', 'Design'],
-    description: 'Aprenda os fundamentos da modelagem 3D, desde a interface do software até a criação dos seus primeiros objetos.',
+    description: 'Aprenda os fundamentos da modelagem 3D, desde a interface do software at├® a cria├º├úo dos seus primeiros objetos.',
     modules: [
       {
         id: 'm1_c2',
-        title: 'Módulo 1: Fundamentos 3D',
+        title: 'M├│dulo 1: Fundamentos 3D',
         lessons: [
           {
             id: 'l1_m1_c2',
@@ -483,15 +392,15 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/5TET1kdaSrU',
-            description: 'Visão geral da interface do software de modelagem e navegação básica no espaço 3D.'
+            description: 'Vis├úo geral da interface do software de modelagem e navega├º├úo b├ísica no espa├ºo 3D.'
           },
           {
             id: 'l2_m1_c2',
-            title: 'Prática: Manipulando Formas',
+            title: 'Pr├ítica: Manipulando Formas',
             duration: '1h',
             type: 'activity',
             points: 150,
-            description: 'Crie e modifique vértices, arestas e faces da sua primeira malha geométrica.'
+            description: 'Crie e modifique v├®rtices, arestas e faces da sua primeira malha geom├®trica.'
           }
         ]
       }
@@ -505,12 +414,12 @@ export const coursesData: CourseData[] = [
     imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     duration: '55h',
     rating: 4.9,
-    tags: ['AutoCAD', 'Plantas', 'Técnico', 'Projetos'],
-    description: 'Domine o AutoCAD para criar plantas baixas, cortes, fachadas e detalhamentos técnicos com precisão profissional.',
+    tags: ['AutoCAD', 'Plantas', 'T├®cnico', 'Projetos'],
+    description: 'Domine o AutoCAD para criar plantas baixas, cortes, fachadas e detalhamentos t├®cnicos com precis├úo profissional.',
     modules: [
       {
         id: 'm1_c8',
-        title: 'Módulo 1: Interface e Comandos Básicos',
+        title: 'M├│dulo 1: Interface e Comandos B├ísicos',
         lessons: [
           {
             id: 'l1_m1_c8',
@@ -519,7 +428,7 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/Ot4qKMBmFpA',
-            description: 'Conheça a interface, os painéis de ferramentas e os comandos essenciais para começar a desenhar.'
+            description: 'Conhe├ºa a interface, os pain├®is de ferramentas e os comandos essenciais para come├ºar a desenhar.'
           },
           {
             id: 'l2_m1_c8',
@@ -533,11 +442,11 @@ export const coursesData: CourseData[] = [
       },
       {
         id: 'm2_c8',
-        title: 'Módulo 2: Cotas, Hachuras e Impressão',
+        title: 'M├│dulo 2: Cotas, Hachuras e Impress├úo',
         lessons: [
           {
             id: 'l1_m2_c8',
-            title: 'Cotagem e Anotações Técnicas',
+            title: 'Cotagem e Anota├º├Áes T├®cnicas',
             duration: '35 min',
             type: 'video',
             points: 60,
@@ -550,7 +459,7 @@ export const coursesData: CourseData[] = [
             duration: '3h',
             type: 'activity',
             points: 250,
-            description: 'Finalize um projeto residencial com planta baixa, corte e fachada prontos para impressão.'
+            description: 'Finalize um projeto residencial com planta baixa, corte e fachada prontos para impress├úo.'
           }
         ]
       }
@@ -564,12 +473,12 @@ export const coursesData: CourseData[] = [
     imageUrl: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
     duration: '40h',
     rating: 4.7,
-    tags: ['Interiores', 'Decoração', 'Projeto', 'Estilo'],
+    tags: ['Interiores', 'Decora├º├úo', 'Projeto', 'Estilo'],
     description: 'Aprenda a criar ambientes funcionais e esteticamente coerentes: do briefing do cliente ao projeto executivo.',
     modules: [
       {
         id: 'm1_c9',
-        title: 'Módulo 1: Conceito e Briefing',
+        title: 'M├│dulo 1: Conceito e Briefing',
         lessons: [
           {
             id: 'l1_m1_c9',
@@ -578,7 +487,7 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 50,
             contentUrl: 'https://www.youtube.com/embed/Ot4qKMBmFpA',
-            description: 'Aprenda a levantar as necessidades do cliente e transformá-las em conceito de projeto.'
+            description: 'Aprenda a levantar as necessidades do cliente e transform├í-las em conceito de projeto.'
           },
           {
             id: 'l2_m1_c9',
@@ -586,13 +495,13 @@ export const coursesData: CourseData[] = [
             duration: '1h 30 min',
             type: 'activity',
             points: 150,
-            description: 'Crie um moodboard para uma sala de estar contemporânea com referências de materiais e mobiliário.'
+            description: 'Crie um moodboard para uma sala de estar contempor├ónea com refer├¬ncias de materiais e mobili├írio.'
           }
         ]
       },
       {
         id: 'm2_c9',
-        title: 'Módulo 2: Ergonomia e Circulação',
+        title: 'M├│dulo 2: Ergonomia e Circula├º├úo',
         lessons: [
           {
             id: 'l1_m2_c9',
@@ -601,7 +510,7 @@ export const coursesData: CourseData[] = [
             type: 'video',
             points: 60,
             contentUrl: 'https://www.youtube.com/embed/Ot4qKMBmFpA',
-            description: 'Entenda as medidas mínimas de circulação, conforto e acessibilidade em projetos de interiores.'
+            description: 'Entenda as medidas m├¡nimas de circula├º├úo, conforto e acessibilidade em projetos de interiores.'
           },
           {
             id: 'l2_m2_c9',
@@ -610,29 +519,6 @@ export const coursesData: CourseData[] = [
             type: 'activity',
             points: 180,
             description: 'Proponha o layout de uma sala de jantar para 6 pessoas respeitando as normas de ergonomia.'
-=======
-    title: 'Revit e Modelagem BIM Avançada',
-    provider: 'ArchiTech Learning',
-    area: 'architecture',
-    imageUrl: 'https://images.unsplash.com/photo-1694902967176-070e63512b3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmUlMjBza2V0Y2hpbmclMjBkcmFmdGluZ3xlbnwxfHx8fDE3NzQzMjMyNjh8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    duration: '60h',
-    rating: 4.7,
-    tags: ['BIM', 'Revit', 'Projetos'],
-    description: 'Domine o Revit e metodologias BIM para levar os projetos da sua carreira na arquitetura para um novo patamar de eficiência.',
-    modules: [
-      {
-        id: 'm1_c3',
-        title: 'Módulo 1: Fundamentos do BIM',
-        lessons: [
-          {
-            id: 'l1_m1_c3',
-            title: 'O que é BIM e como ele muda o mercado',
-            duration: '35 min',
-            type: 'video',
-            points: 50,
-            contentUrl: 'https://www.youtube.com/embed/SqcY0GlETPk',
-            description: 'Entenda os princípios e vantagens competitivas da metodologia BIM.'
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
           }
         ]
       }

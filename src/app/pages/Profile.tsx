@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -13,7 +13,6 @@ import { Label } from '../components/ui/label';
 import { PortfolioCarousel } from '../components/PortfolioCarousel';
 import { ImageCropperDialog } from '../components/ImageCropperDialog';
 import {
-<<<<<<< HEAD
   DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from '../components/ui/dropdown-menu';
 import {
@@ -74,62 +73,21 @@ export default function Profile() {
   const [contactForm, setContactForm] = useState({ headline: '', location: '', website: '', phone: '' });
 
   // Photo cropper
-=======
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '../components/ui/dropdown-menu';
-import { 
-  Home, 
-  User, 
-  Briefcase, 
-  LogOut, 
-  Network,
-  TrendingUp,
-  Users,
-  Edit,
-  Plus,
-  X,
-  Camera,
-  Image as ImageIcon,
-  Trash2,
-  Crop
-} from 'lucide-react';
-
-export default function Profile() {
-  const navigate = useNavigate();
-  const { currentUser, logout, updateProfile } = useApp();
-  const [isEditingBio, setIsEditingBio] = useState(false);
-  const [editedBio, setEditedBio] = useState(currentUser?.bio || '');
-  const [newSkill, setNewSkill] = useState('');
-  const [newExperience, setNewExperience] = useState({
-    title: '',
-    company: '',
-    period: ''
-  });
-
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const [cropperOpen, setCropperOpen] = useState(false);
   const [cropperImage, setCropperImage] = useState('');
   const [cropperAspect, setCropperAspect] = useState(1);
   const [cropperTitle, setCropperTitle] = useState('');
   const [currentEditType, setCurrentEditType] = useState<'avatar' | 'cover' | null>(null);
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const avatarInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-<<<<<<< HEAD
     if (!currentUser) navigate('/login');
   }, [currentUser, navigate]);
 
   if (!currentUser) return null;
 
-  // ── Info ──────────────────────────────────────────────
+  // ÔöÇÔöÇ Info ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const openEditInfo = () => {
     setEditedName(currentUser.name);
     setEditedArea(currentUser.area);
@@ -142,11 +100,11 @@ export default function Profile() {
     }
   };
 
-  // ── Bio ───────────────────────────────────────────────
+  // ÔöÇÔöÇ Bio ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const openEditBio = () => { setEditedBio(currentUser.bio || ''); setIsEditingBio(true); };
   const saveBio = () => { updateProfile({ bio: editedBio }); setIsEditingBio(false); };
 
-  // ── Skills ────────────────────────────────────────────
+  // ÔöÇÔöÇ Skills ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addSkill = () => {
     if (!newSkill.trim()) return;
     updateProfile({ skills: [...(currentUser.skills || []), newSkill.trim()] });
@@ -164,7 +122,7 @@ export default function Profile() {
     updateProfile({ skills: currentUser.skills.filter((_, idx) => idx !== i) });
   };
 
-  // ── Experiences ───────────────────────────────────────
+  // ÔöÇÔöÇ Experiences ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addExp = () => {
     if (!newExp.title || !newExp.company) return;
     updateProfile({ experiences: [...(currentUser.experiences || []), newExp] });
@@ -182,7 +140,7 @@ export default function Profile() {
     updateProfile({ experiences: currentUser.experiences.filter((_, idx) => idx !== i) });
   };
 
-  // ── Education ─────────────────────────────────────────
+  // ÔöÇÔöÇ Education ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addEdu = () => {
     if (!newEdu.institution || !newEdu.degree) return;
     updateProfile({ education: [...(currentUser.education || []), newEdu] });
@@ -199,7 +157,7 @@ export default function Profile() {
     updateProfile({ education: (currentUser.education || []).filter((_, idx) => idx !== i) });
   };
 
-  // ── Certifications ────────────────────────────────────
+  // ÔöÇÔöÇ Certifications ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addCert = () => {
     if (!newCert.name || !newCert.issuer) return;
     updateProfile({ certifications: [...(currentUser.certifications || []), newCert] });
@@ -216,7 +174,7 @@ export default function Profile() {
     updateProfile({ certifications: (currentUser.certifications || []).filter((_, idx) => idx !== i) });
   };
 
-  // ── Languages ─────────────────────────────────────────
+  // ÔöÇÔöÇ Languages ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addLang = () => {
     if (!newLang.name || !newLang.level) return;
     updateProfile({ languages: [...(currentUser.languages || []), newLang] });
@@ -226,7 +184,7 @@ export default function Profile() {
     updateProfile({ languages: (currentUser.languages || []).filter((_, idx) => idx !== i) });
   };
 
-  // ── Volunteer ─────────────────────────────────────────
+  // ÔöÇÔöÇ Volunteer ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const addVol = () => {
     if (!newVol.role || !newVol.organization) return;
     updateProfile({ volunteer: [...(currentUser.volunteer || []), newVol] });
@@ -243,7 +201,7 @@ export default function Profile() {
     updateProfile({ volunteer: (currentUser.volunteer || []).filter((_, idx) => idx !== i) });
   };
 
-  // ── Contact ───────────────────────────────────────────
+  // ÔöÇÔöÇ Contact ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const openEditContact = () => {
     setContactForm({
       headline: currentUser.headline || '',
@@ -258,89 +216,16 @@ export default function Profile() {
     setIsEditingContact(false);
   };
 
-  // ── Photos ────────────────────────────────────────────
+  // ÔöÇÔöÇ Photos ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'avatar' | 'cover') => {
     if (!e.target.files?.length) return;
     const reader = new FileReader();
     reader.addEventListener('load', () => {
       setCropperImage(reader.result?.toString() || '');
-=======
-    if (!currentUser) {
-      navigate('/login');
-    }
-  }, [currentUser, navigate]);
-
-  if (!currentUser) {
-    return null;
-  }
-
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
-
-  const handleSaveBio = () => {
-    updateProfile({ bio: editedBio });
-    setIsEditingBio(false);
-  };
-
-  const handleAddSkill = () => {
-    if (newSkill.trim()) {
-      const currentSkills = currentUser.skills || [];
-      updateProfile({ skills: [...currentSkills, newSkill.trim()] });
-      setNewSkill('');
-    }
-  };
-
-  const handleRemoveSkill = (skillToRemove: string) => {
-    const currentSkills = currentUser.skills || [];
-    updateProfile({ skills: currentSkills.filter(s => s !== skillToRemove) });
-  };
-
-  const handleAddExperience = () => {
-    if (newExperience.title && newExperience.company) {
-      const currentExperiences = currentUser.experiences || [];
-      updateProfile({ 
-        experiences: [...currentExperiences, newExperience] 
-      });
-      setNewExperience({ title: '', company: '', period: '' });
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'avatar' | 'cover') => {
-    if (e.target.files && e.target.files.length > 0) {
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        setCropperImage(reader.result?.toString() || '');
-        setCropperAspect(type === 'avatar' ? 1 : 16 / 9);
-        setCropperTitle(type === 'avatar' ? 'Ajustar Foto de Perfil' : 'Ajustar Foto de Capa');
-        setCurrentEditType(type);
-        setCropperOpen(true);
-      });
-      reader.readAsDataURL(e.target.files[0]);
-    }
-    // reset input
-    e.target.value = '';
-  };
-
-  const handleCropSave = (croppedImage: string) => {
-    if (currentEditType === 'avatar') {
-      updateProfile({ avatar: croppedImage });
-    } else if (currentEditType === 'cover') {
-      updateProfile({ coverImage: croppedImage });
-    }
-  };
-
-  const handleEditCurrentPhoto = (type: 'avatar' | 'cover') => {
-    const imageUrl = type === 'avatar' ? currentUser.avatar : currentUser.coverImage;
-    if (imageUrl) {
-      setCropperImage(imageUrl);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       setCropperAspect(type === 'avatar' ? 1 : 16 / 9);
       setCropperTitle(type === 'avatar' ? 'Ajustar Foto de Perfil' : 'Ajustar Foto de Capa');
       setCurrentEditType(type);
       setCropperOpen(true);
-<<<<<<< HEAD
     });
     reader.readAsDataURL(e.target.files[0]);
     e.target.value = '';
@@ -361,34 +246,10 @@ export default function Profile() {
   const handleDeletePhoto = (type: 'avatar' | 'cover') => {
     if (type === 'avatar') updateProfile({ avatar: '' });
     else updateProfile({ coverImage: '' });
-=======
-    }
-  };
-
-  const handleDeletePhoto = (type: 'avatar' | 'cover') => {
-    if (type === 'avatar') {
-      updateProfile({ avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200' });
-    } else {
-      updateProfile({ coverImage: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200' });
-    }
-  };
-
-  const areaColors = {
-    tech: 'bg-blue-100 text-blue-700',
-    fashion: 'bg-pink-100 text-pink-700',
-    architecture: 'bg-green-100 text-green-700'
-  };
-
-  const areaLabels = {
-    tech: 'Tecnologia',
-    fashion: 'Moda',
-    architecture: 'Arquitetura'
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
-<<<<<<< HEAD
       <Navbar />
 
       {/* Hidden file inputs */}
@@ -406,79 +267,29 @@ export default function Profile() {
 
       <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-        {/* ── Cover & Avatar ── */}
+        {/* ÔöÇÔöÇ Cover & Avatar ÔöÇÔöÇ */}
         <Card>
           <div className="relative group">
             <div
               className="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-t-lg"
               style={currentUser.coverImage ? { backgroundImage: `url(${currentUser.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
             />
-=======
-      {/* Header */}
-      <Navbar />
-
-      <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
-        {/* Hidden File Inputs */}
-        <input 
-          type="file" 
-          accept="image/*" 
-          className="hidden" 
-          ref={avatarInputRef} 
-          onChange={(e) => handleFileChange(e, 'avatar')} 
-        />
-        <input 
-          type="file" 
-          accept="image/*" 
-          className="hidden" 
-          ref={coverInputRef} 
-          onChange={(e) => handleFileChange(e, 'cover')} 
-        />
-
-        <ImageCropperDialog
-          open={cropperOpen}
-          imageSrc={cropperImage}
-          aspect={cropperAspect}
-          title={cropperTitle}
-          onClose={() => setCropperOpen(false)}
-          onCropSave={handleCropSave}
-        />
-
-        {/* Cover & Profile Picture */}
-        <Card>
-          <div className="relative group">
-            <div 
-              className="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-t-lg transition-opacity"
-              style={{ backgroundImage: `url(${currentUser.coverImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-            />
-            {/* Cover Edit Button */}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
             <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="secondary" size="sm" className="bg-white/80 hover:bg-white text-gray-800">
-<<<<<<< HEAD
                     <Camera className="h-4 w-4 mr-2" /> Editar Capa
-=======
-                    <Camera className="h-4 w-4 mr-2" />
-                    Editar Capa
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   <DropdownMenuItem onClick={() => coverInputRef.current?.click()}>
                     <ImageIcon className="h-4 w-4 mr-2" /> Fazer upload
                   </DropdownMenuItem>
-<<<<<<< HEAD
                   {currentUser.coverImage && (
                     <DropdownMenuItem onClick={() => handleEditCurrentPhoto('cover')}>
                       <Crop className="h-4 w-4 mr-2" /> Ajustar imagem
                     </DropdownMenuItem>
                   )}
-=======
-                  <DropdownMenuItem onClick={() => handleEditCurrentPhoto('cover')}>
-                    <Crop className="h-4 w-4 mr-2" /> Ajustar imagem
-                  </DropdownMenuItem>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   <DropdownMenuItem className="text-red-600" onClick={() => handleDeletePhoto('cover')}>
                     <Trash2 className="h-4 w-4 mr-2" /> Remover
                   </DropdownMenuItem>
@@ -488,21 +299,12 @@ export default function Profile() {
 
             <div className="absolute -bottom-16 left-6 group/avatar">
               <div className="relative">
-<<<<<<< HEAD
                 <Avatar className="h-32 w-32 border-4 border-white shadow">
                   <AvatarImage src={currentUser.avatar} />
                   <AvatarFallback className="text-3xl font-bold bg-indigo-100 text-indigo-700">
                     {currentUser.name.slice(0, 2).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
-=======
-                <Avatar className="h-32 w-32 border-4 border-white">
-                  <AvatarImage src={currentUser.avatar} />
-                  <AvatarFallback>{currentUser.name[0]}</AvatarFallback>
-                </Avatar>
-                
-                {/* Avatar Edit Button */}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button className="absolute bottom-2 right-2 p-2 bg-white rounded-full shadow-md border border-gray-200 hover:bg-gray-50 text-gray-700 opacity-0 group-hover/avatar:opacity-100 transition-opacity focus:opacity-100">
@@ -513,17 +315,11 @@ export default function Profile() {
                     <DropdownMenuItem onClick={() => avatarInputRef.current?.click()}>
                       <ImageIcon className="h-4 w-4 mr-2" /> Fazer upload
                     </DropdownMenuItem>
-<<<<<<< HEAD
                     {currentUser.avatar && (
                       <DropdownMenuItem onClick={() => handleEditCurrentPhoto('avatar')}>
                         <Crop className="h-4 w-4 mr-2" /> Ajustar foto
                       </DropdownMenuItem>
                     )}
-=======
-                    <DropdownMenuItem onClick={() => handleEditCurrentPhoto('avatar')}>
-                      <Crop className="h-4 w-4 mr-2" /> Ajustar foto
-                    </DropdownMenuItem>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                     <DropdownMenuItem className="text-red-600" onClick={() => handleDeletePhoto('avatar')}>
                       <Trash2 className="h-4 w-4 mr-2" /> Remover
                     </DropdownMenuItem>
@@ -532,7 +328,6 @@ export default function Profile() {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
 
           <CardContent className="pt-20">
             {isEditingInfo ? (
@@ -542,7 +337,7 @@ export default function Profile() {
                   <Input value={editedName} onChange={e => setEditedName(e.target.value)} className="mt-1" />
                 </div>
                 <div>
-                  <Label>Área</Label>
+                  <Label>├ürea</Label>
                   <select
                     value={editedArea}
                     onChange={e => setEditedArea(e.target.value as 'tech' | 'fashion' | 'architecture')}
@@ -599,7 +394,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ── Bio ── */}
+        {/* ÔöÇÔöÇ Bio ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle>Sobre</CardTitle>
@@ -613,84 +408,23 @@ export default function Profile() {
                 <Textarea
                   value={editedBio}
                   onChange={e => setEditedBio(e.target.value)}
-=======
-          <CardContent className="pt-20">
-            <div className="flex items-start justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold">{currentUser.name}</h2>
-                <p className="text-gray-600 mt-1">{currentUser.email}</p>
-                <div className="flex items-center gap-3 mt-3">
-                  <Badge className={areaColors[currentUser.area]}>
-                    {areaLabels[currentUser.area]}
-                  </Badge>
-                  <div className="flex items-center gap-1 text-sm">
-                    <TrendingUp className="h-4 w-4 text-indigo-600" />
-                    <span className="font-semibold">{currentUser.professionalScore}</span>
-                    <span className="text-gray-500">Score Profissional</span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-6 mt-3 text-sm">
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span><strong>{currentUser.followersIds?.length || 0}</strong> seguidores</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span><strong>{currentUser.followingIds?.length || 0}</strong> seguindo</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Bio */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Sobre</CardTitle>
-            <Button variant="ghost" size="sm" onClick={() => setIsEditingBio(!isEditingBio)}>
-              <Edit className="h-4 w-4" />
-            </Button>
-          </CardHeader>
-          <CardContent>
-            {isEditingBio ? (
-              <div className="space-y-4">
-                <Textarea
-                  value={editedBio}
-                  onChange={(e) => setEditedBio(e.target.value)}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
-                  placeholder="Conte sobre você, suas experiências e objetivos..."
+                  placeholder="Conte sobre voc├¬, suas experi├¬ncias e objetivos..."
                   rows={4}
                 />
                 <div className="flex gap-2 justify-end">
-<<<<<<< HEAD
                   <Button variant="ghost" size="sm" onClick={() => setIsEditingBio(false)}>Cancelar</Button>
                   <Button size="sm" onClick={saveBio}><Check className="h-4 w-4 mr-1" /> Salvar</Button>
                 </div>
               </div>
             ) : (
               <p className="text-gray-700 whitespace-pre-wrap">
-                {currentUser.bio || <span className="text-gray-400 italic">Adicione uma descrição sobre você...</span>}
-=======
-                  <Button variant="ghost" size="sm" onClick={() => setIsEditingBio(false)}>
-                    Cancelar
-                  </Button>
-                  <Button size="sm" onClick={handleSaveBio}>
-                    Salvar
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <p className="text-gray-700">
-                {currentUser.bio || 'Adicione uma descrição sobre você...'}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+                {currentUser.bio || <span className="text-gray-400 italic">Adicione uma descri├º├úo sobre voc├¬...</span>}
               </p>
             )}
           </CardContent>
         </Card>
 
-<<<<<<< HEAD
-        {/* ── Skills ── */}
+        {/* ÔöÇÔöÇ Skills ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle>Habilidades</CardTitle>
@@ -712,41 +446,11 @@ export default function Profile() {
                     />
                   </div>
                   <Button onClick={addSkill} className="w-full">Adicionar</Button>
-=======
-        {/* Skills */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Habilidades</CardTitle>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Plus className="h-4 w-4" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Adicionar Habilidade</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="skill">Nome da Habilidade</Label>
-                    <Input
-                      id="skill"
-                      value={newSkill}
-                      onChange={(e) => setNewSkill(e.target.value)}
-                      placeholder="Ex: React, Design Thinking..."
-                    />
-                  </div>
-                  <Button onClick={handleAddSkill} className="w-full">
-                    Adicionar
-                  </Button>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 </div>
               </DialogContent>
             </Dialog>
           </CardHeader>
           <CardContent>
-<<<<<<< HEAD
             {(currentUser.skills?.length || 0) > 0 ? (
               <div className="flex flex-wrap gap-2">
                 {currentUser.skills.map((skill, i) =>
@@ -781,16 +485,16 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ── Experience ── */}
+        {/* ÔöÇÔöÇ Experience ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Experiência</CardTitle>
+            <CardTitle>Experi├¬ncia</CardTitle>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button>
               </DialogTrigger>
               <DialogContent>
-                <DialogHeader><DialogTitle>Adicionar Experiência</DialogTitle></DialogHeader>
+                <DialogHeader><DialogTitle>Adicionar Experi├¬ncia</DialogTitle></DialogHeader>
                 <div className="space-y-4">
                   <div>
                     <Label>Cargo</Label>
@@ -801,11 +505,11 @@ export default function Profile() {
                     <Input value={newExp.company} onChange={e => setNewExp({ ...newExp, company: e.target.value })} placeholder="Ex: Tech Corp" className="mt-1" />
                   </div>
                   <div>
-                    <Label>Período</Label>
+                    <Label>Per├¡odo</Label>
                     <Input value={newExp.period} onChange={e => setNewExp({ ...newExp, period: e.target.value })} placeholder="Ex: 2020 - Presente" className="mt-1" />
                   </div>
                   <div>
-                    <Label>Descrição</Label>
+                    <Label>Descri├º├úo</Label>
                     <Textarea value={newExp.description} onChange={e => setNewExp({ ...newExp, description: e.target.value })} placeholder="Descreva suas responsabilidades..." rows={3} className="mt-1" />
                   </div>
                   <label className="flex items-center gap-2 text-sm cursor-pointer">
@@ -813,87 +517,19 @@ export default function Profile() {
                     Emprego atual
                   </label>
                   <Button onClick={addExp} className="w-full">Adicionar</Button>
-=======
-            <div className="flex flex-wrap gap-2">
-              {(currentUser.skills?.length || 0) > 0 ? (
-                currentUser.skills.map((skill, index) => (
-                  <Badge key={index} variant="secondary" className="px-3 py-1.5">
-                    {skill}
-                    <button
-                      onClick={() => handleRemoveSkill(skill)}
-                      className="ml-2 hover:text-red-600"
-                    >
-                      <X className="h-3 w-3" />
-                    </button>
-                  </Badge>
-                ))
-              ) : (
-                <p className="text-gray-500">Nenhuma habilidade adicionada ainda.</p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Experience */}
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Experiência</CardTitle>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="ghost" size="sm">
-                  <Plus className="h-4 w-4" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Adicionar Experiência</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  <div>
-                    <Label htmlFor="title">Cargo</Label>
-                    <Input
-                      id="title"
-                      value={newExperience.title}
-                      onChange={(e) => setNewExperience({ ...newExperience, title: e.target.value })}
-                      placeholder="Ex: Desenvolvedor Senior"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="company">Empresa</Label>
-                    <Input
-                      id="company"
-                      value={newExperience.company}
-                      onChange={(e) => setNewExperience({ ...newExperience, company: e.target.value })}
-                      placeholder="Ex: Tech Corp"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="period">Período</Label>
-                    <Input
-                      id="period"
-                      value={newExperience.period}
-                      onChange={(e) => setNewExperience({ ...newExperience, period: e.target.value })}
-                      placeholder="Ex: 2020 - Presente"
-                    />
-                  </div>
-                  <Button onClick={handleAddExperience} className="w-full">
-                    Adicionar
-                  </Button>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 </div>
               </DialogContent>
             </Dialog>
           </CardHeader>
           <CardContent className="space-y-4">
             {(currentUser.experiences?.length || 0) > 0 ? (
-<<<<<<< HEAD
               currentUser.experiences.map((exp, i) =>
                 editingExpIdx === i ? (
                   <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
                     <Input value={editingExpVal.title} onChange={e => setEditingExpVal({ ...editingExpVal, title: e.target.value })} placeholder="Cargo" />
                     <Input value={editingExpVal.company} onChange={e => setEditingExpVal({ ...editingExpVal, company: e.target.value })} placeholder="Empresa" />
-                    <Input value={editingExpVal.period} onChange={e => setEditingExpVal({ ...editingExpVal, period: e.target.value })} placeholder="Período" />
-                    <Textarea value={editingExpVal.description || ''} onChange={e => setEditingExpVal({ ...editingExpVal, description: e.target.value })} placeholder="Descrição" rows={2} />
+                    <Input value={editingExpVal.period} onChange={e => setEditingExpVal({ ...editingExpVal, period: e.target.value })} placeholder="Per├¡odo" />
+                    <Textarea value={editingExpVal.description || ''} onChange={e => setEditingExpVal({ ...editingExpVal, description: e.target.value })} placeholder="Descri├º├úo" rows={2} />
                     <label className="flex items-center gap-2 text-sm cursor-pointer">
                       <input type="checkbox" checked={editingExpVal.current || false} onChange={e => setEditingExpVal({ ...editingExpVal, current: e.target.checked })} />
                       Emprego atual
@@ -929,43 +565,28 @@ export default function Profile() {
                 )
               )
             ) : (
-              <p className="text-gray-400 italic text-sm">Nenhuma experiência adicionada ainda.</p>
-=======
-              currentUser.experiences.map((exp, index) => (
-                <div key={index} className="flex gap-3">
-                  <Briefcase className="h-5 w-5 text-gray-400 mt-1" />
-                  <div>
-                    <h4 className="font-semibold">{exp.title}</h4>
-                    <p className="text-gray-600">{exp.company}</p>
-                    <p className="text-sm text-gray-500">{exp.period}</p>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-500">Nenhuma experiência adicionada ainda.</p>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+              <p className="text-gray-400 italic text-sm">Nenhuma experi├¬ncia adicionada ainda.</p>
             )}
           </CardContent>
         </Card>
 
-<<<<<<< HEAD
-        {/* ── Portfolio Carousel ── */}
+        {/* ÔöÇÔöÇ Portfolio Carousel ÔöÇÔöÇ */}
         <PortfolioCarousel />
 
-        {/* ── Education ── */}
+        {/* ÔöÇÔöÇ Education ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-indigo-600" /> Formação Acadêmica</CardTitle>
+            <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-indigo-600" /> Forma├º├úo Acad├¬mica</CardTitle>
             <Dialog>
               <DialogTrigger asChild><Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button></DialogTrigger>
               <DialogContent>
-                <DialogHeader><DialogTitle>Adicionar Formação</DialogTitle></DialogHeader>
+                <DialogHeader><DialogTitle>Adicionar Forma├º├úo</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Instituição</Label><Input value={newEdu.institution} onChange={e => setNewEdu({ ...newEdu, institution: e.target.value })} placeholder="Ex: USP" className="mt-1" /></div>
+                  <div><Label>Institui├º├úo</Label><Input value={newEdu.institution} onChange={e => setNewEdu({ ...newEdu, institution: e.target.value })} placeholder="Ex: USP" className="mt-1" /></div>
                   <div><Label>Grau</Label><Input value={newEdu.degree} onChange={e => setNewEdu({ ...newEdu, degree: e.target.value })} placeholder="Ex: Bacharelado" className="mt-1" /></div>
-                  <div><Label>Área</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ciência da Computação" className="mt-1" /></div>
-                  <div><Label>Período</Label><Input value={newEdu.period} onChange={e => setNewEdu({ ...newEdu, period: e.target.value })} placeholder="Ex: 2018 - 2022" className="mt-1" /></div>
-                  <div><Label>Descrição</Label><Textarea value={newEdu.description} onChange={e => setNewEdu({ ...newEdu, description: e.target.value })} rows={2} className="mt-1" /></div>
+                  <div><Label>├ürea</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ci├¬ncia da Computa├º├úo" className="mt-1" /></div>
+                  <div><Label>Per├¡odo</Label><Input value={newEdu.period} onChange={e => setNewEdu({ ...newEdu, period: e.target.value })} placeholder="Ex: 2018 - 2022" className="mt-1" /></div>
+                  <div><Label>Descri├º├úo</Label><Textarea value={newEdu.description} onChange={e => setNewEdu({ ...newEdu, description: e.target.value })} rows={2} className="mt-1" /></div>
                   <Button onClick={addEdu} className="w-full">Adicionar</Button>
                 </div>
               </DialogContent>
@@ -975,10 +596,10 @@ export default function Profile() {
             {(currentUser.education?.length || 0) > 0 ? currentUser.education!.map((edu, i) =>
               editingEduIdx === i ? (
                 <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
-                  <Input value={editingEduVal.institution} onChange={e => setEditingEduVal({ ...editingEduVal, institution: e.target.value })} placeholder="Instituição" />
+                  <Input value={editingEduVal.institution} onChange={e => setEditingEduVal({ ...editingEduVal, institution: e.target.value })} placeholder="Institui├º├úo" />
                   <Input value={editingEduVal.degree} onChange={e => setEditingEduVal({ ...editingEduVal, degree: e.target.value })} placeholder="Grau" />
-                  <Input value={editingEduVal.field} onChange={e => setEditingEduVal({ ...editingEduVal, field: e.target.value })} placeholder="Área" />
-                  <Input value={editingEduVal.period} onChange={e => setEditingEduVal({ ...editingEduVal, period: e.target.value })} placeholder="Período" />
+                  <Input value={editingEduVal.field} onChange={e => setEditingEduVal({ ...editingEduVal, field: e.target.value })} placeholder="├ürea" />
+                  <Input value={editingEduVal.period} onChange={e => setEditingEduVal({ ...editingEduVal, period: e.target.value })} placeholder="Per├¡odo" />
                   <Textarea value={editingEduVal.description} onChange={e => setEditingEduVal({ ...editingEduVal, description: e.target.value })} rows={2} />
                   <div className="flex gap-2"><Button size="sm" onClick={() => saveEdu(i)}><Check className="h-4 w-4 mr-1" />Salvar</Button><Button size="sm" variant="ghost" onClick={() => setEditingEduIdx(null)}>Cancelar</Button></div>
                 </div>
@@ -987,7 +608,7 @@ export default function Profile() {
                   <div className="mt-1 p-2 bg-purple-50 rounded-lg shrink-0"><GraduationCap className="h-4 w-4 text-purple-600" /></div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-sm">{edu.institution}</h4>
-                    <p className="text-gray-600 text-sm">{edu.degree}{edu.field ? ` · ${edu.field}` : ''}</p>
+                    <p className="text-gray-600 text-sm">{edu.degree}{edu.field ? ` ┬À ${edu.field}` : ''}</p>
                     <p className="text-gray-400 text-xs">{edu.period}</p>
                     {edu.description && <p className="text-gray-500 text-sm mt-1">{edu.description}</p>}
                   </div>
@@ -997,14 +618,14 @@ export default function Profile() {
                   </div>
                 </div>
               )
-            ) : <p className="text-gray-400 italic text-sm">Nenhuma formação adicionada ainda.</p>}
+            ) : <p className="text-gray-400 italic text-sm">Nenhuma forma├º├úo adicionada ainda.</p>}
           </CardContent>
         </Card>
 
-        {/* ── Certifications ── */}
+        {/* ÔöÇÔöÇ Certifications ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="flex items-center gap-2"><Award className="h-5 w-5 text-yellow-600" /> Licenças e Certificados</CardTitle>
+            <CardTitle className="flex items-center gap-2"><Award className="h-5 w-5 text-yellow-600" /> Licen├ºas e Certificados</CardTitle>
             <Dialog>
               <DialogTrigger asChild><Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button></DialogTrigger>
               <DialogContent>
@@ -1048,7 +669,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ── Languages ── */}
+        {/* ÔöÇÔöÇ Languages ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="flex items-center gap-2"><Languages className="h-5 w-5 text-green-600" /> Idiomas</CardTitle>
@@ -1057,12 +678,12 @@ export default function Profile() {
               <DialogContent>
                 <DialogHeader><DialogTitle>Adicionar Idioma</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Idioma</Label><Input value={newLang.name} onChange={e => setNewLang({ ...newLang, name: e.target.value })} placeholder="Ex: Inglês" className="mt-1" /></div>
+                  <div><Label>Idioma</Label><Input value={newLang.name} onChange={e => setNewLang({ ...newLang, name: e.target.value })} placeholder="Ex: Ingl├¬s" className="mt-1" /></div>
                   <div>
-                    <Label>Nível</Label>
+                    <Label>N├¡vel</Label>
                     <select value={newLang.level} onChange={e => setNewLang({ ...newLang, level: e.target.value })} className="w-full mt-1 rounded-md border border-gray-300 p-2 text-sm">
                       <option value="">Selecione</option>
-                      <option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option><option>Nativo</option>
+                      <option>B├ísico</option><option>Intermedi├írio</option><option>Avan├ºado</option><option>Fluente</option><option>Nativo</option>
                     </select>
                   </div>
                   <Button onClick={addLang} className="w-full">Adicionar</Button>
@@ -1075,7 +696,7 @@ export default function Profile() {
               <div className="flex flex-wrap gap-2">
                 {currentUser.languages!.map((lang, i) => (
                   <Badge key={i} variant="outline" className="px-3 py-1.5 group flex items-center gap-1">
-                    {lang.name} · <span className="text-gray-500">{lang.level}</span>
+                    {lang.name} ┬À <span className="text-gray-500">{lang.level}</span>
                     <button onClick={() => removeLang(i)} className="ml-1 opacity-0 group-hover:opacity-100 hover:text-red-600 transition-opacity"><X className="h-3 w-3" /></button>
                   </Badge>
                 ))}
@@ -1084,7 +705,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ── Volunteer ── */}
+        {/* ÔöÇÔöÇ Volunteer ÔöÇÔöÇ */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="flex items-center gap-2"><Heart className="h-5 w-5 text-red-500" /> Voluntariado</CardTitle>
@@ -1093,10 +714,10 @@ export default function Profile() {
               <DialogContent>
                 <DialogHeader><DialogTitle>Adicionar Voluntariado</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Função</Label><Input value={newVol.role} onChange={e => setNewVol({ ...newVol, role: e.target.value })} placeholder="Ex: Instrutor" className="mt-1" /></div>
-                  <div><Label>Organização</Label><Input value={newVol.organization} onChange={e => setNewVol({ ...newVol, organization: e.target.value })} placeholder="Ex: ONG Educação+" className="mt-1" /></div>
-                  <div><Label>Período</Label><Input value={newVol.period} onChange={e => setNewVol({ ...newVol, period: e.target.value })} placeholder="Ex: 2022 - Presente" className="mt-1" /></div>
-                  <div><Label>Descrição</Label><Textarea value={newVol.description} onChange={e => setNewVol({ ...newVol, description: e.target.value })} rows={2} className="mt-1" /></div>
+                  <div><Label>Fun├º├úo</Label><Input value={newVol.role} onChange={e => setNewVol({ ...newVol, role: e.target.value })} placeholder="Ex: Instrutor" className="mt-1" /></div>
+                  <div><Label>Organiza├º├úo</Label><Input value={newVol.organization} onChange={e => setNewVol({ ...newVol, organization: e.target.value })} placeholder="Ex: ONG Educa├º├úo+" className="mt-1" /></div>
+                  <div><Label>Per├¡odo</Label><Input value={newVol.period} onChange={e => setNewVol({ ...newVol, period: e.target.value })} placeholder="Ex: 2022 - Presente" className="mt-1" /></div>
+                  <div><Label>Descri├º├úo</Label><Textarea value={newVol.description} onChange={e => setNewVol({ ...newVol, description: e.target.value })} rows={2} className="mt-1" /></div>
                   <Button onClick={addVol} className="w-full">Adicionar</Button>
                 </div>
               </DialogContent>
@@ -1106,9 +727,9 @@ export default function Profile() {
             {(currentUser.volunteer?.length || 0) > 0 ? currentUser.volunteer!.map((vol, i) =>
               editingVolIdx === i ? (
                 <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
-                  <Input value={editingVolVal.role} onChange={e => setEditingVolVal({ ...editingVolVal, role: e.target.value })} placeholder="Função" />
-                  <Input value={editingVolVal.organization} onChange={e => setEditingVolVal({ ...editingVolVal, organization: e.target.value })} placeholder="Organização" />
-                  <Input value={editingVolVal.period} onChange={e => setEditingVolVal({ ...editingVolVal, period: e.target.value })} placeholder="Período" />
+                  <Input value={editingVolVal.role} onChange={e => setEditingVolVal({ ...editingVolVal, role: e.target.value })} placeholder="Fun├º├úo" />
+                  <Input value={editingVolVal.organization} onChange={e => setEditingVolVal({ ...editingVolVal, organization: e.target.value })} placeholder="Organiza├º├úo" />
+                  <Input value={editingVolVal.period} onChange={e => setEditingVolVal({ ...editingVolVal, period: e.target.value })} placeholder="Per├¡odo" />
                   <Textarea value={editingVolVal.description} onChange={e => setEditingVolVal({ ...editingVolVal, description: e.target.value })} rows={2} />
                   <div className="flex gap-2"><Button size="sm" onClick={() => saveVol(i)}><Check className="h-4 w-4 mr-1" />Salvar</Button><Button size="sm" variant="ghost" onClick={() => setEditingVolIdx(null)}>Cancelar</Button></div>
                 </div>
@@ -1131,13 +752,13 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ── Contact Dialog ── */}
+        {/* ÔöÇÔöÇ Contact Dialog ÔöÇÔöÇ */}
         <Dialog open={isEditingContact} onOpenChange={open => !open && setIsEditingContact(false)}>
           <DialogContent>
-            <DialogHeader><DialogTitle>Editar Informações de Contato</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle>Editar Informa├º├Áes de Contato</DialogTitle></DialogHeader>
             <div className="space-y-3">
-              <div><Label>Título Profissional</Label><Input value={contactForm.headline} onChange={e => setContactForm({ ...contactForm, headline: e.target.value })} placeholder="Ex: Desenvolvedor Full Stack | React" className="mt-1" /></div>
-              <div><Label>Localização</Label><Input value={contactForm.location} onChange={e => setContactForm({ ...contactForm, location: e.target.value })} placeholder="Ex: São Paulo, SP" className="mt-1" /></div>
+              <div><Label>T├¡tulo Profissional</Label><Input value={contactForm.headline} onChange={e => setContactForm({ ...contactForm, headline: e.target.value })} placeholder="Ex: Desenvolvedor Full Stack | React" className="mt-1" /></div>
+              <div><Label>Localiza├º├úo</Label><Input value={contactForm.location} onChange={e => setContactForm({ ...contactForm, location: e.target.value })} placeholder="Ex: S├úo Paulo, SP" className="mt-1" /></div>
               <div><Label>Site Pessoal</Label><Input value={contactForm.website} onChange={e => setContactForm({ ...contactForm, website: e.target.value })} placeholder="https://meusite.com" className="mt-1" /></div>
               <div><Label>Telefone</Label><Input value={contactForm.phone} onChange={e => setContactForm({ ...contactForm, phone: e.target.value })} placeholder="(11) 99999-9999" className="mt-1" /></div>
               <div className="flex gap-2 justify-end">
@@ -1151,11 +772,3 @@ export default function Profile() {
     </div>
   );
 }
-=======
-        {/* Portfolio Carousel */}
-        <PortfolioCarousel />
-      </div>
-    </div>
-  );
-}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

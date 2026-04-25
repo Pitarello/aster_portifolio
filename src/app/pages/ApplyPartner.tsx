@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Navbar } from '../components/Navbar';
@@ -15,15 +15,12 @@ export default function ApplyPartner() {
   const navigate = useNavigate();
   
   const [companyName, setCompanyName] = useState('');
-<<<<<<< HEAD
   const [corporateName, setCorporateName] = useState('');
   const [cnpj, setCnpj] = useState('');
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const [description, setDescription] = useState('');
 
-  // Se não estiver logado, não tem currentUser. 
-  // Removendo o redirecionamento forçado para o login e exibindo navbar ou botao de voltar
+  // Se n├úo estiver logado, n├úo tem currentUser. 
+  // Removendo o redirecionamento for├ºado para o login e exibindo navbar ou botao de voltar
 
   useEffect(() => {
     if (currentUser?.partnerStatus === 'approved') {
@@ -36,12 +33,11 @@ export default function ApplyPartner() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentUser) {
-      toast.error('Você precisa fazer login para se inscrever.');
+      toast.error('Voc├¬ precisa fazer login para se inscrever.');
       navigate('/login');
       return;
     }
     
-<<<<<<< HEAD
     if (!companyName || !corporateName || !cnpj || !description) {
       toast.error('Preencha todos os campos.');
       return;
@@ -49,18 +45,11 @@ export default function ApplyPartner() {
     // Basic CNPJ format validation (14 digits)
     const cnpjDigits = cnpj.replace(/\D/g, '');
     if (cnpjDigits.length !== 14) {
-      toast.error('CNPJ inválido. Informe os 14 dígitos.');
+      toast.error('CNPJ inv├ílido. Informe os 14 d├¡gitos.');
       return;
     }
     applyForPartner(companyName, corporateName, description);
-=======
-    if (!companyName || !description) {
-      toast.error('Preencha todos os campos.');
-      return;
-    }
-    applyForPartner(companyName, description);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
-    toast.success('Solicitação enviada com sucesso! Aguarde a avaliação.');
+    toast.success('Solicita├º├úo enviada com sucesso! Aguarde a avalia├º├úo.');
     navigate('/feed');
   };
 
@@ -74,9 +63,9 @@ export default function ApplyPartner() {
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="w-8 h-8 text-yellow-600" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">Solicitação em Análise</h2>
+              <h2 className="text-2xl font-bold mb-2">Solicita├º├úo em An├ílise</h2>
               <p className="text-gray-500 mb-6">
-                Sua solicitação para se tornar um parceiro ASTER está sendo avaliada por nossos administradores. Avisaremos assim que houver uma resposta.
+                Sua solicita├º├úo para se tornar um parceiro ASTER est├í sendo avaliada por nossos administradores. Avisaremos assim que houver uma resposta.
               </p>
               <Button onClick={() => navigate('/feed')}>Voltar para o Feed</Button>
             </CardContent>
@@ -96,9 +85,9 @@ export default function ApplyPartner() {
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="w-8 h-8 text-red-600" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">Solicitação Rejeitada</h2>
+              <h2 className="text-2xl font-bold mb-2">Solicita├º├úo Rejeitada</h2>
               <p className="text-gray-500 mb-6">
-                Infelizmente sua solicitação não foi aprovada neste momento. Continue interagindo com a comunidade e tente novamente no futuro.
+                Infelizmente sua solicita├º├úo n├úo foi aprovada neste momento. Continue interagindo com a comunidade e tente novamente no futuro.
               </p>
               <Button onClick={() => navigate('/feed')}>Voltar para o Feed</Button>
             </CardContent>
@@ -132,16 +121,12 @@ export default function ApplyPartner() {
           <CardContent>
             {!currentUser && (
               <div className="bg-blue-50 text-blue-800 p-4 rounded-md mb-6 text-sm text-center">
-                Você precisará fazer login ou criar uma conta para concluir esta solicitação.
+                Voc├¬ precisar├í fazer login ou criar uma conta para concluir esta solicita├º├úo.
               </div>
             )}
             <form onSubmit={handleSubmit} className="space-y-6 mt-4">
               <div className="space-y-2">
-<<<<<<< HEAD
-                <Label>Nome Fantasia (Nome da Empresa ou Instituição)</Label>
-=======
-                <Label>Nome da sua Empresa ou Instituição</Label>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+                <Label>Nome Fantasia (Nome da Empresa ou Institui├º├úo)</Label>
                 <Input 
                   placeholder="Ex: Tech StartX" 
                   value={companyName} 
@@ -149,10 +134,9 @@ export default function ApplyPartner() {
                 />
               </div>
               <div className="space-y-2">
-<<<<<<< HEAD
-                <Label>Razão Social</Label>
+                <Label>Raz├úo Social</Label>
                 <Input 
-                  placeholder="Ex: Tech StartX Soluções LTDA" 
+                  placeholder="Ex: Tech StartX Solu├º├Áes LTDA" 
                   value={corporateName} 
                   onChange={e => setCorporateName(e.target.value)} 
                 />
@@ -175,18 +159,16 @@ export default function ApplyPartner() {
                 />
               </div>
               <div className="space-y-2">
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
-                <Label>Por que você quer ser parceiro?</Label>
+                <Label>Por que voc├¬ quer ser parceiro?</Label>
                 <Textarea 
-                  placeholder="Conte-nos um pouco sobre os conteúdos que você pretende criar..." 
+                  placeholder="Conte-nos um pouco sobre os conte├║dos que voc├¬ pretende criar..." 
                   rows={4}
                   value={description} 
                   onChange={e => setDescription(e.target.value)} 
                 />
               </div>
               <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                Enviar Solicitação
+                Enviar Solicita├º├úo
               </Button>
             </form>
           </CardContent>
@@ -194,8 +176,4 @@ export default function ApplyPartner() {
       </div>
     </div>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e

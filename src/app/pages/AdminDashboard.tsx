@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 ﻿import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import type { User } from '../context/AppContext';
-=======
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router';
-import { useApp } from '../context/AppContext';
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 import { Navbar } from '../components/Navbar';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
@@ -17,7 +11,6 @@ import { ScrollArea } from '../components/ui/scroll-area';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogDescription } from '../components/ui/dialog';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
-<<<<<<< HEAD
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { MediaInput } from '../components/MediaInput';
 import { CourseData, Module, Lesson } from '../data/courses';
@@ -34,53 +27,21 @@ import {
 } from 'recharts';
 
 // Mock Data for the new sections
-=======
-import { 
-  Settings, Users, BookOpen, CheckCircle, XCircle, MessageSquare, 
-  BarChart3, AlertTriangle, Eye, Send, PlayCircle, Clock, Video, ListVideo
-} from 'lucide-react';
-import { toast } from 'sonner';
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, BarChart, Bar, Legend
-} from 'recharts';
-
-// Mock Data for the new sections
-const MOCK_MESSAGES: Record<string, any[]> = {};
-
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 const MOCK_VALIDATIONS: any[] = [];
 
 const MOCK_ERRORS: any[] = [];
 
-<<<<<<< HEAD
 export default function AdminDashboard() {
   const { currentUser, courses, roadmaps, posts, getAllUsers, approvePartner, rejectPartner, chatMessages, sendMessageToPartner, addCourse, updateCourse, addRoadmap, updateRoadmap, approveContent, rejectContent } = useApp();
   const navigate = useNavigate();
   
   const [activeTab, setActiveTab] = useState<'requests' | 'chat' | 'validation' | 'analytics' | 'errors' | 'courses' | 'roadmaps'>('requests');
-=======
-const ANALYTICS_DATA = [
-  { name: 'Jan', users: 400, courses: 24, revenue: 2400 },
-  { name: 'Fev', users: 800, courses: 35, revenue: 4500 },
-  { name: 'Mar', users: 1200, courses: 42, revenue: 6800 },
-  { name: 'Abr', users: 1600, courses: 58, revenue: 9200 },
-  { name: 'Mai', users: 2100, courses: 70, revenue: 12500 },
-  { name: 'Jun', users: 2800, courses: 85, revenue: 16000 },
-];
-
-export default function AdminDashboard() {
-  const { currentUser, courses, roadmaps, getAllUsers, approvePartner, rejectPartner, chatMessages, sendMessageToPartner } = useApp();
-  const navigate = useNavigate();
-  
-  const [activeTab, setActiveTab] = useState<'requests' | 'chat' | 'validation' | 'analytics' | 'errors'>('requests');
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   const [chatPartner, setChatPartner] = useState<string | null>(null);
   const [chatInput, setChatInput] = useState('');
   const [validations, setValidations] = useState(MOCK_VALIDATIONS);
   const [isRejectDialogOpen, setIsRejectDialogOpen] = useState(false);
   const [rejectReason, setRejectReason] = useState('');
   const [rejectTargetId, setRejectTargetId] = useState<string | null>(null);
-<<<<<<< HEAD
   const [rejectTargetType, setRejectTargetType] = useState<'course' | 'roadmap'>('course');
   const [isPreviewDialogOpen, setIsPreviewDialogOpen] = useState(false);
   const [previewItem, setPreviewItem] = useState<{ type: 'course' | 'roadmap'; id: string } | null>(null);
@@ -104,17 +65,11 @@ export default function AdminDashboard() {
   const [newStep, setNewStep] = useState<Partial<RoadmapStep>>({ type: 'module' });
   const [testQuestions, setTestQuestions] = useState<any[]>([]);
   const [newQuestion, setNewQuestion] = useState({ question: '', options: ['', '', '', ''], correctOptionIndex: 0 });
-=======
-  
-  const [isPreviewDialogOpen, setIsPreviewDialogOpen] = useState(false);
-  const [previewTargetId, setPreviewTargetId] = useState<string | null>(null);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
   const users = getAllUsers();
   const pendingPartners = users.filter(u => u.partnerStatus === 'pending');
   const approvedPartners = users.filter(u => u.partnerStatus === 'approved');
 
-<<<<<<< HEAD
   // Real platform metrics
   const totalUsers = users.filter(u => u.role !== 'admin').length;
   const totalPosts = posts.length;
@@ -143,8 +98,6 @@ export default function AdminDashboard() {
     .sort((a, b) => (b.professionalScore ?? 0) - (a.professionalScore ?? 0))
     .slice(0, 5);
 
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
   useEffect(() => {
     if (!currentUser) {
       navigate('/login');
@@ -159,7 +112,6 @@ export default function AdminDashboard() {
   if (currentUser.email !== 'brendacgl@outlook.com.br' && currentUser.role !== 'admin') return null;
 
   const handleApprovePartner = (userId: string) => {
-<<<<<<< HEAD
     const user = users.find(u => u.id === userId);
     approvePartner(userId);
     if (user) {
@@ -187,59 +139,20 @@ export default function AdminDashboard() {
   const handleOpenRejectDialog = (type: 'course' | 'roadmap', id: string) => {
     setRejectTargetId(id);
     setRejectTargetType(type);
-=======
-    approvePartner(userId);
-    toast.success('Parceiro aprovado com sucesso!');
-  };
-
-  const handleRejectPartner = (userId: string) => {
-    rejectPartner(userId);
-    toast.success('Solicitação de parceiro rejeitada.');
-  };
-
-  const handleApproveContent = (id: string) => {
-    setValidations(prev => prev.filter(v => v.id !== id));
-    toast.success('Conteúdo aprovado e publicado na plataforma!');
-  };
-
-  const handleOpenRejectDialog = (id: string) => {
-    setRejectTargetId(id);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     setRejectReason('');
     setIsRejectDialogOpen(true);
   };
 
   const handleConfirmReject = () => {
     if (!rejectTargetId) return;
-<<<<<<< HEAD
     rejectContent(rejectTargetType, rejectTargetId, rejectReason);
     toast.success('Conteúdo rejeitado. Feedback enviado ao parceiro.');
-=======
-    
-    const content = validations.find(v => v.id === rejectTargetId);
-    if (content) {
-      setValidations(prev => prev.filter(v => v.id !== rejectTargetId));
-      
-      const dateStr = new Date().toLocaleDateString('pt-BR');
-      const text = `STATUS: Recusado\nCONTEÚDO: ${content.title}\nDATA: ${dateStr}\nMOTIVO: ${rejectReason}`;
-      
-      sendMessageToPartner(content.partnerId, text);
-
-      toast.success('Conteúdo rejeitado e feedback enviado ao parceiro.');
-    }
-    
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     setIsRejectDialogOpen(false);
     setRejectTargetId(null);
   };
 
-<<<<<<< HEAD
   const handlePreviewContent = (type: 'course' | 'roadmap', id: string) => {
     setPreviewItem({ type, id });
-=======
-  const handlePreviewContent = (id: string) => {
-    setPreviewTargetId(id);
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
     setIsPreviewDialogOpen(true);
   };
 
@@ -249,7 +162,6 @@ export default function AdminDashboard() {
     setChatInput('');
   };
 
-<<<<<<< HEAD
   // --- Course Functions ---
   const handleSaveCourse = () => {
     if (!newCourse.title || !newCourse.area) return toast.error('Preencha título e área');
@@ -380,10 +292,6 @@ export default function AdminDashboard() {
           />
         ) : null;
       })()}
-=======
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       <Navbar />
 
       <div className="flex-1 flex overflow-hidden">
@@ -444,7 +352,6 @@ export default function AdminDashboard() {
               Performances e Analytics
             </button>
             <button
-<<<<<<< HEAD
               onClick={() => { setActiveTab('courses'); setEditingCourse(null); setIsCreatingCourse(false); }}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                 activeTab === 'courses' ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'
@@ -463,8 +370,6 @@ export default function AdminDashboard() {
               Gerir Trilhas
             </button>
             <button
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
               onClick={() => setActiveTab('errors')}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                 activeTab === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-gray-600 hover:bg-gray-100'
@@ -472,12 +377,7 @@ export default function AdminDashboard() {
             >
               <AlertTriangle className="w-5 h-5" />
               Erros da Plataforma
-<<<<<<< HEAD
             </button>          </nav>
-=======
-            </button>
-          </nav>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
         </aside>
 
         {/* Main Content */}
@@ -491,7 +391,6 @@ export default function AdminDashboard() {
                 <p className="text-gray-500">Analise e aprove novos produtores de conteúdo para a plataforma.</p>
               </div>
 
-<<<<<<< HEAD
               {/* Pending */}
               <div>
                 <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-3 flex items-center gap-2">
@@ -593,51 +492,6 @@ export default function AdminDashboard() {
                       </div>
                     ))}
                   </div>
-=======
-              {pendingPartners.length === 0 ? (
-                <div className="text-center py-16 bg-white rounded-xl border border-dashed border-gray-300">
-                  <Users className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                  <p className="text-gray-500 font-medium">Nenhuma solicitação pendente no momento.</p>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {pendingPartners.map(user => (
-                    <Card key={user.id}>
-                      <CardContent className="p-6">
-                        <div className="flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
-                          <div className="flex items-center gap-4">
-                            <img src={user.avatar || `https://ui-avatars.com/api/?name=${user.name}`} alt={user.name} className="w-14 h-14 rounded-full border" />
-                            <div>
-                              <h3 className="font-bold text-lg text-gray-900">{user.name}</h3>
-                              <p className="text-sm text-gray-500">{user.email} • {user.area}</p>
-                              {user.companyInfo && (
-                                <p className="text-sm mt-1"><strong>Empresa:</strong> {user.companyInfo.name}</p>
-                              )}
-                            </div>
-                          </div>
-                          
-                          <div className="flex gap-2 w-full md:w-auto mt-4 md:mt-0">
-                            <Button variant="outline" onClick={() => navigate(`/user/${user.id}`)}>
-                              <Eye className="w-4 h-4 mr-2" />
-                              Ver Perfil
-                            </Button>
-                            <Button variant="outline" className="text-red-600 hover:text-red-700 hover:bg-red-50 border-red-200" onClick={() => handleRejectPartner(user.id)}>
-                              Recusar
-                            </Button>
-                            <Button className="bg-green-600 hover:bg-green-700" onClick={() => handleApprovePartner(user.id)}>
-                              Aprovar
-                            </Button>
-                          </div>
-                        </div>
-                        {user.companyInfo?.description && (
-                          <div className="mt-4 bg-gray-50 p-4 rounded-lg">
-                            <p className="text-sm text-gray-700"><strong>Justificativa/Descrição:</strong> {user.companyInfo.description}</p>
-                          </div>
-                        )}
-                      </CardContent>
-                    </Card>
-                  ))}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                 </div>
               )}
             </div>
@@ -653,11 +507,7 @@ export default function AdminDashboard() {
                 </div>
                 <ScrollArea className="flex-1">
                   {approvedPartners.length === 0 && <p className="p-4 text-center text-gray-500 text-sm">Nenhum parceiro aprovado.</p>}
-<<<<<<< HEAD
                   {approvedPartners.map((partner: User) => (
-=======
-                  {approvedPartners.map(partner => (
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                     <button
                       key={partner.id}
                       onClick={() => setChatPartner(partner.id)}
@@ -683,7 +533,6 @@ export default function AdminDashboard() {
                 {chatPartner ? (
                   <>
                     <div className="p-4 border-b bg-white flex items-center gap-3 shadow-sm z-10">
-<<<<<<< HEAD
                       {(() => {
                         const p = approvedPartners.find(u => u.id === chatPartner);
                         return p ? (
@@ -718,10 +567,6 @@ export default function AdminDashboard() {
                           <h3 className="font-semibold">Chat com Parceiro</h3>
                         );
                       })()}
-=======
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <h3 className="font-semibold">Chat com Parceiro</h3>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                     </div>
                     
                     <ScrollArea className="flex-1 p-4">
@@ -769,7 +614,6 @@ export default function AdminDashboard() {
           )}
 
           {/* TAB: VALIDATION */}
-<<<<<<< HEAD
           {activeTab === 'validation' && (() => {
             const pendingCourses = courses.filter(c => c.status === 'pending');
             const pendingRoadmaps = roadmaps.filter(r => r.status === 'pending');
@@ -883,74 +727,12 @@ export default function AdminDashboard() {
               </div>
             );
           })()}
-=======
-          {activeTab === 'validation' && (
-            <div className="max-w-5xl space-y-6">
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Verificação de Conteúdo</h1>
-                <p className="text-gray-500">Valide trilhas de aprendizado e uploads de vídeos antes de publicá-los.</p>
-              </div>
-
-              {validations.length === 0 ? (
-                <div className="text-center py-16 bg-white rounded-xl border border-dashed border-gray-300">
-                  <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-3" />
-                  <p className="text-gray-500 font-medium">Tudo limpo! Não há conteúdos pendentes para aprovação.</p>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  {validations.map(val => (
-                    <Card key={val.id}>
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between">
-                          <div className="flex gap-4">
-                            <div className={`p-3 rounded-lg flex-shrink-0 ${val.type === 'course' ? 'bg-purple-100 text-purple-600' : 'bg-blue-100 text-blue-600'}`}>
-                              {val.type === 'course' ? <BookOpen className="w-6 h-6" /> : <Video className="w-6 h-6" />}
-                            </div>
-                            <div>
-                              <div className="flex items-center gap-2 mb-1">
-                                <Badge variant="outline" className={val.type === 'course' ? 'border-purple-200 text-purple-700' : 'border-blue-200 text-blue-700'}>
-                                  {val.type === 'course' ? 'Nova Trilha' : 'Upload de Vídeo'}
-                                </Badge>
-                                <span className="text-xs text-gray-500 flex items-center gap-1">
-                                  <Clock className="w-3 h-3" /> {val.date}
-                                </span>
-                              </div>
-                              <h3 className="font-bold text-lg text-gray-900">{val.title}</h3>
-                              <p className="text-sm text-gray-600 mt-1">{val.description}</p>
-                              <div className="mt-3 flex items-center gap-4 text-sm text-gray-500">
-                                <span>Por: <strong>{val.partnerName}</strong></span>
-                                {val.videos > 0 && <span>Vídeos anexados: {val.videos}</span>}
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="flex flex-col gap-2">
-                            <Button className="bg-green-600 hover:bg-green-700" onClick={() => handleApproveContent(val.id)}>
-                              Aprovar Publicação
-                            </Button>
-                            <Button variant="outline" className="text-red-600 hover:bg-red-50" onClick={() => handleOpenRejectDialog(val.id)}>
-                              Recusar com Observação
-                            </Button>
-                            <Button variant="ghost" className="text-indigo-600 hover:text-indigo-800" onClick={() => handlePreviewContent(val.id)}>
-                              <PlayCircle className="w-4 h-4 mr-2" /> Pré-visualizar
-                            </Button>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
           {/* TAB: ANALYTICS */}
           {activeTab === 'analytics' && (
             <div className="space-y-6">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Performance e Analytics</h1>
-<<<<<<< HEAD
                 <p className="text-gray-500">Dados reais da plataforma ASTER.</p>
               </div>
 
@@ -961,49 +743,24 @@ export default function AdminDashboard() {
                     <p className="text-sm text-gray-500 font-medium">Utilizadores Registados</p>
                     <h3 className="text-3xl font-bold text-gray-900 mt-2">{totalUsers}</h3>
                     <p className="text-xs text-gray-400 mt-2">Total na plataforma</p>
-=======
-                <p className="text-gray-500">Acompanhamento de usuários, crescimento e métricas gerais.</p>
-              </div>
-
-              {/* KPIS */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Card>
-                  <CardContent className="p-6">
-                    <p className="text-sm text-gray-500 font-medium">Usuários Ativos (Mensal)</p>
-                    <h3 className="text-3xl font-bold text-gray-900 mt-2">2.8k</h3>
-                    <p className="text-xs text-green-600 flex items-center mt-2">+12% em relação ao mês anterior</p>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-<<<<<<< HEAD
                     <p className="text-sm text-gray-500 font-medium">Posts Publicados</p>
                     <h3 className="text-3xl font-bold text-gray-900 mt-2">{totalPosts}</h3>
                     <p className="text-xs text-gray-400 mt-2">Total no feed</p>
-=======
-                    <p className="text-sm text-gray-500 font-medium">Trilhas Concluídas</p>
-                    <h3 className="text-3xl font-bold text-gray-900 mt-2">1.245</h3>
-                    <p className="text-xs text-green-600 flex items-center mt-2">+5% em relação ao mês anterior</p>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-<<<<<<< HEAD
                     <p className="text-sm text-gray-500 font-medium">Parceiros Aprovados</p>
                     <h3 className="text-3xl font-bold text-gray-900 mt-2">{approvedPartners.length}</h3>
                     <p className="text-xs text-gray-400 mt-2">{pendingPartners.length} pendente(s)</p>
-=======
-                    <p className="text-sm text-gray-500 font-medium">Parceiros Ativos</p>
-                    <h3 className="text-3xl font-bold text-gray-900 mt-2">{approvedPartners.length > 0 ? approvedPartners.length : '18'}</h3>
-                    <p className="text-xs text-green-600 flex items-center mt-2">+2 novos este mês</p>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
-<<<<<<< HEAD
                     <p className="text-sm text-gray-500 font-medium">Aulas Concluídas</p>
                     <h3 className="text-3xl font-bold text-gray-900 mt-2">{totalLessonsCompleted}</h3>
                     <p className="text-xs text-gray-400 mt-2">Por todos os utilizadores</p>
@@ -1031,16 +788,10 @@ export default function AdminDashboard() {
                     <p className="text-sm text-gray-500 font-medium">Score Médio</p>
                     <h3 className="text-3xl font-bold text-gray-900 mt-2">{avgScore}</h3>
                     <p className="text-xs text-gray-400 mt-2">Pontuação média dos utilizadores</p>
-=======
-                    <p className="text-sm text-gray-500 font-medium">Tempo Médio na Plataforma</p>
-                    <h3 className="text-3xl font-bold text-gray-900 mt-2">42 min</h3>
-                    <p className="text-xs text-gray-500 flex items-center mt-2">Estável</p>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </CardContent>
                 </Card>
               </div>
 
-<<<<<<< HEAD
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* Distribuição por área */}
                 <Card>
@@ -1057,29 +808,10 @@ export default function AdminDashboard() {
                         <RechartsTooltip cursor={{ fill: 'transparent' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
                         <Bar dataKey="value" name="Utilizadores" fill="#4f46e5" radius={[4, 4, 0, 0]} barSize={40} />
                       </BarChart>
-=======
-              {/* Charts */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Crescimento de Usuários</CardTitle>
-                    <CardDescription>Novos cadastros nos últimos 6 meses</CardDescription>
-                  </CardHeader>
-                  <CardContent className="h-[300px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <LineChart data={ANALYTICS_DATA} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                        <Line type="monotone" dataKey="users" stroke="#4f46e5" strokeWidth={3} dot={{ r: 4 }} activeDot={{ r: 8 }} />
-                        <CartesianGrid stroke="#ccc" strokeDasharray="5 5" vertical={false} />
-                        <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#6b7280' }} tickLine={false} axisLine={false} />
-                        <YAxis tick={{ fontSize: 12, fill: '#6b7280' }} tickLine={false} axisLine={false} />
-                        <RechartsTooltip contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-                      </LineChart>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                     </ResponsiveContainer>
                   </CardContent>
                 </Card>
 
-<<<<<<< HEAD
                 {/* Top utilizadores por score */}
                 <Card>
                   <CardHeader>
@@ -1104,30 +836,12 @@ export default function AdminDashboard() {
                         ))}
                       </div>
                     )}
-=======
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Criação de Trilhas</CardTitle>
-                    <CardDescription>Trilhas publicadas por parceiros</CardDescription>
-                  </CardHeader>
-                  <CardContent className="h-[300px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={ANALYTICS_DATA} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                        <XAxis dataKey="name" tick={{ fontSize: 12, fill: '#6b7280' }} tickLine={false} axisLine={false} />
-                        <YAxis tick={{ fontSize: 12, fill: '#6b7280' }} tickLine={false} axisLine={false} />
-                        <RechartsTooltip cursor={{ fill: 'transparent' }} contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }} />
-                        <Bar dataKey="courses" fill="#06b6d4" radius={[4, 4, 0, 0]} barSize={30} />
-                      </BarChart>
-                    </ResponsiveContainer>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
                   </CardContent>
                 </Card>
               </div>
             </div>
           )}
 
-<<<<<<< HEAD
           {/* TAB: COURSES */}
           {activeTab === 'courses' && (
             <div className="space-y-6">
@@ -1506,11 +1220,6 @@ export default function AdminDashboard() {
 
           {/* TAB: ERRORS */}
           {activeTab === 'errors' && (            <div className="max-w-4xl space-y-6">
-=======
-          {/* TAB: ERRORS */}
-          {activeTab === 'errors' && (
-            <div className="max-w-4xl space-y-6">
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">Erros da Plataforma</h1>
                 <p className="text-gray-500">Monitoramento de falhas, exceções e gargalos técnicos relatados.</p>
@@ -1556,7 +1265,6 @@ export default function AdminDashboard() {
             <DialogContent>
               <DialogHeader>
                 <DialogTitle>Recusar Conteúdo</DialogTitle>
-<<<<<<< HEAD
                 <DialogDescription>Forneça um feedback construtivo. O parceiro receberá esta mensagem no chat.</DialogDescription>
               </DialogHeader>
               <div className="py-4">
@@ -1566,32 +1274,10 @@ export default function AdminDashboard() {
               <DialogFooter>
                 <Button variant="outline" onClick={() => setIsRejectDialogOpen(false)}>Cancelar</Button>
                 <Button variant="destructive" onClick={handleConfirmReject} disabled={!rejectReason.trim()}>Confirmar Recusa</Button>
-=======
-                <DialogDescription>
-                  Forneça um feedback construtivo. O parceiro receberá esta mensagem no chat.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="py-4">
-                <Label htmlFor="reason">Motivo da Recusa</Label>
-                <Textarea 
-                  id="reason" 
-                  value={rejectReason} 
-                  onChange={(e) => setRejectReason(e.target.value)}
-                  placeholder="Ex: O áudio está muito baixo na aula 2..."
-                  className="mt-2 h-32"
-                />
-              </div>
-              <DialogFooter>
-                <Button variant="outline" onClick={() => setIsRejectDialogOpen(false)}>Cancelar</Button>
-                <Button variant="destructive" onClick={handleConfirmReject} disabled={!rejectReason.trim()}>
-                  Confirmar Recusa
-                </Button>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
               </DialogFooter>
             </DialogContent>
           </Dialog>
 
-<<<<<<< HEAD
           <Dialog open={isPreviewDialogOpen} onOpenChange={(o) => { setIsPreviewDialogOpen(o); if (!o) setPreviewItem(null); }}>
             <DialogContent className="max-w-3xl">
               <DialogHeader>
@@ -1718,36 +1404,6 @@ export default function AdminDashboard() {
                     <Button className="bg-green-600 hover:bg-green-700" onClick={() => { handleApproveContent(previewItem.type, previewItem.id); setIsPreviewDialogOpen(false); }}>Aprovar</Button>
                   </>
                 )}
-=======
-          <Dialog open={isPreviewDialogOpen} onOpenChange={setIsPreviewDialogOpen}>
-            <DialogContent className="max-w-2xl">
-              <DialogHeader>
-                <DialogTitle>Pré-visualização do Conteúdo</DialogTitle>
-                <DialogDescription>
-                  {validations.find(v => v.id === previewTargetId)?.title}
-                </DialogDescription>
-              </DialogHeader>
-              <ScrollArea className="max-h-[60vh] mt-4 pr-4">
-                <div className="space-y-4">
-                  {validations.find(v => v.id === previewTargetId)?.previewSteps?.map((step, index) => (
-                    <div key={index} className="flex items-center gap-4 p-4 border rounded-lg bg-gray-50">
-                      <div className="bg-white p-2 rounded shadow-sm border">
-                        {step.type.includes('Vídeo') ? <Video className="w-5 h-5 text-blue-500" /> : <ListVideo className="w-5 h-5 text-purple-500" />}
-                      </div>
-                      <div>
-                        <h4 className="font-medium text-gray-900">{index + 1}. {step.title}</h4>
-                        <p className="text-sm text-gray-500">{step.type}</p>
-                      </div>
-                    </div>
-                  ))}
-                  {(!validations.find(v => v.id === previewTargetId)?.previewSteps || validations.find(v => v.id === previewTargetId)?.previewSteps?.length === 0) && (
-                    <p className="text-gray-500 text-center py-8">Nenhum conteúdo detalhado disponível para esta submissão.</p>
-                  )}
-                </div>
-              </ScrollArea>
-              <DialogFooter className="mt-4">
-                <Button onClick={() => setIsPreviewDialogOpen(false)}>Fechar Pré-visualização</Button>
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
               </DialogFooter>
             </DialogContent>
           </Dialog>

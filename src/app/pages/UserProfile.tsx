@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useEffect, useState } from 'react';
-=======
-import { useEffect } from 'react';
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
+﻿import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Navbar } from '../components/Navbar';
@@ -11,32 +7,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '../components/ui/avatar';
 import { Badge } from '../components/ui/badge';
 import { 
-<<<<<<< HEAD
   TrendingUp, Users, UserPlus, UserMinus, ArrowLeft, Briefcase,
   ChevronLeft, ChevronRight, ExternalLink
-=======
-  Home, 
-  User, 
-  Briefcase, 
-  LogOut, 
-  Network,
-  TrendingUp,
-  Users,
-  UserPlus,
-  UserMinus,
-  ArrowLeft
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 } from 'lucide-react';
 
 export default function UserProfile() {
   const { userId } = useParams<{ userId: string }>();
   const navigate = useNavigate();
-<<<<<<< HEAD
   const { currentUser, getUserById, logout, followUser, unfollowUser, isFollowing, getPortfolioByUserId } = useApp();
   const [carouselIdx, setCarouselIdx] = useState<Record<string, number>>({});
-=======
-  const { currentUser, getUserById, logout, followUser, unfollowUser, isFollowing } = useApp();
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
   useEffect(() => {
     if (!currentUser) {
@@ -49,17 +28,14 @@ export default function UserProfile() {
   }
 
   const user = getUserById(userId || '');
-<<<<<<< HEAD
   const userPortfolio = getPortfolioByUserId(userId || '');
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
 
   if (!user) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <Card className="max-w-md">
           <CardContent className="pt-6 text-center">
-            <h3 className="text-lg font-semibold mb-2">Usuário não encontrado</h3>
+            <h3 className="text-lg font-semibold mb-2">Usu├írio n├úo encontrado</h3>
             <Button onClick={() => navigate('/feed')}>Voltar ao Feed</Button>
           </CardContent>
         </Card>
@@ -168,7 +144,7 @@ export default function UserProfile() {
           </CardHeader>
           <CardContent>
             <p className="text-gray-700">
-              {user.bio || 'Este usuário ainda não adicionou uma descrição.'}
+              {user.bio || 'Este usu├írio ainda n├úo adicionou uma descri├º├úo.'}
             </p>
           </CardContent>
         </Card>
@@ -196,7 +172,7 @@ export default function UserProfile() {
         {/* Experience */}
         <Card>
           <CardHeader>
-            <CardTitle>Experiência</CardTitle>
+            <CardTitle>Experi├¬ncia</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {user.experiences.length > 0 ? (
@@ -211,17 +187,16 @@ export default function UserProfile() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-500">Nenhuma experiência adicionada.</p>
+              <p className="text-gray-500">Nenhuma experi├¬ncia adicionada.</p>
             )}
           </CardContent>
         </Card>
-<<<<<<< HEAD
 
         {/* Portfolio */}
         {userPortfolio.length > 0 && (
           <Card>
             <CardHeader>
-              <CardTitle>Portfólio</CardTitle>
+              <CardTitle>Portf├│lio</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -290,8 +265,6 @@ export default function UserProfile() {
             </CardContent>
           </Card>
         )}
-=======
->>>>>>> 0b549b08d77e0a8b647e151e6622fd765323381e
       </div>
     </div>
   );
