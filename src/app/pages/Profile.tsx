@@ -337,7 +337,7 @@ export default function Profile() {
                   <Input value={editedName} onChange={e => setEditedName(e.target.value)} className="mt-1" />
                 </div>
                 <div>
-                  <Label>├ürea</Label>
+                  <Label>Área</Label>
                   <select
                     value={editedArea}
                     onChange={e => setEditedArea(e.target.value as 'tech' | 'fashion' | 'architecture')}
@@ -584,7 +584,7 @@ export default function Profile() {
                 <div className="space-y-3">
                   <div><Label>Instituição</Label><Input value={newEdu.institution} onChange={e => setNewEdu({ ...newEdu, institution: e.target.value })} placeholder="Ex: USP" className="mt-1" /></div>
                   <div><Label>Grau</Label><Input value={newEdu.degree} onChange={e => setNewEdu({ ...newEdu, degree: e.target.value })} placeholder="Ex: Bacharelado" className="mt-1" /></div>
-                  <div><Label>├ürea</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ciência da Computação" className="mt-1" /></div>
+                  <div><Label>Área</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ciência da Computação" className="mt-1" /></div>
                   <div><Label>Período</Label><Input value={newEdu.period} onChange={e => setNewEdu({ ...newEdu, period: e.target.value })} placeholder="Ex: 2018 - 2022" className="mt-1" /></div>
                   <div><Label>Descrição</Label><Textarea value={newEdu.description} onChange={e => setNewEdu({ ...newEdu, description: e.target.value })} rows={2} className="mt-1" /></div>
                   <Button onClick={addEdu} className="w-full">Adicionar</Button>
@@ -598,7 +598,7 @@ export default function Profile() {
                 <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
                   <Input value={editingEduVal.institution} onChange={e => setEditingEduVal({ ...editingEduVal, institution: e.target.value })} placeholder="Instituição" />
                   <Input value={editingEduVal.degree} onChange={e => setEditingEduVal({ ...editingEduVal, degree: e.target.value })} placeholder="Grau" />
-                  <Input value={editingEduVal.field} onChange={e => setEditingEduVal({ ...editingEduVal, field: e.target.value })} placeholder="├ürea" />
+                  <Input value={editingEduVal.field} onChange={e => setEditingEduVal({ ...editingEduVal, field: e.target.value })} placeholder="Área" />
                   <Input value={editingEduVal.period} onChange={e => setEditingEduVal({ ...editingEduVal, period: e.target.value })} placeholder="Período" />
                   <Textarea value={editingEduVal.description} onChange={e => setEditingEduVal({ ...editingEduVal, description: e.target.value })} rows={2} />
                   <div className="flex gap-2"><Button size="sm" onClick={() => saveEdu(i)}><Check className="h-4 w-4 mr-1" />Salvar</Button><Button size="sm" variant="ghost" onClick={() => setEditingEduIdx(null)}>Cancelar</Button></div>
@@ -608,7 +608,7 @@ export default function Profile() {
                   <div className="mt-1 p-2 bg-purple-50 rounded-lg shrink-0"><GraduationCap className="h-4 w-4 text-purple-600" /></div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-sm">{edu.institution}</h4>
-                    <p className="text-gray-600 text-sm">{edu.degree}{edu.field ? ` ┬À ${edu.field}` : ''}</p>
+                    <p className="text-gray-600 text-sm">{edu.degree}{edu.field ? ` · ${edu.field}` : ''}</p>
                     <p className="text-gray-400 text-xs">{edu.period}</p>
                     {edu.description && <p className="text-gray-500 text-sm mt-1">{edu.description}</p>}
                   </div>
@@ -696,7 +696,7 @@ export default function Profile() {
               <div className="flex flex-wrap gap-2">
                 {currentUser.languages!.map((lang, i) => (
                   <Badge key={i} variant="outline" className="px-3 py-1.5 group flex items-center gap-1">
-                    {lang.name} ┬À <span className="text-gray-500">{lang.level}</span>
+                    {lang.name} · <span className="text-gray-500">{lang.level}</span>
                     <button onClick={() => removeLang(i)} className="ml-1 opacity-0 group-hover:opacity-100 hover:text-red-600 transition-opacity"><X className="h-3 w-3" /></button>
                   </Badge>
                 ))}

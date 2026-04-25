@@ -107,9 +107,9 @@ export default function Landing() {
           animate={{ x: [0, -1000] }}
           transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
         >
-          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó 
-          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó
-          <span>CONSTRUA SEU FUTURO</span> ÔÇó <span>CONECTE-SE</span> ÔÇó <span>APRENDA</span> ÔÇó <span>COMPARTILHE SEU PORTF├ôLIO</span> ÔÇó <span>EVOLUA</span> ÔÇó
+          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTF├ôLIO</span> • <span>EVOLUA</span> • 
+          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTF├ôLIO</span> • <span>EVOLUA</span> •
+          <span>CONSTRUA SEU FUTURO</span> • <span>CONECTE-SE</span> • <span>APRENDA</span> • <span>COMPARTILHE SEU PORTF├ôLIO</span> • <span>EVOLUA</span> •
         </motion.div>
       </div>
 

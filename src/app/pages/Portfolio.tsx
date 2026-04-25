@@ -129,7 +129,7 @@ export default function Portfolio() {
 
   const viewProject = portfolio.find(p => p.id === viewId);
   const viewOwner = viewProject ? getUserById(viewProject.userId) : null;
-  const REACTIONS = ['­ƒæì', 'ÔØñ´©Å', '­ƒöÑ', '­ƒÄë', '­ƒÿ«', '­ƒæÅ'];
+  const REACTIONS = ['👍', '❤️', '🔥', '🎉', '😮', '👏'];
 
   const handleSendComment = () => {
     if (!viewId || !commentText.trim()) return;
@@ -229,7 +229,7 @@ export default function Portfolio() {
               <p className="text-gray-400 text-sm mt-0.5">{currentUser.email}</p>
               <div className="flex items-center gap-3 mt-2 text-sm text-gray-400">
                 <span>{myPortfolio.length} projeto{myPortfolio.length !== 1 ? 's' : ''}</span>
-                <span>┬À</span>
+                <span>·</span>
                 <span>{currentUser.followersIds?.length || 0} seguidores</span>
               </div>
             </div>

@@ -46,7 +46,7 @@ export default function Register() {
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
         toast.success('Conta criada com sucesso!', {
-          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa versão Beta! ­ƒÄë`,
+          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa versão Beta! 🎉`,
           duration: 5000,
         });
       } catch (error) {
@@ -109,14 +109,14 @@ export default function Register() {
               <Input
                 id="password"
                 type="password"
-                placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó"
+                placeholder="Sua senha"
                 value={formData.password}
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="area">├ürea de Atuação</Label>
+              <Label htmlFor="area">Área de Atuação</Label>
               <Select
                 value={formData.area}
                 onValueChange={(value) => setFormData({ ...formData, area: value as any })}

@@ -68,7 +68,7 @@ export default function Login() {
               <Input
                 id="password"
                 type="password"
-                placeholder="ÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇóÔÇó"
+                placeholder="Sua senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required

@@ -349,7 +349,7 @@ export default function PartnerDashboard() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label>├ürea</Label>
+                      <Label>Área</Label>
                       <Select onValueChange={(val: any) => setNewCourse({...newCourse, area: val})}>
                         <SelectTrigger><SelectValue placeholder="Selecione a área" /></SelectTrigger>
                         <SelectContent>
@@ -602,7 +602,7 @@ export default function PartnerDashboard() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label>├ürea</Label>
+                      <Label>Área</Label>
                       <Select onValueChange={(val: any) => setNewRoadmap({...newRoadmap, area: val})}>
                         <SelectTrigger><SelectValue placeholder="Selecione a área" /></SelectTrigger>
                         <SelectContent>
@@ -849,7 +849,7 @@ export default function PartnerDashboard() {
                             <div className="bg-emerald-100 w-8 h-8 rounded-full flex items-center justify-center font-bold text-emerald-800">{idx + 1}</div>
                             <div>
                               <p className="font-medium">{step.title}</p>
-                              <p className="text-xs text-gray-500 uppercase">{step.type} ÔÇó {step.points} pts</p>
+                              <p className="text-xs text-gray-500 uppercase">{step.type} • {step.points} pts</p>
                               {step.type === 'module' && <p className="text-[10px] text-gray-400 font-mono mt-1">Curso: {step.courseId} | Mod: {step.moduleId}</p>}
                               {step.type === 'lesson' && <p className="text-[10px] text-gray-400 font-mono mt-1">Aula: {step.lessonId}</p>}
                               {step.type === 'file' && <p className="text-[10px] text-gray-400 font-mono mt-1">Arquivo: {step.fileName}</p>}
