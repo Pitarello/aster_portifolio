@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -21,10 +21,10 @@ const portfolioCategories = {
     { value: 'ai', label: 'AI/ML' },
   ],
   fashion: [
-    { value: 'collection', label: 'Cole├º├úo' },
+    { value: 'collection', label: 'Coleção' },
     { value: 'editorial', label: 'Editorial' },
-    { value: 'sustainable', label: 'Sustent├ível' },
-    { value: 'accessories', label: 'Acess├│rios' },
+    { value: 'sustainable', label: 'Sustentável' },
+    { value: 'accessories', label: 'Acessórios' },
     { value: 'runway', label: 'Passarela' },
   ],
   architecture: [
@@ -38,7 +38,7 @@ const portfolioCategories = {
 
 const emptyForm = { title: '', description: '', image: '', images: [] as string[], link: '', githubUrl: '', category: '', tags: '' };
 
-// ÔöÇÔöÇ Mini Carousel ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+// ── Mini Carousel ─────────────────────────────────────────────────────────────
 function ProjectCarousel({ images, title, fullHeight }: { images: string[]; title: string; fullHeight?: boolean }) {
   const [idx, setIdx] = useState(0);
   if (!images.length) return (
@@ -214,7 +214,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-[#1a1a1a] text-white">
       <Navbar />
 
-      {/* ÔöÇÔöÇ Profile Banner ÔöÇÔöÇ */}
+      {/* ── Profile Banner ── */}
       <div className="border-b border-white/10 bg-[#111]">
         <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between gap-6 flex-wrap">
           <div className="flex items-center gap-5">
@@ -240,7 +240,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ÔöÇÔöÇ Filters ÔöÇÔöÇ */}
+      {/* ── Filters ── */}
       <div className="border-b border-white/10 bg-[#111] sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-6 flex gap-1 overflow-x-auto py-3">
           {allFilters.map(f => (
@@ -257,7 +257,7 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* ÔöÇÔöÇ Grid ÔöÇÔöÇ */}
+      {/* ── Grid ── */}
       <div className="max-w-6xl mx-auto px-6 py-8">
         {filtered.length > 0 ? (
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
@@ -353,7 +353,7 @@ export default function Portfolio() {
         )}
       </div>
 
-      {/* ÔöÇÔöÇ Add / Edit Dialog ÔöÇÔöÇ */}
+      {/* ── Add / Edit Dialog ── */}
       <Dialog open={addOpen || !!editId} onOpenChange={open => !open && closeDialog()}>
         <DialogContent className="max-w-2xl bg-[#1e1e1e] border-white/10 text-white max-h-[90vh] overflow-y-auto">
           <DialogHeader>
@@ -361,16 +361,16 @@ export default function Portfolio() {
           </DialogHeader>
           <div className="space-y-5">
 
-            {/* T├¡tulo */}
+            {/* Título */}
             <div>
-              <Label className="text-gray-300">T├¡tulo *</Label>
+              <Label className="text-gray-300">Título *</Label>
               <Input value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))}
                 placeholder="Nome do projeto" className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
             </div>
 
-            {/* Descri├º├úo */}
+            {/* Descrição */}
             <div>
-              <Label className="text-gray-300">Descri├º├úo</Label>
+              <Label className="text-gray-300">Descrição</Label>
               <Textarea value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))}
                 placeholder="Descreva seu projeto..." rows={3}
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
@@ -414,7 +414,7 @@ export default function Portfolio() {
               <Input value={form.link} onChange={e => setForm(f => ({ ...f, link: e.target.value }))}
                 placeholder="https://meu-projeto.com" type="url"
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
-              <p className="text-xs text-gray-500 mt-1">Opcional ÔÇö abre uma p├ígina externa ao clicar no projeto</p>
+              <p className="text-xs text-gray-500 mt-1">Opcional ÔÇö abre uma página externa ao clicar no projeto</p>
             </div>
 
             {/* GitHub */}
@@ -470,12 +470,12 @@ export default function Portfolio() {
                   ))}
                 </div>
               )}
-              <p className="text-xs text-gray-500 mt-2">A primeira imagem ser├í a capa. Arraste para reordenar ou remova individualmente.</p>
+              <p className="text-xs text-gray-500 mt-2">A primeira imagem será a capa. Arraste para reordenar ou remova individualmente.</p>
             </div>
 
             {/* Tags */}
             <div>
-              <Label className="text-gray-300">Tags <span className="text-gray-500 font-normal">(separadas por v├¡rgula)</span></Label>
+              <Label className="text-gray-300">Tags <span className="text-gray-500 font-normal">(separadas por vírgula)</span></Label>
               <Input value={form.tags} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))}
                 placeholder="React, TypeScript, Figma"
                 className="mt-1 bg-white/5 border-white/10 text-white placeholder:text-gray-500" />
@@ -483,7 +483,7 @@ export default function Portfolio() {
 
             <div className="flex gap-3 pt-2">
               <Button onClick={handleSave} className="flex-1 bg-[#0057ff] hover:bg-[#0046cc]">
-                {editId ? 'Salvar Altera├º├Áes' : 'Publicar Projeto'}
+                {editId ? 'Salvar Alteraç├Áes' : 'Publicar Projeto'}
               </Button>
               <Button variant="ghost" onClick={closeDialog} className="text-gray-400 hover:text-white">Cancelar</Button>
             </div>
@@ -491,7 +491,7 @@ export default function Portfolio() {
         </DialogContent>
       </Dialog>
 
-      {/* ÔöÇÔöÇ Expanded Project View ÔöÇÔöÇ */}
+      {/* ── Expanded Project View ── */}
       <Dialog open={!!viewId} onOpenChange={open => { if (!open) { setViewId(null); setCommentText(''); } }}>
         <DialogContent className="bg-[#1a1a1a] border-white/10 text-white p-0 overflow-hidden flex flex-col"
           style={{ width: '90vw', height: '90vh', maxWidth: '90vw', maxHeight: '90vh' }}>
@@ -507,7 +507,7 @@ export default function Portfolio() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="font-semibold text-sm">{viewOwner?.name || 'Usu├írio'}</p>
+                    <p className="font-semibold text-sm">{viewOwner?.name || 'Usuário'}</p>
                     <p className="text-xs text-gray-400">{viewProject.category ? categories.find(c => c.value === viewProject.category)?.label : ''}</p>
                   </div>
                 </div>
@@ -561,7 +561,7 @@ export default function Portfolio() {
 
                   {/* Reactions */}
                   <div className="p-4 border-b border-white/10 shrink-0">
-                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">Rea├º├Áes</p>
+                    <p className="text-xs text-gray-500 mb-2 uppercase tracking-wide">Reaç├Áes</p>
                     <div className="flex flex-wrap gap-1.5">
                       {REACTIONS.map(emoji => {
                         const users: string[] = (viewProject.reactions || {})[emoji] || [];
@@ -586,7 +586,7 @@ export default function Portfolio() {
                   {/* Comments list */}
                   <ScrollArea className="flex-1 p-4">
                     <p className="text-xs text-gray-500 mb-3 uppercase tracking-wide flex items-center gap-1">
-                      <MessageCircle className="h-3.5 w-3.5" /> Coment├írios ({(viewProject.comments || []).length})
+                      <MessageCircle className="h-3.5 w-3.5" /> Comentários ({(viewProject.comments || []).length})
                     </p>
                     <div className="space-y-3">
                       {(viewProject.comments || []).length === 0 && (
@@ -624,7 +624,7 @@ export default function Portfolio() {
                         value={commentText}
                         onChange={e => setCommentText(e.target.value)}
                         onKeyDown={e => e.key === 'Enter' && handleSendComment()}
-                        placeholder="Adicionar coment├írio..."
+                        placeholder="Adicionar comentário..."
                         className="flex-1 bg-white/5 border-white/10 text-white placeholder:text-gray-600 text-sm h-9"
                       />
                       <Button size="sm" onClick={handleSendComment} className="bg-[#0057ff] hover:bg-[#0046cc] h-9 px-3">

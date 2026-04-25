@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -34,19 +34,19 @@ export default function Register() {
         // d5i6PXXmz9U6FEppycaHt parece ser o seu Service ID ou Template ID. 
         // Substitua os campos abaixo com os valores exatos do seu painel EmailJS:
         const serviceId = 'SEU_SERVICE_ID'; // ex: service_xxx
-        const templateId = 'd5i6PXXmz9U6FEppycaHt'; // Usando o segundo c├│digo que voc├¬ enviou como Template ID, troque se necess├írio.
+        const templateId = 'd5i6PXXmz9U6FEppycaHt'; // Usando o segundo código que você enviou como Template ID, troque se necessário.
 
-        // Par├ómetros que v├úo ser injetados no seu modelo de email (ajuste de acordo com as vari├íveis no seu template no EmailJS)
+        // Par├ómetros que vão ser injetados no seu modelo de email (ajuste de acordo com as variáveis no seu template no EmailJS)
         const templateParams = {
           to_name: formData.name,
           to_email: formData.email,
-          message: 'Bem-vindo(a) ├á vers├úo Beta da ASTER! Estamos muito felizes em ter voc├¬ conosco na nossa rede gamificada.',
+          message: 'Bem-vindo(a) ├á versão Beta da ASTER! Estamos muito felizes em ter você conosco na nossa rede gamificada.',
         };
 
         await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
         toast.success('Conta criada com sucesso!', {
-          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa vers├úo Beta! ­ƒÄë`,
+          description: `Enviamos um e-mail de boas-vindas para ${formData.email} agradecendo por participar da nossa versão Beta! ­ƒÄë`,
           duration: 5000,
         });
       } catch (error) {
@@ -66,7 +66,7 @@ export default function Register() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 relative">
       <div className="absolute top-4 left-4 z-10">
         <Button variant="ghost" onClick={() => navigate('/')} className="flex items-center gap-2">
-          <ArrowLeft className="w-4 h-4" /> Voltar para o In├¡cio
+          <ArrowLeft className="w-4 h-4" /> Voltar para o Início
         </Button>
       </div>
       <Card className="w-full max-w-md mt-10">
@@ -78,7 +78,7 @@ export default function Register() {
             <CardTitle className="text-2xl text-center">Criar Conta na ASTER</CardTitle>
           </Link>
           <CardDescription className="text-center">
-            Junte-se ├á comunidade profissional na vers├úo Beta
+            Junte-se ├á comunidade profissional na versão Beta
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleRegister}>
@@ -87,7 +87,7 @@ export default function Register() {
               <Label htmlFor="name">Nome Completo</Label>
               <Input
                 id="name"
-                placeholder="Jo├úo Silva"
+                placeholder="João Silva"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
@@ -116,13 +116,13 @@ export default function Register() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="area">├ürea de Atua├º├úo</Label>
+              <Label htmlFor="area">├ürea de Atuação</Label>
               <Select
                 value={formData.area}
                 onValueChange={(value) => setFormData({ ...formData, area: value as any })}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Selecione sua ├írea" />
+                  <SelectValue placeholder="Selecione sua área" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="tech">Tecnologia</SelectItem>
@@ -144,7 +144,7 @@ export default function Register() {
               )}
             </Button>
             <div className="text-sm text-center text-gray-600">
-              J├í tem uma conta?{' '}
+              Já tem uma conta?{' '}
               <Link to="/login" className="text-indigo-600 hover:underline">
                 Entrar
               </Link>

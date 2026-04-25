@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Navbar } from '../components/Navbar';
@@ -35,7 +35,7 @@ export default function UserProfile() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <Card className="max-w-md">
           <CardContent className="pt-6 text-center">
-            <h3 className="text-lg font-semibold mb-2">Usu├írio n├úo encontrado</h3>
+            <h3 className="text-lg font-semibold mb-2">Usuário não encontrado</h3>
             <Button onClick={() => navigate('/feed')}>Voltar ao Feed</Button>
           </CardContent>
         </Card>
@@ -144,7 +144,7 @@ export default function UserProfile() {
           </CardHeader>
           <CardContent>
             <p className="text-gray-700">
-              {user.bio || 'Este usu├írio ainda n├úo adicionou uma descri├º├úo.'}
+              {user.bio || 'Este usuário ainda não adicionou uma descrição.'}
             </p>
           </CardContent>
         </Card>
@@ -172,7 +172,7 @@ export default function UserProfile() {
         {/* Experience */}
         <Card>
           <CardHeader>
-            <CardTitle>Experi├¬ncia</CardTitle>
+            <CardTitle>Experiência</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {user.experiences.length > 0 ? (
@@ -187,7 +187,7 @@ export default function UserProfile() {
                 </div>
               ))
             ) : (
-              <p className="text-gray-500">Nenhuma experi├¬ncia adicionada.</p>
+              <p className="text-gray-500">Nenhuma experiência adicionada.</p>
             )}
           </CardContent>
         </Card>
@@ -196,7 +196,7 @@ export default function UserProfile() {
         {userPortfolio.length > 0 && (
           <Card>
             <CardHeader>
-              <CardTitle>Portf├│lio</CardTitle>
+              <CardTitle>Portfólio</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

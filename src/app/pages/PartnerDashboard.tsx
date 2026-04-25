@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Navbar } from '../components/Navbar';
@@ -82,7 +82,7 @@ export default function PartnerDashboard() {
 
   // --- Course Functions ---
   const handleSaveCourse = () => {
-    if (!newCourse.title || !newCourse.area) return toast.error('Preencha os campos obrigat├│rios');
+    if (!newCourse.title || !newCourse.area) return toast.error('Preencha os campos obrigatórios');
     const course: CourseData = {
       id: `c_${Date.now()}`,
       title: newCourse.title,
@@ -112,7 +112,7 @@ export default function PartnerDashboard() {
     updateCourse(updatedCourse);
     setEditingCourse(updatedCourse);
     setNewModule({});
-    toast.success('M├│dulo adicionado!');
+    toast.success('Módulo adicionado!');
   };
 
   const handleAddLesson = (moduleId: string) => {
@@ -152,7 +152,7 @@ export default function PartnerDashboard() {
 
   const handleAddLessonQuestion = () => {
     if (!newLessonQuestion.question || newLessonQuestion.options.some(opt => !opt.trim())) {
-      toast.error('Preencha a pergunta e todas as op├º├Áes.');
+      toast.error('Preencha a pergunta e todas as opç├Áes.');
       return;
     }
     setLessonQuestions([...lessonQuestions, { ...newLessonQuestion, id: `lq_${Date.now()}` }]);
@@ -161,7 +161,7 @@ export default function PartnerDashboard() {
 
   // --- Roadmap Functions ---
   const handleSaveRoadmap = () => {
-    if (!newRoadmap.title || !newRoadmap.area) return toast.error('Preencha os campos obrigat├│rios');
+    if (!newRoadmap.title || !newRoadmap.area) return toast.error('Preencha os campos obrigatórios');
     const roadmap: Roadmap = {
       id: `r_${Date.now()}`,
       title: newRoadmap.title,
@@ -178,7 +178,7 @@ export default function PartnerDashboard() {
 
   const handleAddQuestion = () => {
     if (!newQuestion.question || newQuestion.options.some(opt => !opt.trim())) {
-      toast.error('Preencha a pergunta e todas as op├º├Áes.');
+      toast.error('Preencha a pergunta e todas as opç├Áes.');
       return;
     }
     setTestQuestions([...testQuestions, { ...newQuestion, id: `q_${Date.now()}` }]);
@@ -269,19 +269,19 @@ export default function PartnerDashboard() {
         {activeTab === 'profile' && (
           <Card className="max-w-2xl">
             <CardHeader>
-              <CardTitle>Informa├º├Áes da Empresa</CardTitle>
+              <CardTitle>Informaç├Áes da Empresa</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label>Nome Fantasia (Nome da Empresa ou Institui├º├úo)</Label>
+                <Label>Nome Fantasia (Nome da Empresa ou Instituição)</Label>
                 <Input value={companyName} onChange={(e) => setCompanyName(e.target.value)} />
               </div>
               <div className="space-y-2">
-                <Label>Raz├úo Social</Label>
+                <Label>Razão Social</Label>
                 <Input value={corporateName} onChange={(e) => setCorporateName(e.target.value)} />
               </div>
               <div className="space-y-2">
-                <Label>Descri├º├úo da Empresa</Label>
+                <Label>Descrição da Empresa</Label>
                 <Textarea rows={4} value={companyDesc} onChange={(e) => setCompanyDesc(e.target.value)} />
               </div>
               <Button onClick={handleUpdateProfile} className="bg-emerald-600 hover:bg-emerald-700">
@@ -313,20 +313,20 @@ export default function PartnerDashboard() {
                         <CardHeader className="pb-2" onClick={() => setEditingCourse(course)}>
                           <div className="flex items-center justify-between mb-2">
                             <Badge className="w-fit bg-emerald-100 text-emerald-800 border-transparent">{course.area}</Badge>
-                            {course.status === 'pending' && <Badge className="bg-amber-100 text-amber-700 border-transparent">Em an├ílise</Badge>}
+                            {course.status === 'pending' && <Badge className="bg-amber-100 text-amber-700 border-transparent">Em análise</Badge>}
                             {course.status === 'approved' && <Badge className="bg-green-100 text-green-700 border-transparent">Aprovado</Badge>}
                             {course.status === 'rejected' && <Badge variant="destructive" className="border-transparent">Rejeitado</Badge>}
                           </div>
                           <CardTitle className="text-lg">{course.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-sm text-gray-500 mb-3">{course.modules.length} M├│dulos</p>
+                          <p className="text-sm text-gray-500 mb-3">{course.modules.length} Módulos</p>
                           {course.status === 'rejected' && course.rejectionReason && (
                             <p className="text-xs text-red-600 bg-red-50 p-2 rounded mb-3">Motivo: {course.rejectionReason}</p>
                           )}
                           {(!course.status || course.status === 'draft' || course.status === 'rejected') && (
-                            <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700" onClick={() => { submitCourseForReview(course.id); toast.success('Curso submetido para aprova├º├úo!'); }}>
-                              Submeter para Aprova├º├úo
+                            <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700" onClick={() => { submitCourseForReview(course.id); toast.success('Curso submetido para aprovação!'); }}>
+                              Submeter para Aprovação
                             </Button>
                           )}
                         </CardContent>
@@ -344,14 +344,14 @@ export default function PartnerDashboard() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label>T├¡tulo do Curso</Label>
+                    <Label>Título do Curso</Label>
                     <Input value={newCourse.title || ''} onChange={e => setNewCourse({...newCourse, title: e.target.value})} />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label>├ürea</Label>
                       <Select onValueChange={(val: any) => setNewCourse({...newCourse, area: val})}>
-                        <SelectTrigger><SelectValue placeholder="Selecione a ├írea" /></SelectTrigger>
+                        <SelectTrigger><SelectValue placeholder="Selecione a área" /></SelectTrigger>
                         <SelectContent>
                           <SelectItem value="tech">Tecnologia</SelectItem>
                           <SelectItem value="fashion">Moda</SelectItem>
@@ -360,7 +360,7 @@ export default function PartnerDashboard() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>Dura├º├úo (ex: 40h)</Label>
+                      <Label>Duração (ex: 40h)</Label>
                       <Input value={newCourse.duration || ''} onChange={e => setNewCourse({...newCourse, duration: e.target.value})} />
                     </div>
                   </div>
@@ -371,7 +371,7 @@ export default function PartnerDashboard() {
                     onChange={url => setNewCourse({...newCourse, imageUrl: url})}
                   />
                   <div className="space-y-2">
-                    <Label>Descri├º├úo</Label>
+                    <Label>Descrição</Label>
                     <Textarea value={newCourse.description || ''} onChange={e => setNewCourse({...newCourse, description: e.target.value})} />
                   </div>
                   <div className="flex gap-2 justify-end">
@@ -397,9 +397,9 @@ export default function PartnerDashboard() {
                     <div className="space-y-6">
                       {/* Add Module Form */}
                       <div className="bg-gray-50 p-4 rounded-lg border">
-                        <h3 className="font-semibold mb-3 flex items-center gap-2"><Layers className="w-4 h-4"/> Adicionar M├│dulo</h3>
+                        <h3 className="font-semibold mb-3 flex items-center gap-2"><Layers className="w-4 h-4"/> Adicionar Módulo</h3>
                         <div className="flex gap-2">
-                          <Input placeholder="T├¡tulo do M├│dulo" value={newModule.title || ''} onChange={e => setNewModule({title: e.target.value})} />
+                          <Input placeholder="Título do Módulo" value={newModule.title || ''} onChange={e => setNewModule({title: e.target.value})} />
                           <Button onClick={handleAddModule} className="bg-emerald-600 hover:bg-emerald-700">Adicionar</Button>
                         </div>
                       </div>
@@ -408,7 +408,7 @@ export default function PartnerDashboard() {
                       <div className="space-y-4">
                         {editingCourse.modules.map(module => (
                           <div key={module.id} className="border rounded-lg p-4">
-                            <h4 className="font-bold text-lg mb-3">M├│dulo: {module.title}</h4>
+                            <h4 className="font-bold text-lg mb-3">Módulo: {module.title}</h4>
                             <p className="text-xs text-gray-500 mb-4 font-mono">ID: {module.id}</p>
                             
                             {/* Lessons List */}
@@ -426,15 +426,15 @@ export default function PartnerDashboard() {
                               <h5 className="font-semibold text-sm mb-3 text-emerald-700">Nova Aula / Atividade</h5>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
                                 <div>
-                                  <Label className="text-xs">T├¡tulo</Label>
+                                  <Label className="text-xs">Título</Label>
                                   <Input size={1} className="h-8 text-sm" value={newLesson.title || ''} onChange={e => setNewLesson({...newLesson, title: e.target.value})} />
                                 </div>
                                 <div>
                                   <Label className="text-xs">Tipo</Label>
                                   <Select onValueChange={(val: any) => setNewLesson({...newLesson, type: val})}>
-                                    <SelectTrigger className="h-8"><SelectValue placeholder="V├¡deo ou Atividade" /></SelectTrigger>
+                                    <SelectTrigger className="h-8"><SelectValue placeholder="Vídeo ou Atividade" /></SelectTrigger>
                                     <SelectContent>
-                                      <SelectItem value="video">V├¡deo Aula</SelectItem>
+                                      <SelectItem value="video">Vídeo Aula</SelectItem>
                                       <SelectItem value="activity">Atividade (Teste)</SelectItem>
                                     </SelectContent>
                                   </Select>
@@ -446,7 +446,7 @@ export default function PartnerDashboard() {
                                 {newLesson.type === 'video' && (
                                   <div>
                                     <MediaInput
-                                      label="V├¡deo da Aula"
+                                      label="Vídeo da Aula"
                                       mediaType="video"
                                       value={newLesson.contentUrl || ''}
                                       onChange={url => setNewLesson({...newLesson, contentUrl: url})}
@@ -461,7 +461,7 @@ export default function PartnerDashboard() {
                                   </div>
                                 )}
                                 <div className="md:col-span-2">
-                                  <Label className="text-xs">Dura├º├úo</Label>
+                                  <Label className="text-xs">Duração</Label>
                                   <Input className="h-8 text-sm" placeholder="Ex: 15 min" value={newLesson.duration || ''} onChange={e => setNewLesson({...newLesson, duration: e.target.value})} />
                                 </div>
                               </div>
@@ -507,7 +507,7 @@ export default function PartnerDashboard() {
                                       className="mb-3 h-8 text-sm"
                                     />
                                     
-                                    <Label className="mb-2 block text-xs">Op├º├Áes (Marque a correta)</Label>
+                                    <Label className="mb-2 block text-xs">Opç├Áes (Marque a correta)</Label>
                                     <div className="space-y-2 mb-3">
                                       {newLessonQuestion.options.map((opt: any, i: number) => (
                                         <div key={i} className="flex items-center gap-2">
@@ -519,7 +519,7 @@ export default function PartnerDashboard() {
                                             className="w-3.5 h-3.5 text-emerald-600 focus:ring-emerald-500"
                                           />
                                           <Input 
-                                            placeholder={`Op├º├úo ${String.fromCharCode(65 + i)}`} 
+                                            placeholder={`Opção ${String.fromCharCode(65 + i)}`} 
                                             value={opt} 
                                             onChange={e => {
                                               const newOpts = [...newLessonQuestion.options];
@@ -567,7 +567,7 @@ export default function PartnerDashboard() {
                       <CardHeader className="pb-2" onClick={() => setEditingRoadmap(roadmap)}>
                         <div className="flex items-center justify-between mb-2">
                           <Badge className="bg-emerald-100 text-emerald-800 border-transparent">{roadmap.area}</Badge>
-                          {roadmap.status === 'pending' && <Badge className="bg-amber-100 text-amber-700 border-transparent">Em an├ílise</Badge>}
+                          {roadmap.status === 'pending' && <Badge className="bg-amber-100 text-amber-700 border-transparent">Em análise</Badge>}
                           {roadmap.status === 'approved' && <Badge className="bg-green-100 text-green-700 border-transparent">Aprovada</Badge>}
                           {roadmap.status === 'rejected' && <Badge variant="destructive" className="border-transparent">Rejeitada</Badge>}
                         </div>
@@ -579,8 +579,8 @@ export default function PartnerDashboard() {
                           <p className="text-xs text-red-600 bg-red-50 p-2 rounded mb-3">Motivo: {roadmap.rejectionReason}</p>
                         )}
                         {(!roadmap.status || roadmap.status === 'draft' || roadmap.status === 'rejected') && (
-                          <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700" onClick={() => { submitRoadmapForReview(roadmap.id); toast.success('Trilha submetida para aprova├º├úo!'); }}>
-                            Submeter para Aprova├º├úo
+                          <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700" onClick={() => { submitRoadmapForReview(roadmap.id); toast.success('Trilha submetida para aprovação!'); }}>
+                            Submeter para Aprovação
                           </Button>
                         )}
                       </CardContent>
@@ -597,14 +597,14 @@ export default function PartnerDashboard() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
-                    <Label>T├¡tulo da Trilha</Label>
+                    <Label>Título da Trilha</Label>
                     <Input value={newRoadmap.title || ''} onChange={e => setNewRoadmap({...newRoadmap, title: e.target.value})} />
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label>├ürea</Label>
                       <Select onValueChange={(val: any) => setNewRoadmap({...newRoadmap, area: val})}>
-                        <SelectTrigger><SelectValue placeholder="Selecione a ├írea" /></SelectTrigger>
+                        <SelectTrigger><SelectValue placeholder="Selecione a área" /></SelectTrigger>
                         <SelectContent>
                           <SelectItem value="tech">Tecnologia</SelectItem>
                           <SelectItem value="fashion">Moda</SelectItem>
@@ -613,19 +613,19 @@ export default function PartnerDashboard() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label>N├¡vel</Label>
+                      <Label>Nível</Label>
                       <Select onValueChange={(val: string) => setNewRoadmap({...newRoadmap, level: val})}>
-                        <SelectTrigger><SelectValue placeholder="N├¡vel" /></SelectTrigger>
+                        <SelectTrigger><SelectValue placeholder="Nível" /></SelectTrigger>
                         <SelectContent>
                           <SelectItem value="Iniciante">Iniciante</SelectItem>
-                          <SelectItem value="Intermedi├írio">Intermedi├írio</SelectItem>
-                          <SelectItem value="Avan├ºado">Avan├ºado</SelectItem>
+                          <SelectItem value="Intermediário">Intermediário</SelectItem>
+                          <SelectItem value="Avançado">Avançado</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label>Descri├º├úo</Label>
+                    <Label>Descrição</Label>
                     <Textarea value={newRoadmap.description || ''} onChange={e => setNewRoadmap({...newRoadmap, description: e.target.value})} />
                   </div>
                   <div className="flex gap-2 justify-end">
@@ -651,7 +651,7 @@ export default function PartnerDashboard() {
                       <h3 className="font-semibold mb-3">Adicionar Etapa</h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div className="space-y-2">
-                          <Label>T├¡tulo da Etapa</Label>
+                          <Label>Título da Etapa</Label>
                           <Input value={newStep.title || ''} onChange={e => setNewStep({...newStep, title: e.target.value})} />
                         </div>
                         <div className="space-y-2">
@@ -659,7 +659,7 @@ export default function PartnerDashboard() {
                           <Select onValueChange={(val: any) => setNewStep({...newStep, type: val})}>
                             <SelectTrigger><SelectValue placeholder="Tipo de Etapa" /></SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="module">M├│dulo de Curso</SelectItem>
+                              <SelectItem value="module">Módulo de Curso</SelectItem>
                               <SelectItem value="lesson">Aula de Curso</SelectItem>
                               <SelectItem value="book">Livro</SelectItem>
                               <SelectItem value="article">Artigo</SelectItem>
@@ -690,9 +690,9 @@ export default function PartnerDashboard() {
 
                             {newStep.courseId && (
                               <div className="space-y-2">
-                                <Label>M├│dulo</Label>
+                                <Label>Módulo</Label>
                                 <Select onValueChange={(val: any) => setNewStep({...newStep, moduleId: val, lessonId: ''})}>
-                                  <SelectTrigger><SelectValue placeholder="Selecione o M├│dulo" /></SelectTrigger>
+                                  <SelectTrigger><SelectValue placeholder="Selecione o Módulo" /></SelectTrigger>
                                   <SelectContent>
                                     {partnerCourses.find(c => c.id === newStep.courseId)?.modules.map(m => (
                                       <SelectItem key={m.id} value={m.id}>{m.title}</SelectItem>
@@ -704,7 +704,7 @@ export default function PartnerDashboard() {
 
                             {newStep.type === 'lesson' && newStep.moduleId && (
                               <div className="space-y-2">
-                                <Label>Aula / V├¡deo</Label>
+                                <Label>Aula / Vídeo</Label>
                                 <Select onValueChange={(val: any) => setNewStep({...newStep, lessonId: val})}>
                                   <SelectTrigger><SelectValue placeholder="Selecione a Aula" /></SelectTrigger>
                                   <SelectContent>
@@ -803,7 +803,7 @@ export default function PartnerDashboard() {
                               className="mb-3"
                             />
                             
-                            <Label className="mb-2 block">Op├º├Áes (Marque a correta)</Label>
+                            <Label className="mb-2 block">Opç├Áes (Marque a correta)</Label>
                             <div className="space-y-2 mb-3">
                               {newQuestion.options.map((opt: any, i: number) => (
                                 <div key={i} className="flex items-center gap-2">
@@ -815,7 +815,7 @@ export default function PartnerDashboard() {
                                     className="w-4 h-4 text-emerald-600 focus:ring-emerald-500"
                                   />
                                   <Input 
-                                    placeholder={`Op├º├úo ${String.fromCharCode(65 + i)}`} 
+                                    placeholder={`Opção ${String.fromCharCode(65 + i)}`} 
                                     value={opt} 
                                     onChange={e => {
                                       const newOpts = [...newQuestion.options];
@@ -834,7 +834,7 @@ export default function PartnerDashboard() {
                       )}
 
                       <div className="space-y-2 mb-4">
-                        <Label>Descri├º├úo Curta</Label>
+                        <Label>Descrição Curta</Label>
                         <Textarea rows={2} value={newStep.description || ''} onChange={e => setNewStep({...newStep, description: e.target.value})} />
                       </div>
                       <Button onClick={handleAddStep} className="bg-emerald-600 hover:bg-emerald-700"><Plus className="w-4 h-4 mr-2"/> Adicionar Etapa</Button>
@@ -885,7 +885,7 @@ export default function PartnerDashboard() {
               </div>
               <div className="flex-1">
                 <h3 className="font-semibold text-gray-900">Suporte ASTER</h3>
-                <p className="text-xs text-gray-500">Administra├º├úo & Avalia├º├úo de Conte├║do</p>
+                <p className="text-xs text-gray-500">Administração & Avaliação de Conte├║do</p>
               </div>
               <div className="flex gap-2">
                 <Button
@@ -904,7 +904,7 @@ export default function PartnerDashboard() {
                   onClick={() => setCallState('video')}
                 >
                   <VideoIcon className="w-4 h-4" />
-                  V├¡deo
+                  Vídeo
                 </Button>
               </div>
             </div>
@@ -913,7 +913,7 @@ export default function PartnerDashboard() {
               <div className="space-y-4">
                 {(chatMessages[currentUser.id] || []).length === 0 ? (
                   <div className="text-center text-gray-500 mt-10">
-                    Nenhuma mensagem ainda. Envie uma mensagem para a administra├º├úo.
+                    Nenhuma mensagem ainda. Envie uma mensagem para a administração.
                   </div>
                 ) : (
                   (chatMessages[currentUser.id] || []).map((msg: any) => (
@@ -948,7 +948,7 @@ export default function PartnerDashboard() {
             
             <div className="p-4 bg-white border-t flex gap-2">
               <Input 
-                placeholder="Digite sua mensagem para a administra├º├úo..." 
+                placeholder="Digite sua mensagem para a administração..." 
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && chatInput.trim() && (sendMessageToAdmin(chatInput), setChatInput(''))}

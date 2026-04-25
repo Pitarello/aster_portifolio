@@ -1,4 +1,4 @@
-﻿import { createBrowserRouter, Outlet } from 'react-router';
+import { createBrowserRouter, Outlet } from 'react-router';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Feed from './pages/Feed';

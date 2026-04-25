@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 import { CourseData, coursesData as initialCourses } from '../data/courses';
 import { Roadmap, roadmapsData as initialRoadmaps } from '../data/roadmaps';

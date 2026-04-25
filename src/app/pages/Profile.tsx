@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -87,7 +87,7 @@ export default function Profile() {
 
   if (!currentUser) return null;
 
-  // ÔöÇÔöÇ Info ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Info ──────────────────────────────────────────────
   const openEditInfo = () => {
     setEditedName(currentUser.name);
     setEditedArea(currentUser.area);
@@ -100,11 +100,11 @@ export default function Profile() {
     }
   };
 
-  // ÔöÇÔöÇ Bio ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Bio ───────────────────────────────────────────────
   const openEditBio = () => { setEditedBio(currentUser.bio || ''); setIsEditingBio(true); };
   const saveBio = () => { updateProfile({ bio: editedBio }); setIsEditingBio(false); };
 
-  // ÔöÇÔöÇ Skills ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Skills ────────────────────────────────────────────
   const addSkill = () => {
     if (!newSkill.trim()) return;
     updateProfile({ skills: [...(currentUser.skills || []), newSkill.trim()] });
@@ -122,7 +122,7 @@ export default function Profile() {
     updateProfile({ skills: currentUser.skills.filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Experiences ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Experiences ───────────────────────────────────────
   const addExp = () => {
     if (!newExp.title || !newExp.company) return;
     updateProfile({ experiences: [...(currentUser.experiences || []), newExp] });
@@ -140,7 +140,7 @@ export default function Profile() {
     updateProfile({ experiences: currentUser.experiences.filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Education ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Education ─────────────────────────────────────────
   const addEdu = () => {
     if (!newEdu.institution || !newEdu.degree) return;
     updateProfile({ education: [...(currentUser.education || []), newEdu] });
@@ -157,7 +157,7 @@ export default function Profile() {
     updateProfile({ education: (currentUser.education || []).filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Certifications ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Certifications ────────────────────────────────────
   const addCert = () => {
     if (!newCert.name || !newCert.issuer) return;
     updateProfile({ certifications: [...(currentUser.certifications || []), newCert] });
@@ -174,7 +174,7 @@ export default function Profile() {
     updateProfile({ certifications: (currentUser.certifications || []).filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Languages ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Languages ─────────────────────────────────────────
   const addLang = () => {
     if (!newLang.name || !newLang.level) return;
     updateProfile({ languages: [...(currentUser.languages || []), newLang] });
@@ -184,7 +184,7 @@ export default function Profile() {
     updateProfile({ languages: (currentUser.languages || []).filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Volunteer ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Volunteer ─────────────────────────────────────────
   const addVol = () => {
     if (!newVol.role || !newVol.organization) return;
     updateProfile({ volunteer: [...(currentUser.volunteer || []), newVol] });
@@ -201,7 +201,7 @@ export default function Profile() {
     updateProfile({ volunteer: (currentUser.volunteer || []).filter((_, idx) => idx !== i) });
   };
 
-  // ÔöÇÔöÇ Contact ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Contact ───────────────────────────────────────────
   const openEditContact = () => {
     setContactForm({
       headline: currentUser.headline || '',
@@ -216,7 +216,7 @@ export default function Profile() {
     setIsEditingContact(false);
   };
 
-  // ÔöÇÔöÇ Photos ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ
+  // ── Photos ────────────────────────────────────────────
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, type: 'avatar' | 'cover') => {
     if (!e.target.files?.length) return;
     const reader = new FileReader();
@@ -267,7 +267,7 @@ export default function Profile() {
 
       <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
 
-        {/* ÔöÇÔöÇ Cover & Avatar ÔöÇÔöÇ */}
+        {/* ── Cover & Avatar ── */}
         <Card>
           <div className="relative group">
             <div
@@ -394,7 +394,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Bio ÔöÇÔöÇ */}
+        {/* ── Bio ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle>Sobre</CardTitle>
@@ -408,7 +408,7 @@ export default function Profile() {
                 <Textarea
                   value={editedBio}
                   onChange={e => setEditedBio(e.target.value)}
-                  placeholder="Conte sobre voc├¬, suas experi├¬ncias e objetivos..."
+                  placeholder="Conte sobre você, suas experiências e objetivos..."
                   rows={4}
                 />
                 <div className="flex gap-2 justify-end">
@@ -418,13 +418,13 @@ export default function Profile() {
               </div>
             ) : (
               <p className="text-gray-700 whitespace-pre-wrap">
-                {currentUser.bio || <span className="text-gray-400 italic">Adicione uma descri├º├úo sobre voc├¬...</span>}
+                {currentUser.bio || <span className="text-gray-400 italic">Adicione uma descrição sobre você...</span>}
               </p>
             )}
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Skills ÔöÇÔöÇ */}
+        {/* ── Skills ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle>Habilidades</CardTitle>
@@ -485,16 +485,16 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Experience ÔöÇÔöÇ */}
+        {/* ── Experience ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle>Experi├¬ncia</CardTitle>
+            <CardTitle>Experiência</CardTitle>
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button>
               </DialogTrigger>
               <DialogContent>
-                <DialogHeader><DialogTitle>Adicionar Experi├¬ncia</DialogTitle></DialogHeader>
+                <DialogHeader><DialogTitle>Adicionar Experiência</DialogTitle></DialogHeader>
                 <div className="space-y-4">
                   <div>
                     <Label>Cargo</Label>
@@ -505,11 +505,11 @@ export default function Profile() {
                     <Input value={newExp.company} onChange={e => setNewExp({ ...newExp, company: e.target.value })} placeholder="Ex: Tech Corp" className="mt-1" />
                   </div>
                   <div>
-                    <Label>Per├¡odo</Label>
+                    <Label>Período</Label>
                     <Input value={newExp.period} onChange={e => setNewExp({ ...newExp, period: e.target.value })} placeholder="Ex: 2020 - Presente" className="mt-1" />
                   </div>
                   <div>
-                    <Label>Descri├º├úo</Label>
+                    <Label>Descrição</Label>
                     <Textarea value={newExp.description} onChange={e => setNewExp({ ...newExp, description: e.target.value })} placeholder="Descreva suas responsabilidades..." rows={3} className="mt-1" />
                   </div>
                   <label className="flex items-center gap-2 text-sm cursor-pointer">
@@ -528,8 +528,8 @@ export default function Profile() {
                   <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
                     <Input value={editingExpVal.title} onChange={e => setEditingExpVal({ ...editingExpVal, title: e.target.value })} placeholder="Cargo" />
                     <Input value={editingExpVal.company} onChange={e => setEditingExpVal({ ...editingExpVal, company: e.target.value })} placeholder="Empresa" />
-                    <Input value={editingExpVal.period} onChange={e => setEditingExpVal({ ...editingExpVal, period: e.target.value })} placeholder="Per├¡odo" />
-                    <Textarea value={editingExpVal.description || ''} onChange={e => setEditingExpVal({ ...editingExpVal, description: e.target.value })} placeholder="Descri├º├úo" rows={2} />
+                    <Input value={editingExpVal.period} onChange={e => setEditingExpVal({ ...editingExpVal, period: e.target.value })} placeholder="Período" />
+                    <Textarea value={editingExpVal.description || ''} onChange={e => setEditingExpVal({ ...editingExpVal, description: e.target.value })} placeholder="Descrição" rows={2} />
                     <label className="flex items-center gap-2 text-sm cursor-pointer">
                       <input type="checkbox" checked={editingExpVal.current || false} onChange={e => setEditingExpVal({ ...editingExpVal, current: e.target.checked })} />
                       Emprego atual
@@ -565,28 +565,28 @@ export default function Profile() {
                 )
               )
             ) : (
-              <p className="text-gray-400 italic text-sm">Nenhuma experi├¬ncia adicionada ainda.</p>
+              <p className="text-gray-400 italic text-sm">Nenhuma experiência adicionada ainda.</p>
             )}
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Portfolio Carousel ÔöÇÔöÇ */}
+        {/* ── Portfolio Carousel ── */}
         <PortfolioCarousel />
 
-        {/* ÔöÇÔöÇ Education ÔöÇÔöÇ */}
+        {/* ── Education ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-indigo-600" /> Forma├º├úo Acad├¬mica</CardTitle>
+            <CardTitle className="flex items-center gap-2"><GraduationCap className="h-5 w-5 text-indigo-600" /> Formação Acadêmica</CardTitle>
             <Dialog>
               <DialogTrigger asChild><Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button></DialogTrigger>
               <DialogContent>
-                <DialogHeader><DialogTitle>Adicionar Forma├º├úo</DialogTitle></DialogHeader>
+                <DialogHeader><DialogTitle>Adicionar Formação</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Institui├º├úo</Label><Input value={newEdu.institution} onChange={e => setNewEdu({ ...newEdu, institution: e.target.value })} placeholder="Ex: USP" className="mt-1" /></div>
+                  <div><Label>Instituição</Label><Input value={newEdu.institution} onChange={e => setNewEdu({ ...newEdu, institution: e.target.value })} placeholder="Ex: USP" className="mt-1" /></div>
                   <div><Label>Grau</Label><Input value={newEdu.degree} onChange={e => setNewEdu({ ...newEdu, degree: e.target.value })} placeholder="Ex: Bacharelado" className="mt-1" /></div>
-                  <div><Label>├ürea</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ci├¬ncia da Computa├º├úo" className="mt-1" /></div>
-                  <div><Label>Per├¡odo</Label><Input value={newEdu.period} onChange={e => setNewEdu({ ...newEdu, period: e.target.value })} placeholder="Ex: 2018 - 2022" className="mt-1" /></div>
-                  <div><Label>Descri├º├úo</Label><Textarea value={newEdu.description} onChange={e => setNewEdu({ ...newEdu, description: e.target.value })} rows={2} className="mt-1" /></div>
+                  <div><Label>├ürea</Label><Input value={newEdu.field} onChange={e => setNewEdu({ ...newEdu, field: e.target.value })} placeholder="Ex: Ciência da Computação" className="mt-1" /></div>
+                  <div><Label>Período</Label><Input value={newEdu.period} onChange={e => setNewEdu({ ...newEdu, period: e.target.value })} placeholder="Ex: 2018 - 2022" className="mt-1" /></div>
+                  <div><Label>Descrição</Label><Textarea value={newEdu.description} onChange={e => setNewEdu({ ...newEdu, description: e.target.value })} rows={2} className="mt-1" /></div>
                   <Button onClick={addEdu} className="w-full">Adicionar</Button>
                 </div>
               </DialogContent>
@@ -596,10 +596,10 @@ export default function Profile() {
             {(currentUser.education?.length || 0) > 0 ? currentUser.education!.map((edu, i) =>
               editingEduIdx === i ? (
                 <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
-                  <Input value={editingEduVal.institution} onChange={e => setEditingEduVal({ ...editingEduVal, institution: e.target.value })} placeholder="Institui├º├úo" />
+                  <Input value={editingEduVal.institution} onChange={e => setEditingEduVal({ ...editingEduVal, institution: e.target.value })} placeholder="Instituição" />
                   <Input value={editingEduVal.degree} onChange={e => setEditingEduVal({ ...editingEduVal, degree: e.target.value })} placeholder="Grau" />
                   <Input value={editingEduVal.field} onChange={e => setEditingEduVal({ ...editingEduVal, field: e.target.value })} placeholder="├ürea" />
-                  <Input value={editingEduVal.period} onChange={e => setEditingEduVal({ ...editingEduVal, period: e.target.value })} placeholder="Per├¡odo" />
+                  <Input value={editingEduVal.period} onChange={e => setEditingEduVal({ ...editingEduVal, period: e.target.value })} placeholder="Período" />
                   <Textarea value={editingEduVal.description} onChange={e => setEditingEduVal({ ...editingEduVal, description: e.target.value })} rows={2} />
                   <div className="flex gap-2"><Button size="sm" onClick={() => saveEdu(i)}><Check className="h-4 w-4 mr-1" />Salvar</Button><Button size="sm" variant="ghost" onClick={() => setEditingEduIdx(null)}>Cancelar</Button></div>
                 </div>
@@ -618,14 +618,14 @@ export default function Profile() {
                   </div>
                 </div>
               )
-            ) : <p className="text-gray-400 italic text-sm">Nenhuma forma├º├úo adicionada ainda.</p>}
+            ) : <p className="text-gray-400 italic text-sm">Nenhuma formação adicionada ainda.</p>}
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Certifications ÔöÇÔöÇ */}
+        {/* ── Certifications ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="flex items-center gap-2"><Award className="h-5 w-5 text-yellow-600" /> Licen├ºas e Certificados</CardTitle>
+            <CardTitle className="flex items-center gap-2"><Award className="h-5 w-5 text-yellow-600" /> Licenças e Certificados</CardTitle>
             <Dialog>
               <DialogTrigger asChild><Button variant="ghost" size="sm"><Plus className="h-4 w-4" /></Button></DialogTrigger>
               <DialogContent>
@@ -669,7 +669,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Languages ÔöÇÔöÇ */}
+        {/* ── Languages ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="flex items-center gap-2"><Languages className="h-5 w-5 text-green-600" /> Idiomas</CardTitle>
@@ -678,12 +678,12 @@ export default function Profile() {
               <DialogContent>
                 <DialogHeader><DialogTitle>Adicionar Idioma</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Idioma</Label><Input value={newLang.name} onChange={e => setNewLang({ ...newLang, name: e.target.value })} placeholder="Ex: Ingl├¬s" className="mt-1" /></div>
+                  <div><Label>Idioma</Label><Input value={newLang.name} onChange={e => setNewLang({ ...newLang, name: e.target.value })} placeholder="Ex: Inglês" className="mt-1" /></div>
                   <div>
-                    <Label>N├¡vel</Label>
+                    <Label>Nível</Label>
                     <select value={newLang.level} onChange={e => setNewLang({ ...newLang, level: e.target.value })} className="w-full mt-1 rounded-md border border-gray-300 p-2 text-sm">
                       <option value="">Selecione</option>
-                      <option>B├ísico</option><option>Intermedi├írio</option><option>Avan├ºado</option><option>Fluente</option><option>Nativo</option>
+                      <option>Básico</option><option>Intermediário</option><option>Avançado</option><option>Fluente</option><option>Nativo</option>
                     </select>
                   </div>
                   <Button onClick={addLang} className="w-full">Adicionar</Button>
@@ -705,7 +705,7 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Volunteer ÔöÇÔöÇ */}
+        {/* ── Volunteer ── */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="flex items-center gap-2"><Heart className="h-5 w-5 text-red-500" /> Voluntariado</CardTitle>
@@ -714,10 +714,10 @@ export default function Profile() {
               <DialogContent>
                 <DialogHeader><DialogTitle>Adicionar Voluntariado</DialogTitle></DialogHeader>
                 <div className="space-y-3">
-                  <div><Label>Fun├º├úo</Label><Input value={newVol.role} onChange={e => setNewVol({ ...newVol, role: e.target.value })} placeholder="Ex: Instrutor" className="mt-1" /></div>
-                  <div><Label>Organiza├º├úo</Label><Input value={newVol.organization} onChange={e => setNewVol({ ...newVol, organization: e.target.value })} placeholder="Ex: ONG Educa├º├úo+" className="mt-1" /></div>
-                  <div><Label>Per├¡odo</Label><Input value={newVol.period} onChange={e => setNewVol({ ...newVol, period: e.target.value })} placeholder="Ex: 2022 - Presente" className="mt-1" /></div>
-                  <div><Label>Descri├º├úo</Label><Textarea value={newVol.description} onChange={e => setNewVol({ ...newVol, description: e.target.value })} rows={2} className="mt-1" /></div>
+                  <div><Label>Função</Label><Input value={newVol.role} onChange={e => setNewVol({ ...newVol, role: e.target.value })} placeholder="Ex: Instrutor" className="mt-1" /></div>
+                  <div><Label>Organização</Label><Input value={newVol.organization} onChange={e => setNewVol({ ...newVol, organization: e.target.value })} placeholder="Ex: ONG Educação+" className="mt-1" /></div>
+                  <div><Label>Período</Label><Input value={newVol.period} onChange={e => setNewVol({ ...newVol, period: e.target.value })} placeholder="Ex: 2022 - Presente" className="mt-1" /></div>
+                  <div><Label>Descrição</Label><Textarea value={newVol.description} onChange={e => setNewVol({ ...newVol, description: e.target.value })} rows={2} className="mt-1" /></div>
                   <Button onClick={addVol} className="w-full">Adicionar</Button>
                 </div>
               </DialogContent>
@@ -727,9 +727,9 @@ export default function Profile() {
             {(currentUser.volunteer?.length || 0) > 0 ? currentUser.volunteer!.map((vol, i) =>
               editingVolIdx === i ? (
                 <div key={i} className="space-y-2 border rounded-lg p-3 bg-gray-50">
-                  <Input value={editingVolVal.role} onChange={e => setEditingVolVal({ ...editingVolVal, role: e.target.value })} placeholder="Fun├º├úo" />
-                  <Input value={editingVolVal.organization} onChange={e => setEditingVolVal({ ...editingVolVal, organization: e.target.value })} placeholder="Organiza├º├úo" />
-                  <Input value={editingVolVal.period} onChange={e => setEditingVolVal({ ...editingVolVal, period: e.target.value })} placeholder="Per├¡odo" />
+                  <Input value={editingVolVal.role} onChange={e => setEditingVolVal({ ...editingVolVal, role: e.target.value })} placeholder="Função" />
+                  <Input value={editingVolVal.organization} onChange={e => setEditingVolVal({ ...editingVolVal, organization: e.target.value })} placeholder="Organização" />
+                  <Input value={editingVolVal.period} onChange={e => setEditingVolVal({ ...editingVolVal, period: e.target.value })} placeholder="Período" />
                   <Textarea value={editingVolVal.description} onChange={e => setEditingVolVal({ ...editingVolVal, description: e.target.value })} rows={2} />
                   <div className="flex gap-2"><Button size="sm" onClick={() => saveVol(i)}><Check className="h-4 w-4 mr-1" />Salvar</Button><Button size="sm" variant="ghost" onClick={() => setEditingVolIdx(null)}>Cancelar</Button></div>
                 </div>
@@ -752,13 +752,13 @@ export default function Profile() {
           </CardContent>
         </Card>
 
-        {/* ÔöÇÔöÇ Contact Dialog ÔöÇÔöÇ */}
+        {/* ── Contact Dialog ── */}
         <Dialog open={isEditingContact} onOpenChange={open => !open && setIsEditingContact(false)}>
           <DialogContent>
-            <DialogHeader><DialogTitle>Editar Informa├º├Áes de Contato</DialogTitle></DialogHeader>
+            <DialogHeader><DialogTitle>Editar Informaç├Áes de Contato</DialogTitle></DialogHeader>
             <div className="space-y-3">
-              <div><Label>T├¡tulo Profissional</Label><Input value={contactForm.headline} onChange={e => setContactForm({ ...contactForm, headline: e.target.value })} placeholder="Ex: Desenvolvedor Full Stack | React" className="mt-1" /></div>
-              <div><Label>Localiza├º├úo</Label><Input value={contactForm.location} onChange={e => setContactForm({ ...contactForm, location: e.target.value })} placeholder="Ex: S├úo Paulo, SP" className="mt-1" /></div>
+              <div><Label>Título Profissional</Label><Input value={contactForm.headline} onChange={e => setContactForm({ ...contactForm, headline: e.target.value })} placeholder="Ex: Desenvolvedor Full Stack | React" className="mt-1" /></div>
+              <div><Label>Localização</Label><Input value={contactForm.location} onChange={e => setContactForm({ ...contactForm, location: e.target.value })} placeholder="Ex: São Paulo, SP" className="mt-1" /></div>
               <div><Label>Site Pessoal</Label><Input value={contactForm.website} onChange={e => setContactForm({ ...contactForm, website: e.target.value })} placeholder="https://meusite.com" className="mt-1" /></div>
               <div><Label>Telefone</Label><Input value={contactForm.phone} onChange={e => setContactForm({ ...contactForm, phone: e.target.value })} placeholder="(11) 99999-9999" className="mt-1" /></div>
               <div className="flex gap-2 justify-end">

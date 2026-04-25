@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from '../components/ui/button';
@@ -25,7 +25,7 @@ export default function Login() {
     if (success) {
       navigate('/feed');
     } else {
-      setError('Credenciais inv├ílidas');
+      setError('Credenciais inválidas');
     }
     
     setLoading(false);
@@ -35,7 +35,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 relative">
       <div className="absolute top-4 left-4 z-10">
         <Button variant="ghost" onClick={() => navigate('/')} className="flex items-center gap-2">
-          <ArrowLeft className="w-4 h-4" /> Voltar para o In├¡cio
+          <ArrowLeft className="w-4 h-4" /> Voltar para o Início
         </Button>
       </div>
       <Card className="w-full max-w-md mt-10">
@@ -92,7 +92,7 @@ export default function Login() {
               )}
             </Button>
             <div className="text-sm text-center text-gray-600">
-              N├úo tem uma conta?{' '}
+              Não tem uma conta?{' '}
               <Link to="/register" className="text-indigo-600 hover:underline">
                 Registre-se
               </Link>

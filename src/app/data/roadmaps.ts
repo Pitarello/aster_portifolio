@@ -1,4 +1,4 @@
-﻿import { coursesData } from './courses';
+import { coursesData } from './courses';
 
 export interface TestQuestion {
   id: string;

@@ -1,4 +1,4 @@
-﻿import { useNavigate, useLocation } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { useApp } from '../context/AppContext';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -62,7 +62,7 @@ export function Navbar() {
           {navBtn('/feed', <Home className="h-4 w-4 sm:mr-2" />, 'Feed')}
           {navBtn('/learning', <BookOpen className="h-4 w-4 sm:mr-2" />, 'Aprender')}
           {navBtn('/profile', <User className="h-4 w-4 sm:mr-2" />, 'Perfil')}
-          {navBtn('/portfolio', <Briefcase className="h-4 w-4 sm:mr-2" />, 'Portf├│lio')}
+          {navBtn('/portfolio', <Briefcase className="h-4 w-4 sm:mr-2" />, 'Portfólio')}
 
           {currentUser?.role === 'admin' && (
             <Button
@@ -111,7 +111,7 @@ export function Navbar() {
 
           {currentUser?.partnerStatus === 'pending' && (
             <Badge variant="outline" className="hidden sm:inline-flex border-yellow-200 bg-yellow-50 text-yellow-700 shrink-0">
-              Parceiro em An├ílise
+              Parceiro em Análise
             </Badge>
           )}
 
