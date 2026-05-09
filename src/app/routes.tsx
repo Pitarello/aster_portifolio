@@ -1,18 +1,23 @@
 import { createBrowserRouter, Outlet } from 'react-router';
+import { lazy, Suspense } from 'react';
+import { DirectChat } from './components/DirectChat';
+
+// Eager — páginas leves que carregam sempre
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Feed from './pages/Feed';
-import Profile from './pages/Profile';
-import Portfolio from './pages/Portfolio';
-import UserProfile from './pages/UserProfile';
-import Learning from './pages/Learning';
-import CoursePlayer from './pages/CoursePlayer';
-import RoadmapDetail from './pages/RoadmapDetail';
-import AdminDashboard from './pages/AdminDashboard';
-import PartnerDashboard from './pages/PartnerDashboard';
-import ApplyPartner from './pages/ApplyPartner';
-import Landing from './pages/Landing';
-import { DirectChat } from './components/DirectChat';
+
+// Lazy — carregam só quando o usuário navega para a rota
+const Feed = lazy(() => import('./pages/Feed'));
+const Profile = lazy(() => import('./pages/Profile'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const UserProfile = lazy(() => import('./pages/UserProfile'));
+const Learning = lazy(() => import('./pages/Learning'));
+const CoursePlayer = lazy(() => import('./pages/CoursePlayer'));
+const RoadmapDetail = lazy(() => import('./pages/RoadmapDetail'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const PartnerDashboard = lazy(() => import('./pages/PartnerDashboard'));
+const ApplyPartner = lazy(() => import('./pages/ApplyPartner'));
 
 function Root() {
   return <Outlet />;
@@ -21,7 +26,9 @@ function Root() {
 function AuthLayout() {
   return (
     <>
-      <Outlet />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400 text-sm">Carregando...</div>}>
+        <Outlet />
+      </Suspense>
       <DirectChat />
     </>
   );
@@ -37,7 +44,6 @@ export const router = createBrowserRouter([
       { path: 'register', Component: Register },
       { path: '*', Component: Landing },
       {
-        // All authenticated pages get the DirectChat widget
         Component: AuthLayout,
         children: [
           { path: 'admin', Component: AdminDashboard },
