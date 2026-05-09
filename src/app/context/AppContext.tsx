@@ -827,6 +827,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('aster_user', JSON.stringify(updatedUser));
     const updatedUsers = users.map(u => u.id === updatedUser.id ? updatedUser : u);
     setUsers(updatedUsers);
+    localStorage.setItem('aster_users', JSON.stringify(updatedUsers));
   };
 
   const approvePartner = (userId: string) => {
@@ -837,6 +838,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return u;
     });
     setUsers(updatedUsers);
+    localStorage.setItem('aster_users', JSON.stringify(updatedUsers));
     if (currentUser?.id === userId) {
       const updatedCurrent = updatedUsers.find(u => u.id === userId);
       if (updatedCurrent) {
@@ -854,6 +856,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return u;
     });
     setUsers(updatedUsers);
+    localStorage.setItem('aster_users', JSON.stringify(updatedUsers));
     if (currentUser?.id === userId) {
       const updatedCurrent = updatedUsers.find(u => u.id === userId);
       if (updatedCurrent) {
