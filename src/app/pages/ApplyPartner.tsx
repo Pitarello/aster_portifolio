@@ -80,16 +80,50 @@ export default function ApplyPartner() {
       <div className="min-h-screen bg-gray-50 flex flex-col">
         <Navbar />
         <div className="flex-1 flex items-center justify-center p-4">
-          <Card className="max-w-md w-full text-center">
-            <CardContent className="pt-10 pb-10">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="w-8 h-8 text-red-600" />
+          <Card className="max-w-xl w-full">
+            <CardHeader className="text-center pb-2">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-8 h-8 text-blue-600" />
               </div>
-              <h2 className="text-2xl font-bold mb-2">Solicitação Rejeitada</h2>
-              <p className="text-gray-500 mb-6">
-                Infelizmente sua solicitação não foi aprovada neste momento. Continue interagindo com a comunidade e tente novamente no futuro.
-              </p>
-              <Button onClick={() => navigate('/feed')}>Voltar para o Feed</Button>
+              <CardTitle className="text-2xl">Torne-se um Parceiro</CardTitle>
+              <div className="mt-3 bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
+                Sua solicitação anterior não foi aprovada. Você pode enviar uma nova solicitação.
+              </div>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6 mt-4">
+                <div className="space-y-2">
+                  <Label>Nome Fantasia (Nome da Empresa ou Instituição)</Label>
+                  <Input placeholder="Ex: Tech StartX" value={companyName} onChange={e => setCompanyName(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label>Razão Social</Label>
+                  <Input placeholder="Ex: Tech StartX Soluções LTDA" value={corporateName} onChange={e => setCorporateName(e.target.value)} />
+                </div>
+                <div className="space-y-2">
+                  <Label>CNPJ</Label>
+                  <Input
+                    placeholder="00.000.000/0000-00"
+                    value={cnpj}
+                    onChange={e => {
+                      const digits = e.target.value.replace(/\D/g, '').slice(0, 14);
+                      const formatted = digits
+                        .replace(/^(\d{2})(\d)/, '$1.$2')
+                        .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
+                        .replace(/\.(\d{3})(\d)/, '.$1/$2')
+                        .replace(/(\d{4})(\d)/, '$1-$2');
+                      setCnpj(formatted);
+                    }}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label>Por que você quer ser parceiro?</Label>
+                  <Textarea placeholder="Conte-nos um pouco sobre os conteúdos que você pretende criar..." rows={4} value={description} onChange={e => setDescription(e.target.value)} />
+                </div>
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
+                  Enviar Nova Solicitação
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>
