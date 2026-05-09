@@ -189,8 +189,8 @@ const mockUsers: User[] = [
     role: 'admin',
     area: 'tech',
     bio: 'Super Administradora da Plataforma ASTER',
-    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200',
-    coverImage: 'https://images.unsplash.com/photo-1557683316-973673baf926?w=1200',
+    avatar: '',
+    coverImage: '',
     professionalScore: 9999,
     followers: 0,
     following: 0,
@@ -290,13 +290,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   // Auth Service methods
   const login = async (email: string, password: string): Promise<boolean> => {
-    // Simulate API call
     const cleanEmail = email.trim().toLowerCase();
     const cleanPassword = password.trim();
     
     const user = users.find(u => u.email.trim().toLowerCase() === cleanEmail);
-    // If user has a specific password set, check it. Otherwise, accept any password for mock users.
-    if (user && (!user.password || user.password === cleanPassword)) {
+    if (user && user.password === cleanPassword) {
       setCurrentUser(user);
       localStorage.setItem('aster_user', JSON.stringify(user));
       return true;
