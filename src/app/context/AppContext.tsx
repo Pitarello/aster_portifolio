@@ -106,6 +106,50 @@ export interface DirectMessage {
   timestamp: number;
 }
 
+export interface PartnerShowcaseItem {
+  id: string;
+  partnerId: string;
+  type: 'service' | 'product' | 'course' | 'mentorship' | 'job' | 'program' | 'event';
+  title: string;
+  description: string;
+  image?: string;
+  link?: string;
+  price?: string;
+  tags: string[];
+  views: number;
+  clicks: number;
+  createdAt: number;
+}
+
+export interface PartnerLead {
+  id: string;
+  partnerId: string;
+  userId: string;
+  userName: string;
+  userEmail: string;
+  userArea: string;
+  userScore: number;
+  source: string; // showcase item id or campaign id
+  sourceTitle: string;
+  timestamp: number;
+  status: 'new' | 'contacted' | 'converted';
+}
+
+export interface PartnerCampaign {
+  id: string;
+  partnerId: string;
+  title: string;
+  description: string;
+  type: 'highlight' | 'newsletter' | 'notification' | 'seasonal';
+  status: 'draft' | 'active' | 'ended';
+  startDate: string;
+  endDate: string;
+  impressions: number;
+  clicks: number;
+  leads: number;
+  createdAt: number;
+}
+
 interface AppContextType {
   // Auth Service
   currentUser: User | null;
@@ -163,9 +207,28 @@ interface AppContextType {
   sendMessageToAdmin: (text: string) => void;
 
   // Direct Messages (user ↔ user)
-  directMessages: Record<string, DirectMessage[]>; // key: conversationId (sorted userIds joined by '_')
+  directMessages: Record<string, DirectMessage[]>;
   sendDirectMessage: (toUserId: string, text: string) => void;
   getConversationId: (userIdA: string, userIdB: string) => string;
+
+  // Partner Showcase
+  showcaseItems: PartnerShowcaseItem[];
+  addShowcaseItem: (item: Omit<PartnerShowcaseItem, 'id' | 'partnerId' | 'views' | 'clicks' | 'createdAt'>) => void;
+  updateShowcaseItem: (id: string, updates: Partial<PartnerShowcaseItem>) => void;
+  deleteShowcaseItem: (id: string) => void;
+  trackShowcaseView: (itemId: string) => void;
+  trackShowcaseClick: (itemId: string) => void;
+
+  // Partner Leads
+  partnerLeads: PartnerLead[];
+  addLead: (lead: Omit<PartnerLead, 'id' | 'timestamp'>) => void;
+  updateLeadStatus: (leadId: string, status: PartnerLead['status']) => void;
+
+  // Partner Campaigns
+  partnerCampaigns: PartnerCampaign[];
+  addCampaign: (campaign: Omit<PartnerCampaign, 'id' | 'partnerId' | 'impressions' | 'clicks' | 'leads' | 'createdAt'>) => void;
+  updateCampaign: (id: string, updates: Partial<PartnerCampaign>) => void;
+  deleteCampaign: (id: string) => void;
 }
 
 interface RegisterData {
@@ -218,6 +281,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [roadmaps, setRoadmaps] = useState<Roadmap[]>(initialRoadmaps);
   const [chatMessages, setChatMessages] = useState<Record<string, ChatMessage[]>>(mockChatMessages);
   const [directMessages, setDirectMessages] = useState<Record<string, DirectMessage[]>>({});
+  const [showcaseItems, setShowcaseItems] = useState<PartnerShowcaseItem[]>([]);
+  const [partnerLeads, setPartnerLeads] = useState<PartnerLead[]>([]);
+  const [partnerCampaigns, setPartnerCampaigns] = useState<PartnerCampaign[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Load data from localStorage on mount
@@ -279,9 +345,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
 
     const savedDMs = localStorage.getItem('aster_direct_messages');
-    if (savedDMs) {
-      setDirectMessages(JSON.parse(savedDMs));
-    }
+    if (savedDMs) setDirectMessages(JSON.parse(savedDMs));
+
+    const savedShowcase = localStorage.getItem('aster_showcase');
+    if (savedShowcase) setShowcaseItems(JSON.parse(savedShowcase));
+
+    const savedLeads = localStorage.getItem('aster_leads');
+    if (savedLeads) setPartnerLeads(JSON.parse(savedLeads));
+
+    const savedCampaigns = localStorage.getItem('aster_campaigns');
+    if (savedCampaigns) setPartnerCampaigns(JSON.parse(savedCampaigns));
     
     setIsInitialized(true);
   }, []);
@@ -677,6 +750,67 @@ export function AppProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('aster_direct_messages', JSON.stringify(updated));
   };
 
+  // Partner Showcase
+  const addShowcaseItem = (item: Omit<PartnerShowcaseItem, 'id' | 'partnerId' | 'views' | 'clicks' | 'createdAt'>) => {
+    if (!currentUser) return;
+    const newItem: PartnerShowcaseItem = { ...item, id: `sc_${Date.now()}`, partnerId: currentUser.id, views: 0, clicks: 0, createdAt: Date.now() };
+    const updated = [...showcaseItems, newItem];
+    setShowcaseItems(updated);
+    localStorage.setItem('aster_showcase', JSON.stringify(updated));
+  };
+  const updateShowcaseItem = (id: string, updates: Partial<PartnerShowcaseItem>) => {
+    const updated = showcaseItems.map(i => i.id === id ? { ...i, ...updates } : i);
+    setShowcaseItems(updated);
+    localStorage.setItem('aster_showcase', JSON.stringify(updated));
+  };
+  const deleteShowcaseItem = (id: string) => {
+    const updated = showcaseItems.filter(i => i.id !== id);
+    setShowcaseItems(updated);
+    localStorage.setItem('aster_showcase', JSON.stringify(updated));
+  };
+  const trackShowcaseView = (itemId: string) => {
+    const updated = showcaseItems.map(i => i.id === itemId ? { ...i, views: i.views + 1 } : i);
+    setShowcaseItems(updated);
+    localStorage.setItem('aster_showcase', JSON.stringify(updated));
+  };
+  const trackShowcaseClick = (itemId: string) => {
+    const updated = showcaseItems.map(i => i.id === itemId ? { ...i, clicks: i.clicks + 1 } : i);
+    setShowcaseItems(updated);
+    localStorage.setItem('aster_showcase', JSON.stringify(updated));
+  };
+
+  // Partner Leads
+  const addLead = (lead: Omit<PartnerLead, 'id' | 'timestamp'>) => {
+    const newLead: PartnerLead = { ...lead, id: `lead_${Date.now()}`, timestamp: Date.now() };
+    const updated = [...partnerLeads, newLead];
+    setPartnerLeads(updated);
+    localStorage.setItem('aster_leads', JSON.stringify(updated));
+  };
+  const updateLeadStatus = (leadId: string, status: PartnerLead['status']) => {
+    const updated = partnerLeads.map(l => l.id === leadId ? { ...l, status } : l);
+    setPartnerLeads(updated);
+    localStorage.setItem('aster_leads', JSON.stringify(updated));
+  };
+
+  // Partner Campaigns
+  const addCampaign = (campaign: Omit<PartnerCampaign, 'id' | 'partnerId' | 'impressions' | 'clicks' | 'leads' | 'createdAt'>) => {
+    if (!currentUser) return;
+    const newCampaign: PartnerCampaign = { ...campaign, id: `camp_${Date.now()}`, partnerId: currentUser.id, impressions: 0, clicks: 0, leads: 0, createdAt: Date.now() };
+    const updated = [...partnerCampaigns, newCampaign];
+    setPartnerCampaigns(updated);
+    localStorage.setItem('aster_campaigns', JSON.stringify(updated));
+  };
+  const updateCampaign = (id: string, updates: Partial<PartnerCampaign>) => {
+    const updated = partnerCampaigns.map(c => c.id === id ? { ...c, ...updates } : c);
+    setPartnerCampaigns(updated);
+    localStorage.setItem('aster_campaigns', JSON.stringify(updated));
+  };
+  const deleteCampaign = (id: string) => {
+    const updated = partnerCampaigns.filter(c => c.id !== id);
+    setPartnerCampaigns(updated);
+    localStorage.setItem('aster_campaigns', JSON.stringify(updated));
+  };
+
   // Partner System Methods
   const applyForPartner = (companyName: string, corporateName: string, description: string) => {
     if (!currentUser) return;
@@ -799,6 +933,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
         directMessages,
         sendDirectMessage,
         getConversationId,
+        showcaseItems,
+        addShowcaseItem,
+        updateShowcaseItem,
+        deleteShowcaseItem,
+        trackShowcaseView,
+        trackShowcaseClick,
+        partnerLeads,
+        addLead,
+        updateLeadStatus,
+        partnerCampaigns,
+        addCampaign,
+        updateCampaign,
+        deleteCampaign,
       }}
     >
       {children}
