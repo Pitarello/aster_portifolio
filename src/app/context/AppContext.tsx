@@ -58,6 +58,9 @@ export interface Post {
   userArea: 'tech' | 'fashion' | 'architecture';
   content: string;
   image?: string;
+  video?: string;
+  link?: string;
+  linkTitle?: string;
   likes: number;
   likedBy: string[];
   comments: Comment[];
@@ -120,9 +123,11 @@ interface AppContextType {
   
   // Post Service
   posts: Post[];
-  createPost: (content: string, image?: string) => void;
+  createPost: (content: string, image?: string, video?: string, link?: string, linkTitle?: string) => void;
   likePost: (postId: string) => void;
   addComment: (postId: string, content: string) => void;
+  updatePost: (postId: string, updates: Partial<Pick<Post, 'content' | 'image' | 'video' | 'link' | 'linkTitle'>>) => void;
+  deletePost: (postId: string) => void;
   
   // Portfolio Service
   portfolio: PortfolioProject[];
@@ -399,7 +404,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   // Post Service methods
-  const createPost = (content: string, image?: string) => {
+  const createPost = (content: string, image?: string, video?: string, link?: string, linkTitle?: string) => {
     if (!currentUser) return;
     const newPost: Post = {
       id: `post_${Date.now()}`,
@@ -409,12 +414,31 @@ export function AppProvider({ children }: { children: ReactNode }) {
       userArea: currentUser.area,
       content,
       image,
+      video,
+      link,
+      linkTitle,
       likes: 0,
       likedBy: [],
       comments: [],
       timestamp: Date.now()
     };
     const updatedPosts = [newPost, ...posts];
+    setPosts(updatedPosts);
+    localStorage.setItem('aster_posts', JSON.stringify(updatedPosts));
+  };
+
+  const updatePost = (postId: string, updates: Partial<Pick<Post, 'content' | 'image' | 'video' | 'link' | 'linkTitle'>>) => {
+    if (!currentUser) return;
+    const updatedPosts = posts.map(p =>
+      p.id === postId && p.userId === currentUser.id ? { ...p, ...updates } : p
+    );
+    setPosts(updatedPosts);
+    localStorage.setItem('aster_posts', JSON.stringify(updatedPosts));
+  };
+
+  const deletePost = (postId: string) => {
+    if (!currentUser) return;
+    const updatedPosts = posts.filter(p => !(p.id === postId && p.userId === currentUser.id));
     setPosts(updatedPosts);
     localStorage.setItem('aster_posts', JSON.stringify(updatedPosts));
   };
@@ -743,6 +767,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         isFollowing,
         posts,
         createPost,
+        updatePost,
+        deletePost,
         likePost,
         addComment,
         portfolio,
