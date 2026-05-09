@@ -241,7 +241,7 @@ interface RegisterData {
 // Prevent HMR from recreating the context object and breaking useContext
 const globalContext = globalThis as typeof globalThis & { __AppContext?: React.Context<AppContextType | undefined> };
 const AppContext = globalContext.__AppContext ?? createContext<AppContextType | undefined>(undefined);
-if (process.env.NODE_ENV !== 'production') {
+if (import.meta.env.DEV) {
   globalContext.__AppContext = AppContext;
 }
 
@@ -964,3 +964,8 @@ export function useApp() {
   }
   return context;
 }
+
+
+// AppContext.tsx
+// Nova versão
+
